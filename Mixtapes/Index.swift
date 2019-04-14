@@ -4,7 +4,7 @@ public struct Index {
     public let title: String = "Todd's Mixtapes"
     public let description: String = "Love letters to my favorite music"
     public let author: (url: URL, description: String) = (URL(string: "https://twitter.com/toddheasley")!, "@toddheasley")
-    public private(set) var link: URL = URL(string: "https://s3.amazonaws.com/toddheasley/mixtapes")!
+    public let link: URL = URL(string: "https://s3.amazonaws.com/toddheasley/mixtapes")!
     public private(set) var url: URL
     public private(set) var artwork: Resource
     public private(set) var assets: [Asset]
