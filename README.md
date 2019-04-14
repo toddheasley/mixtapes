@@ -29,9 +29,7 @@ public struct Index {
 
 ```
 
-### Standalone CLI App
-
-In Xcode, archive the `mixtapes` target and move the archived `mixtapes` executable into an empty directory. In the Terminal, `cd` into the directory and run:
+Archive the `mixtapes` target and move the archived `mixtapes` executable into an empty directory. In the Terminal, `cd` into the directory and run:
 
 `./mixtapes init`
 
@@ -62,10 +60,6 @@ If `mixtapes` doesn't barf on missing ID3 tag values, the directory now contains
 * `index.rss` [RSS 2.0](https://cyber.harvard.edu/rss/rss.html) feed
 * `index.txt`
 * `rss.svg`
-
-### Cocoa Framework
-
-`Mixtapes` also builds as a Cocoa framework. I'm not sure why yet.
 
 ## Requirements
 
