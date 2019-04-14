@@ -8,7 +8,7 @@
 
 ## Audio and Metadata
 
-`Mixtapes` currently supports AAC files with the `.m4a` file extension and pulls metadata for each podcast episode from [ID3](http://id3.org) tags. Audio files are required to contain values for __title__, __artist__ and __album name__, as well as  __embedded artwork__ in JPEG format. Chapter markers are supported but optional.
+`Mixtapes` supports AAC files with the `.m4a` file extension and pulls metadata for each podcast episode from [ID3](http://id3.org) tags. Audio files are required to contain values for __title__, __artist__ and __album name__, as well as  __embedded artwork__ in JPEG format. Chapter markers are supported but optional.
 
 ## Example Usage
 
@@ -52,14 +52,14 @@ With audio file(s) in place and listed in `index.txt`, generate a new podcast fe
 
 `./mixtapes`
 
-If `mixtapes` doesn't barf on missing ID3 tag values, the directory should now contain  the following:
+If `mixtapes` doesn't barf on missing ID3 tag values, the directory now contains  the following:
 
 * `artwork.jpg` 
 * `assets/`
-* `gaegu.woff` - Font by [jikji soft](http://jikjisoft.com)
+* `gaegu.woff` font by [jikji soft](http://jikjisoft.com)
 * `index.css`
 * `index.html`
-* `index.rss` - [RSS 2.0](https://cyber.harvard.edu/rss/rss.html) feed
+* `index.rss` [RSS 2.0](https://cyber.harvard.edu/rss/rss.html) feed
 * `index.txt`
 * `rss.svg`
 
