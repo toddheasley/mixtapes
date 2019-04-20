@@ -73,6 +73,7 @@ footer code {
 }
 
 header {
+    background: var(--background);
     position: fixed;
     width: 100%;
     z-index: 999;
@@ -87,7 +88,6 @@ header nav {
 }
 
 header section {
-    background: var(--background);
     position: relative;
 }
 
