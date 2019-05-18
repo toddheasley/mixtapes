@@ -1,40 +1,110 @@
 import Foundation
 
 public struct Index {
-    public let title: String = "Todd's Mixtapes"
-    public let description: String = "Love letters to my favorite music"
-    public let author: (url: URL, description: String) = (URL(string: "https://twitter.com/toddheasley")!, "@toddheasley")
-    public let link: URL = URL(string: "https://s3.amazonaws.com/toddheasley/mixtapes")!
+    public private(set) var version: URL = URL(string: "https://jsonfeed.org/version/1")!
     public private(set) var url: URL
-    public private(set) var artwork: Resource
-    public private(set) var assets: [Asset]
+    public private(set) var icon: Resource?
+    public var title: String = ""
+    public var homepage: URL = URL(string: "https://s3.amazonaws.com/")!
+    public var author: Author?
+    public var isExpired: Bool = false
+    public var items: [Item] = []
+    
+    public var description: String? {
+        didSet {
+            if let description: String = description, description.isEmpty {
+                self.description = nil
+            }
+        }
+    }
+    
+    public var feed: URL {
+        return .feed(relativeTo: homepage)
+    }
+    
+    mutating public func icon(data: Data?) {
+        if let data: Data = data {
+            icon = Resource(url: .icon(relativeTo: url), data: data)
+        } else {
+            icon = nil
+        }
+    }
     
     public func write() throws {
-        for asset in assets {
-            try asset.artwork.write()
+        for item in items {
+            try item.attachment.asset.artwork.write()
         }
-        try artwork.write()
-        try HTMLResource(index: self).write()
+        try icon?.write()
+        try JSONEncoder(url: homepage, formatting: [.prettyPrinted, .sortedKeys]).encode(self).write(to: .feed(relativeTo: url))
+        try RSS(index: self).write()
+        try HTML(index: self).write()
     }
     
     public init(url: URL) throws {
-        self.url = URL(fileURLWithPath: "index.txt", relativeTo: url)
-        assets = try String(contentsOf: self.url).components(separatedBy: "\n").map { path in
-            return try Asset(url: URL(fileURLWithPath: "assets/\(path).m4a", relativeTo: url))
+        guard FileManager.default.fileExists(atPath: url.path) else {
+            throw Resource.Error.resourceNotFound
         }
-        artwork = Resource(url: URL(fileURLWithPath: "artwork.jpg", relativeTo: url), data: assets.first?.artwork.data ?? Data())
+        if !FileManager.default.fileExists(atPath: URL.assets(relativeTo: url).path) {
+            try FileManager.default.createDirectory(at: .assets(relativeTo: url), withIntermediateDirectories: false, attributes: nil)
+        }
+        self.url = url
+        if FileManager.default.fileExists(atPath: URL.feed(relativeTo: url).path) {
+            self = try JSONDecoder(url: url).decode(Index.self, from: try Data(contentsOf: .feed(relativeTo: url)))
+        }
     }
 }
 
-extension Index {
-    public static func configure(url: URL) throws {
-        let assets: URL = URL(fileURLWithPath: "assets", relativeTo: url)
-        if !FileManager.default.fileExists(atPath: assets.path) {
-            try FileManager.default.createDirectory(at: assets, withIntermediateDirectories: false, attributes: nil)
+extension Index: Codable {
+    
+    // MARK: Codable
+    public init(from decoder: Decoder) throws {
+        url = URL.feed(relativeTo: try decoder.url())
+        let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
+        title = try container.decode(String.self, forKey: .title)
+        homepage = try container.decode(URL.self, forKey: .homepage)
+        description = try? container.decode(String.self, forKey: .description)
+        author = try? container.decode(Author.self, forKey: .author)
+        isExpired = (try? container.decode(Bool.self, forKey: .expired)) ?? false
+        items = try container.decode([Item].self, forKey: .items)
+        icon(data: try? Data(contentsOf: .icon(relativeTo: self.url)))
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
+        try container.encode(version, forKey: .version)
+        try container.encode(title, forKey: .title)
+        try container.encode(homepage, forKey: .homepage)
+        try container.encode(feed, forKey: .feed)
+        if let description: String = description, !description.isEmpty {
+            try container.encode(description, forKey: .description)
         }
-        let url: URL = URL(fileURLWithPath: "index.txt", relativeTo: url)
-        if !FileManager.default.fileExists(atPath: url.path) {
-            try "".data(using: .utf8)!.write(to: url)
+        if let icon: Resource = icon {
+            try container.encode(URL(string: icon.url.relativePath, relativeTo: try encoder.url())!, forKey: .icon)
         }
+        if let author: Author = author {
+            try container.encode(author, forKey: .author)
+        }
+        if isExpired {
+            try container.encode(isExpired, forKey: .expired)
+        }
+        try container.encode(items, forKey: .items)
+    }
+    
+    private enum Key: String, CodingKey {
+        case version, title, homepage = "home_page_url", feed = "feed_url", description, icon, author, expired, items
+    }
+}
+
+extension URL {
+    static func assets(relativeTo url: URL) -> URL {
+        return URL(fileURLWithPath: "assets/", relativeTo: url)
+    }
+    
+    fileprivate static func feed(relativeTo url: URL) -> URL {
+        return URL(fileURLWithPath: "index.json", relativeTo: url)
+    }
+    
+    fileprivate static func icon(relativeTo url: URL) -> URL {
+        return URL(fileURLWithPath: "icon.jpg", relativeTo: url)
     }
 }

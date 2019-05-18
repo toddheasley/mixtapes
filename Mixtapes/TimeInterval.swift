@@ -14,3 +14,13 @@ extension TimeInterval {
         return "\(minutes):\("\(seconds)".leftPadded(to: 2, with: "0"))"
     }
 }
+
+extension String {
+    fileprivate func leftPadded(to length: Int, with character: Character) -> String {
+        if count < length {
+            return "\(String(repeating: "\(character)", count: length - count))\(self)"
+        } else {
+            return "\(suffix(length))"
+        }
+    }
+}

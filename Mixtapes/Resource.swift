@@ -1,6 +1,10 @@
 import Foundation
 
 public class Resource {
+    public enum Error: Swift.Error {
+        case resourceNotFound
+    }
+    
     public private(set) var url: URL
     public private(set) var data: Data
     public private(set) var resources: [Resource]

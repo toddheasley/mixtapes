@@ -14,8 +14,12 @@ public struct Asset {
     public private(set) var artist: String = ""
     public private(set) var title: String = ""
     
-    public var guid: String {
+    public var id: String {
         return url.lastPathComponent.components(separatedBy: ".").first!
+    }
+    
+    public var mimeType: String {
+        return "audio/x-m4a"
     }
     
     public init(url: URL) throws {

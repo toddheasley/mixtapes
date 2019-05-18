@@ -1,0 +1,51 @@
+import Foundation
+
+public struct Attachment {
+    public private(set) var asset: Asset
+    
+    public var url: URL {
+        return asset.url
+    }
+    
+    public var mimeType: String {
+        return asset.mimeType
+    }
+    
+    public var sizeInBytes: Int {
+        return asset.length
+    }
+    
+    public var durationInSeconds: Int {
+        return Int(asset.duration)
+    }
+    
+    public init(asset: Asset) {
+        self.asset = asset
+    }
+}
+
+extension Attachment: Codable {
+    
+    // MARK: Codable
+    public init(from decoder: Decoder) throws {
+        let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
+        let path: [String] = try container.decode(URL.self, forKey: .url).pathComponents
+        guard path.count > 1 else {
+            throw DecodingError.valueNotFound(URL.self, DecodingError.Context(codingPath: [], debugDescription: ""))
+        }
+        let url: URL = URL(fileURLWithPath: "\(path[path.count - 2])/\(path.last!)", relativeTo: try decoder.url())
+        self.asset = try Asset(url: url)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
+        try container.encode(URL(string: url.relativePath, relativeTo: try encoder.url())!, forKey: .url)
+        try container.encode(mimeType, forKey: .mimeType)
+        try container.encode(sizeInBytes, forKey: .sizeInBytes)
+        try container.encode(durationInSeconds, forKey: .durationInSeconds)
+    }
+    
+    private enum Key: String, CodingKey {
+        case url, mimeType = "mime_type", title, sizeInBytes = "size_in_bytes", durationInSeconds = "duration_in_seconds"
+    }
+}
