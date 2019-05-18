@@ -13,7 +13,7 @@ public class RSS: Resource {
         string += "        <link>\(URL(fileURLWithPath: "index.html", relativeTo: index.homepage).absoluteString)</link>\n"
         string += "        <lastBuildDate>\(dateFormatter.string(from: Date()))</lastBuildDate>\n"
         if let icon: Resource = index.icon {
-            string += "        <itunes:image href=\"\(URL(fileURLWithPath: icon.url.relativePath, relativeTo: index.homepage))\" />\n"
+            string += "        <itunes:image href=\"\(URL(fileURLWithPath: icon.url.relativePath, relativeTo: index.homepage).absoluteString)\" />\n"
         }
         if let description: String = index.description {
             string += "        <itunes:summary>\(description)</itunes:summary>\n"
