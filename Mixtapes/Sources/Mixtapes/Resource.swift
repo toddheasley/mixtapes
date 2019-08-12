@@ -5,9 +5,9 @@ public class Resource {
         case resourceNotFound
     }
     
-    public private(set) var url: URL
-    public private(set) var data: Data
-    public private(set) var resources: [Resource]
+    public let url: URL
+    public let data: Data
+    public let resources: [Resource]
     
     public var isEmpty: Bool {
         return data.isEmpty
