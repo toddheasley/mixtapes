@@ -8,12 +8,18 @@ let package = Package(
         .macOS(.v10_14)
     ],
     products: [
+        .executable(name: "mixtapes-cli", targets: [
+            "MixtapesCLI"
+        ]),
         .library(name: "Mixtapes", targets: [
             "Mixtapes"
         ])
     ],
     targets: [
-        .target(name: "Mixtapes", dependencies: []),
+        .target(name: "Mixtapes"),
+        .target(name: "MixtapesCLI", dependencies: [
+            "Mixtapes"
+        ]),
         .testTarget(name: "MixtapesTests", dependencies: [
             "Mixtapes"
         ])
