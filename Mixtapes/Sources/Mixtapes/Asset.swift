@@ -6,13 +6,13 @@ public struct Asset {
         case assetNotFound, artworkNotFound, artworkNotJPEG, artistNotFound, titleNotFound
     }
     
-    public private(set) var url: URL
-    public private(set) var length: Int
-    public private(set) var duration: TimeInterval
-    public private(set) var chapters: [Chapter]
-    public private(set) var artwork: Resource
-    public private(set) var artist: String = ""
-    public private(set) var title: String = ""
+    public let url: URL
+    public let length: Int
+    public let duration: TimeInterval
+    public let chapters: [Chapter]
+    public let artwork: Resource
+    public let artist: String
+    public let title: String
     
     public var id: String {
         return url.lastPathComponent.components(separatedBy: ".").first!
@@ -30,13 +30,15 @@ public struct Asset {
         self.length = length
         let asset: AVAsset = AVAsset(url: url)
         duration = asset.duration.seconds.rounded(.down)
-        chapters = try asset.chapterMetadataGroups(bestMatchingPreferredLanguages: asset.availableChapterLocales.map { locale in
+        let chapters: [Chapter] = try asset.chapterMetadataGroups(bestMatchingPreferredLanguages: asset.availableChapterLocales.map { locale in
             return locale.identifier
         }).map { group in
             return try Chapter(metadata: group.items)
         }
-        chapters = chapters.count > 1 ? chapters : []
-        artwork = Resource(url: URL(fileURLWithPath: self.url.relativePath.replacingOccurrences(of: ".m4a", with: ".jpg"), relativeTo: self.url.baseURL!))
+        self.chapters = chapters.count > 1 ? chapters : []
+        var artwork: Resource = Resource(url: URL(fileURLWithPath: self.url.relativePath.replacingOccurrences(of: ".m4a", with: ".jpg"), relativeTo: self.url.baseURL!))
+        var artist: String = ""
+        var title: String = ""
         for metadataItem: AVMetadataItem in asset.commonMetadata {
             switch metadataItem.commonKey!.rawValue {
             case "artwork":
@@ -45,9 +47,9 @@ public struct Asset {
                 }
                 artwork = Resource(url: artwork.url, data: metadataItem.dataValue ?? Data())
             case "artist":
-                artist = metadataItem.stringValue ?? ""
+                artist = metadataItem.stringValue ?? artist
             case "title":
-                title = metadataItem.stringValue ?? ""
+                title = metadataItem.stringValue ?? title
             default:
                 break
             }
@@ -55,11 +57,14 @@ public struct Asset {
         guard !artwork.isEmpty else {
             throw Error.artworkNotFound
         }
+        self.artwork = artwork
         guard !artist.isEmpty else {
             throw Error.artistNotFound
         }
+        self.artist = artist
         guard !title.isEmpty else {
             throw Error.titleNotFound
         }
+        self.title = title
     }
 }

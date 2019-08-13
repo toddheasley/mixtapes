@@ -1,7 +1,7 @@
 import Foundation
 
 public struct Attachment {
-    public private(set) var asset: Asset
+    public let asset: Asset
     
     public var url: URL {
         return asset.url

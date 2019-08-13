@@ -1,8 +1,8 @@
 import Foundation
 
 public struct Index {
+    public let url: URL
     public private(set) var version: URL = URL(string: "https://jsonfeed.org/version/1")!
-    public private(set) var url: URL
     public private(set) var icon: Resource?
     public var title: String = ""
     public var homepage: URL = URL(string: "https://s3.amazonaws.com/")!
@@ -47,9 +47,10 @@ public struct Index {
         if !FileManager.default.fileExists(atPath: URL.assets(relativeTo: url).path) {
             try FileManager.default.createDirectory(at: .assets(relativeTo: url), withIntermediateDirectories: false, attributes: nil)
         }
-        self.url = url
         if FileManager.default.fileExists(atPath: URL.feed(relativeTo: url).path) {
             self = try JSONDecoder(url: url).decode(Index.self, from: try Data(contentsOf: .feed(relativeTo: url)))
+        } else {
+            self.url = url
         }
     }
 }

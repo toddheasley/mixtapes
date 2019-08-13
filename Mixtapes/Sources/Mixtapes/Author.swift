@@ -14,7 +14,7 @@ public struct Author {
     public var suggestedName: String? {
         if url.absoluteString.hasPrefix("mailto:") {
             return url.absoluteString.replacingOccurrences(of: "mailto:", with: "")
-        } else if (url.host ?? "").contains("twitter.com"),
+        } else if (url.host ?? "").contains("github.com"),
             url.pathComponents.count > 1, !url.pathComponents[1].isEmpty {
             return "@\(url.pathComponents[1])"
         }
@@ -39,20 +39,4 @@ extension Author: CustomStringConvertible {
 
 extension Author: Codable {
     
-    // MARK: Codable
-    public init(from decoder: Decoder) throws {
-        let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
-        self.url = try container.decode(URL.self, forKey: .url)
-        self.name = try? container.decode(String.self, forKey: .name)
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
-        try container.encode(url, forKey: .url)
-        try? container.encode(name, forKey: .name)
-    }
-    
-    private enum Key: CodingKey {
-        case url, name
-    }
 }

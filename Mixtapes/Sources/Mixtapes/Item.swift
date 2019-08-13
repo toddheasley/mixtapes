@@ -1,7 +1,7 @@
 import Foundation
 
 public struct Item {
-    public private(set) var attachment: Attachment
+    public let attachment: Attachment
     public var date: (published: Date, modified: Date?) = (Date(), nil)
     public var isExplicit: Bool = false
     
