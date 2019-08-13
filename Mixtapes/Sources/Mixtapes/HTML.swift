@@ -32,7 +32,7 @@ public class HTML: Resource {
             html += "        </tr>\n"
             html += "        <tr>\n"
             html += "            <td><em>\(item.summary)</em></td>\n"
-            html += "            <td><time>\(item.attachment.asset.duration)</time></td>\n"
+            html += "            <td><time>\(item.attachment.asset.duration.description)</time></td>\n"
             html += "        </tr>\n"
             html += "        <tr>\n"
             html += "            <td colspan=\"2\"><small>Chapters</small></td>\n"
@@ -40,7 +40,7 @@ public class HTML: Resource {
             for chapter in item.attachment.asset.chapters {
                 html += "        <tr>\n"
                 html += "            <td>\(chapter.title)</td>\n"
-                html += "            <td><time>\(chapter.duration.lowerBound)</time></td>\n"
+                html += "            <td><time>\(chapter.duration.lowerBound.description)</time></td>\n"
                 html += "        </tr>\n"
             }
             html += "        <tr>\n"
