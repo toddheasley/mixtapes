@@ -2,10 +2,6 @@ import Foundation
 import AVFoundation
 
 public struct Asset {
-    public enum Error: Swift.Error {
-        case assetNotFound, artworkNotFound, artworkNotJPEG, artistNotFound, titleNotFound
-    }
-    
     public let url: URL
     public let length: Int
     public let duration: TimeInterval
@@ -25,7 +21,7 @@ public struct Asset {
     public init(url: URL) throws {
         self.url = url
         guard let length: Int = try url.resourceValues(forKeys: [.fileSizeKey]).fileSize, length > 0 else {
-            throw Error.assetNotFound
+            throw Error("asset not found", url: url)
         }
         self.length = length
         let asset: AVAsset = AVAsset(url: url)
@@ -43,7 +39,7 @@ public struct Asset {
             switch metadataItem.commonKey!.rawValue {
             case "artwork":
                 guard metadataItem.dataType == "com.apple.metadata.datatype.JPEG" else {
-                    throw Error.artworkNotJPEG
+                    throw Error("asset artwork not jpeg", url: url)
                 }
                 artwork = Resource(url: artwork.url, data: metadataItem.dataValue ?? Data())
             case "artist":
@@ -55,15 +51,15 @@ public struct Asset {
             }
         }
         guard !artwork.isEmpty else {
-            throw Error.artworkNotFound
+            throw Error("asset artwork not found", url: url)
         }
         self.artwork = artwork
         guard !artist.isEmpty else {
-            throw Error.artistNotFound
+            throw Error("asset artist not found", url: url)
         }
         self.artist = artist
         guard !title.isEmpty else {
-            throw Error.titleNotFound
+            throw Error("asset title not found", url: url)
         }
         self.title = title
     }

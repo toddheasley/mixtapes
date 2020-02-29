@@ -1,10 +1,6 @@
 import Foundation
 
 public class Resource {
-    public enum Error: Swift.Error {
-        case resourceNotFound
-    }
-    
     public let url: URL
     public let data: Data
     public let resources: [Resource]
@@ -14,10 +10,16 @@ public class Resource {
     }
     
     public func write() throws {
-        for resource in resources {
-            try resource.write()
+        do {
+            for resource in resources {
+                try resource.write()
+            }
+            try data.write(to: url)
+        } catch is EncodingError {
+            throw Error("resource encoding failed", url: url)
+        } catch {
+            throw error as? Error ?? Error("resource write failed", url: url)
         }
-        try data.write(to: url)
     }
     
     public init(url: URL, data: Data = Data(), resources: [Resource] = []) {

@@ -1,13 +1,11 @@
 import Foundation
 import Mixtapes
 
-let name: String = Bundle.main.executableURL!.lastPathComponent
-
 do {
-    try Index(url: Bundle.main.bundleURL).write()
-    print("\(name) ✅")
+    try Index(url: CommandLine.currentDirectoryURL).write()
+    CommandLine.print(.finished)
     exit(0)
 } catch {
-    print("\(name) ❌ \(error)")
+    CommandLine.print(.failure(error))
     exit(1)
 }

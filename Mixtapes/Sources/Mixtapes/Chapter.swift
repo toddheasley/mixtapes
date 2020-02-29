@@ -2,10 +2,6 @@ import Foundation
 import AVFoundation
 
 public struct Chapter {
-    public enum Error: Swift.Error {
-        case titleNotFound
-    }
-    
     public let duration: ClosedRange<TimeInterval>
     public let title: String
     
@@ -21,7 +17,7 @@ public struct Chapter {
             break
         }
         guard !title.isEmpty else {
-            throw Error.titleNotFound
+            throw Error("chapter title not found", url: URL(string: "")!)
         }
         self.duration = duration
         self.title = title
