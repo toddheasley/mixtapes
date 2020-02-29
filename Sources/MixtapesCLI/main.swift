@@ -1,5 +1,5 @@
 import Foundation
-import Mixtapes
+import MixtapesKit
 
 do {
     try Index(url: CommandLine.currentDirectoryURL).write()

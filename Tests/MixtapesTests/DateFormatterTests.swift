@@ -1,5 +1,5 @@
 import XCTest
-@testable import Mixtapes
+@testable import MixtapesKit
 
 final class DateFormatterTests: XCTestCase {
     
