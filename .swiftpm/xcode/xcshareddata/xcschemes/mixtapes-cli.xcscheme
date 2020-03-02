@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "mixtapes"
-               BuildableName = "mixtapes"
-               BlueprintName = "mixtapes"
+               BlueprintIdentifier = "mixtapes-cli"
+               BuildableName = "mixtapes-cli"
+               BlueprintName = "mixtapes-cli"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "MixtapesTests"
+               BuildableName = "MixtapesTests"
+               BlueprintName = "MixtapesTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -44,9 +54,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "mixtapes"
-            BuildableName = "mixtapes"
-            BlueprintName = "mixtapes"
+            BlueprintIdentifier = "mixtapes-cli"
+            BuildableName = "mixtapes-cli"
+            BlueprintName = "mixtapes-cli"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +71,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "mixtapes"
-            BuildableName = "mixtapes"
-            BlueprintName = "mixtapes"
+            BlueprintIdentifier = "mixtapes-cli"
+            BuildableName = "mixtapes-cli"
+            BlueprintName = "mixtapes-cli"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>

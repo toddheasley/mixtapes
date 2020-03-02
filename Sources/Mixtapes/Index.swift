@@ -49,6 +49,7 @@ public struct Index {
                 self = try JSONDecoder(url: url).decode(Index.self, from: try Data(contentsOf: .feed(relativeTo: url)))
             } else {
                 self.url = url
+                icon(data: try? Data(contentsOf: .icon(relativeTo: self.url)))
             }
         } catch {
             throw Error("feed decoding failed", url: .feed(relativeTo: url))

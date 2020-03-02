@@ -1,5 +1,5 @@
 import XCTest
-@testable import MixtapesKit
+@testable import Mixtapes
 
 final class TimeIntervalTests: XCTestCase {
     

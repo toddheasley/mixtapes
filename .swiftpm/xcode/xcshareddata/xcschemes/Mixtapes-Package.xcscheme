@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "MixtapesKit"
-               BuildableName = "MixtapesKit"
-               BlueprintName = "MixtapesKit"
+               BlueprintIdentifier = "Mixtapes"
+               BuildableName = "Mixtapes"
+               BlueprintName = "Mixtapes"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "mixtapes"
-               BuildableName = "mixtapes"
-               BlueprintName = "mixtapes"
+               BlueprintIdentifier = "mixtapes-cli"
+               BuildableName = "mixtapes-cli"
+               BlueprintName = "mixtapes-cli"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -81,9 +81,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "mixtapes"
-            BuildableName = "mixtapes"
-            BlueprintName = "mixtapes"
+            BlueprintIdentifier = "mixtapes-cli"
+            BuildableName = "mixtapes-cli"
+            BlueprintName = "mixtapes-cli"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
@@ -97,9 +97,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "mixtapes"
-            BuildableName = "mixtapes"
-            BlueprintName = "mixtapes"
+            BlueprintIdentifier = "mixtapes-cli"
+            BuildableName = "mixtapes-cli"
+            BlueprintName = "mixtapes-cli"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

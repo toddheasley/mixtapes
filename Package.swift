@@ -8,20 +8,24 @@ let package = Package(
         .macOS(.v10_15)
     ],
     products: [
-        .library(name: "MixtapesKit", targets: [
-            "MixtapesKit"
+        .library(name: "Mixtapes", targets: [
+            "Mixtapes"
         ]),
-        .executable(name: "mixtapes", targets: [
+        .executable(name: "mixtapes-cli", targets: [
             "MixtapesCLI"
         ])
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.0.1")
+    ],
     targets: [
-        .target(name: "MixtapesKit"),
+        .target(name: "Mixtapes"),
         .target(name: "MixtapesCLI", dependencies: [
-            "MixtapesKit"
+            .product(name: "ArgumentParser", package: "swift-argument-parser"),
+            "Mixtapes"
         ]),
         .testTarget(name: "MixtapesTests", dependencies: [
-            "MixtapesKit"
+            "Mixtapes"
         ])
     ]
 )

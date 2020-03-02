@@ -2,6 +2,7 @@ import Foundation
 import AVFoundation
 
 public struct Asset {
+    public static let pathExtension: String = "m4a"
     public let url: URL
     public let length: Int
     public let duration: TimeInterval
@@ -32,7 +33,7 @@ public struct Asset {
             return try Chapter(metadata: group.items)
         }
         self.chapters = chapters.count > 1 ? chapters : []
-        var artwork: Resource = Resource(url: URL(fileURLWithPath: self.url.relativePath.replacingOccurrences(of: ".m4a", with: ".jpg"), relativeTo: self.url.baseURL!))
+        var artwork: Resource = Resource(url: URL(fileURLWithPath: self.url.relativePath.replacingOccurrences(of: ".\(Self.pathExtension)", with: ".jpg"), relativeTo: self.url.baseURL!))
         var artist: String = ""
         var title: String = ""
         for metadataItem: AVMetadataItem in asset.commonMetadata {

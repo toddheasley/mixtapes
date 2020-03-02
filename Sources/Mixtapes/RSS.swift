@@ -19,7 +19,7 @@ public class RSS: Resource {
             string += "        <itunes:summary>\(description)</itunes:summary>\n"
         }
         if let author: Author = index.author {
-            string += "        <itunes:author>\(author.description)</itunes:author>\n"
+            string += "        <itunes:author>\(author)</itunes:author>\n"
         }
         for item in index.items {
             string += "        <item>\n"
