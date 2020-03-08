@@ -16,9 +16,9 @@ public class Resource {
             }
             try data.write(to: url)
         } catch is EncodingError {
-            throw Error("resource encoding failed", url: url)
+            throw Error("Resource encoding failed", url: url)
         } catch {
-            throw error as? Error ?? Error("resource write failed", url: url)
+            throw error as? Error ?? Error("Resource write failed", url: url)
         }
     }
     

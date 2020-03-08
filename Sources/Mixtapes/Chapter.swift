@@ -17,7 +17,7 @@ public struct Chapter {
             break
         }
         guard !title.isEmpty else {
-            throw Error("chapter title not found")
+            throw Error("Chapter title not found")
         }
         self.duration = duration
         self.title = title

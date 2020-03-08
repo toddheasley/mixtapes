@@ -1,11 +1,11 @@
 import Foundation
 
-struct Error: Swift.Error, CustomStringConvertible {
-    let url: URL?
+public struct Error: Swift.Error, CustomStringConvertible {
+    public let url: URL?
     
-    init(_ description: String, url: URL? = nil) {
+    public init(_ description: String, url: URL? = nil) {
         if let url: URL = url {
-            self.description = "\(description) \(url.relativePath)"
+            self.description = "\(description) '<\(url.relativePath)>'"
         } else {
             self.description = description
         }
@@ -13,5 +13,5 @@ struct Error: Swift.Error, CustomStringConvertible {
     }
     
     // MARK: CustomStringConvertible
-    let description: String
+    public let description: String
 }

@@ -22,7 +22,7 @@ public struct Asset {
     public init(url: URL) throws {
         self.url = url
         guard let length: Int = try url.resourceValues(forKeys: [.fileSizeKey]).fileSize, length > 0 else {
-            throw Error("asset not found", url: url)
+            throw Error("Asset not found", url: url)
         }
         self.length = length
         let asset: AVAsset = AVAsset(url: url)
@@ -33,14 +33,14 @@ public struct Asset {
             return try Chapter(metadata: group.items)
         }
         self.chapters = chapters.count > 1 ? chapters : []
-        var artwork: Resource = Resource(url: URL(fileURLWithPath: self.url.relativePath.replacingOccurrences(of: ".\(Self.pathExtension)", with: ".jpg"), relativeTo: self.url.baseURL!))
+        var artwork: Resource = Resource(url: URL(fileURLWithPath: self.url.relativePath.replacingOccurrences(of: ".\(Self.pathExtension)", with: ".jpg"), relativeTo: self.url.baseURL))
         var artist: String = ""
         var title: String = ""
         for metadataItem: AVMetadataItem in asset.commonMetadata {
             switch metadataItem.commonKey!.rawValue {
             case "artwork":
                 guard metadataItem.dataType == "com.apple.metadata.datatype.JPEG" else {
-                    throw Error("asset artwork not jpeg", url: url)
+                    throw Error("Asset artwork not JPEG", url: url)
                 }
                 artwork = Resource(url: artwork.url, data: metadataItem.dataValue ?? Data())
             case "artist":
@@ -52,15 +52,15 @@ public struct Asset {
             }
         }
         guard !artwork.isEmpty else {
-            throw Error("asset artwork not found", url: url)
+            throw Error("Asset artwork not found", url: url)
         }
         self.artwork = artwork
         guard !artist.isEmpty else {
-            throw Error("asset artist not found", url: url)
+            throw Error("Asset artist not found", url: url)
         }
         self.artist = artist
         guard !title.isEmpty else {
-            throw Error("asset title not found", url: url)
+            throw Error("Asset title not found", url: url)
         }
         self.title = title
     }

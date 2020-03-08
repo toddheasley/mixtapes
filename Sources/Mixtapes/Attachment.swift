@@ -29,11 +29,11 @@ extension Attachment: Codable {
     // MARK: Codable
     public init(from decoder: Decoder) throws {
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
-        let path: [String] = try container.decode(URL.self, forKey: .url).pathComponents
+        let path: String = try container.decode(URL.self, forKey: .url).lastPathComponent
         guard path.count > 1 else {
             throw DecodingError.valueNotFound(URL.self, DecodingError.Context(codingPath: [], debugDescription: ""))
         }
-        let url: URL = URL(fileURLWithPath: "\(path[path.count - 2])/\(path.last!)", relativeTo: try decoder.url())
+        let url: URL = URL(fileURLWithPath: path, relativeTo: try decoder.url())
         self.asset = try Asset(url: url)
     }
     

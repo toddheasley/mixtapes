@@ -37,12 +37,12 @@ public struct Index {
         try icon?.write()
         try JSON(index: self).write()
         try RSS(index: self).write()
-        try HTML(index: self).write()
+        // try HTML(index: self).write()
     }
     
     public init(url: URL) throws {
         guard FileManager.default.fileExists(atPath: url.path) else {
-            throw Error("resource not found", url: url)
+            throw Error("Resource not found", url: url)
         }
         do {
             if FileManager.default.fileExists(atPath: URL.feed(relativeTo: url).path) {
@@ -52,7 +52,7 @@ public struct Index {
                 icon(data: try? Data(contentsOf: .icon(relativeTo: self.url)))
             }
         } catch {
-            throw Error("feed decoding failed", url: .feed(relativeTo: url))
+            throw Error("Feed decoding failed", url: .feed(relativeTo: url))
         }
     }
 }

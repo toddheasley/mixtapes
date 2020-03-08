@@ -21,8 +21,11 @@ public struct Item {
         return attachment.asset.artwork.url
     }
     
-    public init(asset: Asset) {
+    public init(asset: Asset, published date: Date? = nil) {
         self.attachment = Attachment(asset: asset)
+        if let date: Date = date {
+            self.date.published = date
+        }
     }
 }
 
