@@ -96,6 +96,10 @@ struct MixtapesCLI: ParsableCommand {
             }
             print("HOMEPAGE: \(index.homepage.absoluteString)")
             print("")
+            if let icon: Resource = index.icon {
+                print("ICON: \(icon.url.lastPathComponent)")
+                print("")
+            }
             if let author: Author = index.author {
                 print("AUTHOR: \(author.description)")
                 print("")
