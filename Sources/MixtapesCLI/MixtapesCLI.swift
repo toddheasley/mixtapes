@@ -114,9 +114,9 @@ struct MixtapesCLI: ParsableCommand {
             }
             print("")
             if verbose {
-                let indexedURLs: [URL] = index.items.map { $0.attachment.url }
+                let published: [String] = index.items.map { $0.attachment.url.lastPathComponent }
                 let urls: [URL] = FileManager.default.index(filter: ".m4a").filter { url in
-                    return !indexedURLs.contains(url)
+                    return !published.contains(url.lastPathComponent)
                 }
                 if !urls.isEmpty {
                     print("UNPUBLISHED:")
