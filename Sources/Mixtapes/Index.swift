@@ -37,7 +37,7 @@ public struct Index {
         try icon?.write()
         try JSON(index: self).write()
         try RSS(index: self).write()
-        // try HTML(index: self).write()
+        try HTML(index: self).write()
     }
     
     public init(url: URL) throws {
