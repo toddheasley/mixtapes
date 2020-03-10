@@ -3,7 +3,7 @@ import Foundation
 public struct Item {
     public let attachment: Attachment
     public var date: (published: Date, modified: Date?) = (Date(), nil)
-    public var isExplicit: Bool = false
+    public var isExplicit: Bool
     
     public var id: String {
         return attachment.asset.id
@@ -21,11 +21,12 @@ public struct Item {
         return attachment.asset.artwork.url
     }
     
-    public init(asset: Asset, published date: Date? = nil) {
+    public init(asset: Asset, published date: Date? = nil, explicit: Bool = false) {
         self.attachment = Attachment(asset: asset)
         if let date: Date = date {
             self.date.published = date
         }
+        self.isExplicit = explicit
     }
 }
 

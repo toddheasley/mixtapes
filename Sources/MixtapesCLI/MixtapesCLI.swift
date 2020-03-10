@@ -11,6 +11,9 @@ struct MixtapesCLI: ParsableCommand {
         @Option(name: .shortAndLong, help: "Set published date. Example: \(DateFormatter(format: .rfc3339).string(from: Date()))")
         var date: Date?
         
+        @Flag(name: .shortAndLong, help: "Mark mixtape as explicit.")
+        var explicit: Bool
+        
         // MARK: ParsableCommand
         static var configuration = CommandConfiguration(abstract: "Add mixtape to podcast.")
         
@@ -19,7 +22,7 @@ struct MixtapesCLI: ParsableCommand {
             try Remove.run(path: path)
             
             var index: Index = try Index(url: FileManager.default.currentDirectoryURL)
-            index.items.append(Item(asset: asset, published: date))
+            index.items.append(Item(asset: asset, published: date, explicit: explicit))
             index.items.sort {
                 $0.date.published > $1.date.published
             }
