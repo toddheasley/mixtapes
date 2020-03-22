@@ -85,7 +85,7 @@ struct MixtapesCLI: ParsableCommand {
         @Flag(name: .shortAndLong, help: "Include detailed description.")
         var verbose: Bool
         
-        @Flag(name: .shortAndLong, help: "")
+        @Flag(name: .shortAndLong, help: "Open in browser.")
         var open: Bool
         
         fileprivate static func run(verbose: Bool = false) throws {
