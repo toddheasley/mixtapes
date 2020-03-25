@@ -97,6 +97,7 @@ table {
 }
 
 td, th {
+    max-width: 0;
     overflow: hidden;
     padding: 2px 11px;
     text-overflow: ellipsis;
