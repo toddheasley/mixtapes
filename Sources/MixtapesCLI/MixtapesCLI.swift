@@ -12,7 +12,7 @@ struct MixtapesCLI: ParsableCommand {
         var date: Date?
         
         @Flag(name: .shortAndLong, help: "Mark mixtape as explicit.")
-        var explicit: Bool
+        var explicit: Bool = false
         
         // MARK: ParsableCommand
         static var configuration = CommandConfiguration(abstract: "Add mixtape to podcast.")
@@ -83,10 +83,10 @@ struct MixtapesCLI: ParsableCommand {
     
     struct Print: ParsableCommand {
         @Flag(name: .shortAndLong, help: "Include detailed description.")
-        var verbose: Bool
+        var verbose: Bool = false
         
         @Flag(name: .shortAndLong, help: "Open in browser.")
-        var open: Bool
+        var open: Bool = false
         
         fileprivate static func run(verbose: Bool = false) throws {
             let index: Index = try Index(url: FileManager.default.currentDirectoryURL)

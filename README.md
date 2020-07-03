@@ -14,4 +14,4 @@ Feeds are published in both [RSS](https://validator.w3.org/feed/docs/rss2.html) 
 
 ## Requirements
 
-Targets [macOS](https://developer.apple.com/macos) 10.15 Catalina. Written in [Swift](https://developer.apple.com/documentation/swift) 5.2 using the [Foundation](https://developer.apple.com/documentation/foundation) and [AVFoundation](https://developer.apple.com/documentation/avfoundation) frameworks and requires [Xcode](https://developer.apple.com/xcode) 11.4 or newer to build. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
+Targets [macOS](https://developer.apple.com/macos) 11 Big Sur. Written in [Swift](https://developer.apple.com/documentation/swift) 5.3 using the [Foundation](https://developer.apple.com/documentation/foundation) and [AVFoundation](https://developer.apple.com/documentation/avfoundation) frameworks and requires [Xcode](https://developer.apple.com/xcode) 12 or newer to build. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
