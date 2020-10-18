@@ -21,7 +21,7 @@ private let Stylesheet_Data: Data = """
 :root {
     --background: #FEFEFE;
     --color: #1C41BF;
-    --shadow: #CCCCCC;
+    --shadow: #DDDDDD;
     --meta: #B7B7B7;
     --opacity: 0.5;
 }
@@ -87,7 +87,7 @@ hr {
 
 main {
     border-radius: 3px;
-    box-shadow: 0 0 2px 1px var(--shadow);
+    box-shadow: 0 0 1px 1px var(--shadow);
     overflow: hidden;
 }
 

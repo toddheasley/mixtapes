@@ -1,11 +1,10 @@
 // swift-tools-version:5.3
-
 import PackageDescription
 
 let package = Package(
     name: "mixtapes",
     platforms: [
-        .macOS(.v10_16)
+        .macOS(.v11)
     ],
     products: [
         .library(name: "Mixtapes", targets: [
@@ -16,7 +15,7 @@ let package = Package(
         ])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.2.0")
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.0")
     ],
     targets: [
         .target(name: "Mixtapes"),
