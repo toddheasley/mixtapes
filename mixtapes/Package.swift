@@ -22,6 +22,9 @@ let package = Package(name: "mixtapes", platforms: [
         .target(name: "Mixtapes"),
         .testTarget(name: "MixtapesTests", dependencies: [
             "Mixtapes"
+        ], resources: [
+            .process("Example.m4a"),
+            .process("Example.mp3")
         ])
     ]
 )
