@@ -1,11 +1,11 @@
 import XCTest
 
 extension XCTestCase {
-    var exampleAAC: URL? {
-        return Bundle.module.url(forResource: "Example", withExtension: "m4a")
+    enum Example: String {
+        case m4a, mp3, png, gif, jpg
     }
     
-    var exampleMP3: URL? {
-        return Bundle.module.url(forResource: "Example", withExtension: "mp3")
+    func example(_ example: Example) -> URL {
+        return URL(fileURLWithPath: "example.\(example.rawValue)", relativeTo: Bundle.module.resourceURL!.appendingPathComponent("Resources"))
     }
 }

@@ -3,7 +3,7 @@ import XCTest
 
 final class ChapterTests: XCTestCase {
     func testMetadataInit() throws {
-        let aac: Asset = try Asset(url: exampleAAC!)
+        let aac: Asset = try Asset(url: example(.m4a))
         if aac.chapters.count == 5 {
             XCTAssertEqual(aac.chapters[0].duration, 0.0...5.712)
             XCTAssertEqual(aac.chapters[0].title, "Chapter 1")
@@ -18,13 +18,13 @@ final class ChapterTests: XCTestCase {
         } else {
             XCTAssertEqual(aac.chapters.count, 5)
         }
-        let mp3: Asset = try Asset(url: exampleMP3!)
+        let mp3: Asset = try Asset(url: example(.mp3))
         if mp3.chapters.count == 3 {
-            XCTAssertEqual(mp3.chapters[0].duration, nil)
+            XCTAssertNil(mp3.chapters[0].duration)
             XCTAssertEqual(mp3.chapters[0].title, "Chapter 1")
-            XCTAssertEqual(mp3.chapters[1].duration, nil)
+            XCTAssertNil(mp3.chapters[1].duration)
             XCTAssertEqual(mp3.chapters[1].title, "Chapter 2")
-            XCTAssertEqual(mp3.chapters[2].duration, nil)
+            XCTAssertNil(mp3.chapters[2].duration)
             XCTAssertEqual(mp3.chapters[2].title, "Chapter 3")
         } else {
             XCTAssertEqual(mp3.chapters.count, 3)

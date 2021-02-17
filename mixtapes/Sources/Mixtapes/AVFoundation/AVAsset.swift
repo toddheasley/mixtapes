@@ -6,13 +6,8 @@ extension AVAsset {
         return chapterMetadataGroups(bestMatchingPreferredLanguages: availableChapterLocales.map { $0.identifier })
     }
     
-    var artwork: (data: Data, dataType: String)? {
-        guard let metadataItem: AVMetadataItem = metadataItem("artwork"),
-              let data: Data = metadataItem.dataValue,
-              let dataType: String = metadataItem.dataType else {
-            return nil
-        }
-        return (data, dataType)
+    var artwork: Data? {
+        return metadataItem("artwork")?.dataValue
     }
     
     var artist: String? {
