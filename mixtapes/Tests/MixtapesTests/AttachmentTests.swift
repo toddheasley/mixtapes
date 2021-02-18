@@ -10,15 +10,15 @@ extension AttachmentTests {
     // MARK: Codable
     func testEncode() throws {
         let data: Data = try JSONEncoder(url: URL(string: "https://example.com/mixtapes/")!).encode([
-            Attachment(asset: try Asset(url: example(.m4a))),
-            Attachment(asset: try Asset(url: example(.mp3)))
+            Attachment(asset: try Asset(url: resource("example.m4a"))),
+            Attachment(asset: try Asset(url: resource("example.mp3")))
         ])
         let mocks: [AttachmentTests_Mock] = try JSONDecoder().decode([AttachmentTests_Mock].self, from: AttachmentTests_Data)
         XCTAssertEqual(data, try JSONEncoder().encode(mocks))
     }
     
     func testDecoderInit() throws {
-        let attachments: [Attachment] = try JSONDecoder(url: example(.m4a)).decode([Attachment].self, from: AttachmentTests_Data)
+        let attachments: [Attachment] = try JSONDecoder(url: resource("example.m4a")).decode([Attachment].self, from: AttachmentTests_Data)
         if attachments.count == 2 {
             XCTAssertEqual(attachments[0].durationInSeconds, 30)
             XCTAssertEqual(attachments[0].mimeType, "audio/x-m4a")

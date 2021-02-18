@@ -9,14 +9,16 @@ extension ItemTests {
     
     // MARK: Codable
     func testEncode() throws {
-        let item: Item = try JSONDecoder(url: example(.m4a)).decode(Item.self, from: ItemTests_Data)
-        let data: Data = try JSONEncoder(url: URL(string: "https://example.com/mixtapes/")!).encode(item)
-        let mock: ItemTests_Mock = try JSONDecoder(url: example(.m4a)).decode(ItemTests_Mock.self, from: ItemTests_Data)
-        XCTAssertEqual(data, try JSONEncoder(url: example(.m4a)).encode(mock))
+        let decoder: JSONDecoder = JSONDecoder(url: resource("index.json"))
+        let encoder: JSONEncoder = JSONEncoder(url: URL(string: "https://example.com/mixtapes/")!, formatting: [.sortedKeys])
+        let item: Item = try decoder.decode(Item.self, from: ItemTests_Data)
+        let data: Data = try encoder.encode(item)
+        let mock: ItemTests_Mock = try decoder.decode(ItemTests_Mock.self, from: ItemTests_Data)
+        XCTAssertEqual(data, try encoder.encode(mock))
     }
     
     func testDecoderInit() throws {
-        let item: Item = try JSONDecoder(url: example(.m4a)).decode(Item.self, from: ItemTests_Data)
+        let item: Item = try JSONDecoder(url: resource("example.m4a")).decode(Item.self, from: ItemTests_Data)
         XCTAssertEqual(item.attachment.durationInSeconds, 30)
         XCTAssertEqual(item.attachment.mimeType, "audio/x-m4a")
         XCTAssertEqual(item.attachment.sizeInBytes, 738675)

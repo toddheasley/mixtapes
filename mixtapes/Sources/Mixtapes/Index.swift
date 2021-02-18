@@ -7,14 +7,12 @@ public struct Index: Identifiable, CustomStringConvertible {
     public var isExpired: Bool = false
     public var items: [Item] = []
     public var author: Author?
-    public var homepageURL: URL?
     
-    public var feedURL: URL? {
-        return homepageURL != nil ? URL(string: url.lastPathComponent, relativeTo: homepageURL!) : nil
-    }
-    
-    public var iconURL: URL? {
-        return homepageURL != nil ? URL(string: icon.url.lastPathComponent, relativeTo: homepageURL!) : nil
+    public var homepage: String {
+        set {
+            homepageURL = URL(homepage: newValue, path: HTML(index: self).url.lastPathComponent)
+        }
+        get { homepageURL?.baseURL?.absoluteString ?? "" }
     }
     
     public func write() throws {
@@ -22,10 +20,8 @@ public struct Index: Identifiable, CustomStringConvertible {
             try item.attachment.asset.artwork.write()
         }
         try icon.write()
-        
-        // try JSON(index: self).write()
-        // try RSS(index: self).write()
-        // try HTML(index: self).write()
+        try JSON(index: self).write()
+        try HTML(index: self).write()
     }
     
     public init(url: URL) throws {
@@ -43,6 +39,16 @@ public struct Index: Identifiable, CustomStringConvertible {
         } catch {
             throw Error("Feed decoding failed", url: url)
         }
+    }
+    
+    private(set) var homepageURL: URL?
+    
+    var feedURL: URL? {
+        return URL(homepage: homepage, path: url.lastPathComponent)
+    }
+    
+    var iconURL: URL? {
+        return URL(homepage: homepage, path: icon.url.lastPathComponent)
     }
     
     // MARK: Identifiable
@@ -69,12 +75,8 @@ extension Index: Codable {
         }
         if let homepageURL: URL = homepageURL {
             try container.encode(homepageURL, forKey: .homepageURL)
-        }
-        if let feedURL: URL = feedURL {
-            try container.encode(feedURL, forKey: .feedURL)
-        }
-        if let iconURL: URL = iconURL {
-            try container.encode(iconURL, forKey: .icon)
+            try container.encode(feedURL!, forKey: .feedURL)
+            try container.encode(iconURL!, forKey: .icon)
         }
     }
     
@@ -83,11 +85,11 @@ extension Index: Codable {
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
         icon = Icon(url: url, path: (try? container.decode(URL.self, forKey: .icon))?.lastPathComponent)
         title = try container.decode(String.self, forKey: .title)
-        homepageURL = try? container.decode(URL.self, forKey: .homepageURL)
         isExpired = (try? container.decode(Bool.self, forKey: .expired)) ?? isExpired
         items = try container.decode([Item].self, forKey: .items)
         author = try? container.decode(Author.self, forKey: .author)
         description = try container.decode(String.self, forKey: .description)
+        homepage = (try? container.decode(URL.self, forKey: .homepageURL))?.absoluteString ?? ""
     }
     
     private enum Key: String, CodingKey {

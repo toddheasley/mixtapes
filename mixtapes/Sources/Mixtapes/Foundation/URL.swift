@@ -16,4 +16,25 @@ extension URL {
         }
         return id
     }
+    
+    init?(homepage: String, path: String = "") {
+        guard var components: URLComponents = URLComponents(string: homepage),
+              ["http", "https", nil].contains(components.scheme),
+              components.host != nil else {
+            return nil
+        }
+        components.scheme = components.scheme ?? "http"
+        components.fragment = nil
+        components.query = nil
+        guard var url: URL = components.url else {
+            return nil
+        }
+        if !url.pathExtension.isEmpty {
+            url.deleteLastPathComponent()
+        }
+        if !url.hasDirectoryPath {
+            url.appendPathComponent("")
+        }
+        self = URL(string: path, relativeTo: url) ?? url
+    }
 }
