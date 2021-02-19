@@ -43,7 +43,6 @@ extension IndexTests {
         let index: Index = try decoder.decode(Index.self, from: IndexTests_Data)
         let data: Data = try encoder.encode(index)
         let mock: IndexTests_Mock = try decoder.decode(IndexTests_Mock.self, from: IndexTests_Data)
-        let mockData: Data = try encoder.encode(mock)
         XCTAssertEqual(data, try encoder.encode(mock))
     }
     
