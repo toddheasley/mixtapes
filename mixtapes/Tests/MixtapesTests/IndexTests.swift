@@ -3,7 +3,7 @@ import XCTest
 
 final class IndexTests: XCTestCase {
     func testHomepage() throws {
-        var index: Index = try Index(url: Bundle.module.resourceURL!)
+        var index: Index = try Index(url: resources)
         XCTAssertNil(index.homepageURL)
         XCTAssertEqual(index.homepage, "")
         index.homepage = "https://example.com/mixtapes/"
@@ -15,19 +15,19 @@ final class IndexTests: XCTestCase {
     }
     
     func testURLInit() throws {
-        XCTAssertThrowsError(try Index(url: Bundle.module.resourceURL!.appendingPathComponent("example")))
-        XCTAssertNoThrow(try Index(url: Bundle.module.resourceURL!))
+        XCTAssertThrowsError(try Index(url: resources.appendingPathComponent("example")))
+        XCTAssertNoThrow(try Index(url: resources))
     }
     
     func testFeedURL() throws {
-        var index: Index = try Index(url: Bundle.module.resourceURL!)
+        var index: Index = try Index(url: resources)
         XCTAssertNil(index.feedURL)
         index.homepage = "https://example.com/mixtapes/"
         XCTAssertEqual(index.feedURL, URL(homepage: "https://example.com/mixtapes/", path: "index.json"))
     }
     
     func testIconURL() throws {
-        var index: Index = try Index(url: Bundle.module.resourceURL!)
+        var index: Index = try Index(url: resources)
         XCTAssertNil(index.iconURL)
         index.homepage = "https://example.com/mixtapes/"
         XCTAssertEqual(index.iconURL, URL(homepage: "https://example.com/mixtapes/", path: "icon.png"))
@@ -48,8 +48,9 @@ extension IndexTests {
     
     func testDecoderInit() throws {
         let index: Index = try JSONDecoder(url: URL(string: "index.json", relativeTo: resources)!).decode(Index.self, from: IndexTests_Data)
-        XCTAssertEqual(index.author?.name, "Todd Heasley")
-        XCTAssertEqual(index.author?.url, URL(string: "mailto:toddheasley@me.com"))
+        XCTAssertEqual(index.authors.first?.name, "Todd Heasley")
+        XCTAssertEqual(index.authors.first?.url, URL(string: "mailto:toddheasley@me.com"))
+        XCTAssertEqual(index.authors.count, 1)
         XCTAssertEqual(index.description, "Example mixtapes podcast")
         XCTAssertEqual(index.feedURL, URL(homepage: "https://example.com/mixtapes/", path: "index.json"))
         XCTAssertEqual(index.homepage, "https://example.com/mixtapes/")
@@ -85,7 +86,7 @@ private struct IndexTests_Mock: Codable {
         let title: String
     }
     
-    let author: Author?
+    let authors: [Author]?
     let description: String
     let feed_url: String
     let home_page_url: String
@@ -97,10 +98,12 @@ private struct IndexTests_Mock: Codable {
 
 private let IndexTests_Data: Data = """
 {
-    "author": {
-        "name": "Todd Heasley",
-        "url": "mailto:toddheasley@me.com"
-    },
+    "authors": [
+        {
+            "name": "Todd Heasley",
+            "url": "mailto:toddheasley@me.com"
+        }
+    ],
     "description": "Example mixtapes podcast",
     "feed_url": "https://example.com/mixtapes/index.json",
     "home_page_url": "https://example.com/mixtapes/index.html",
@@ -115,7 +118,7 @@ private let IndexTests_Data: Data = """
                     "url": "https://example.com/mixtapes/example.m4a"
                 }
             ],
-            "date_published": "1970-01-01T00:00:00Z",
+            "date_published": "1970-01-01T00:00:01Z",
             "id": "example",
             "image": "https://example.com/mixtapes/example.png",
             "summary": "Artist",

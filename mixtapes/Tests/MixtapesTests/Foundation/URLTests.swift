@@ -8,7 +8,7 @@ final class URLTests: XCTestCase {
 
 extension URLTests {
     func testFileSize() {
-        XCTAssertNil(Bundle.module.resourceURL!.fileSize)
+        XCTAssertNil(resources.fileSize)
         XCTAssertNil(URL(string: "https://example.com")!.fileSize)
         XCTAssertEqual(resource("example.m4a").fileSize, 738675)
         XCTAssertEqual(resource("example.mp3").fileSize, 738325)

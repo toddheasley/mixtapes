@@ -5,12 +5,21 @@ public struct Index: Identifiable, CustomStringConvertible {
     public let icon: Icon
     public var title: String = ""
     public var isExpired: Bool = false
-    public var items: [Item] = []
-    public var author: Author?
+    public var authors: [Author] = []
+    
+    public var items: [Item] = [] {
+        didSet {
+            let sortedItems: [Item] = items.sorted { $0.date.published > $1.date.published }
+            guard items != sortedItems else {
+                return
+            }
+            items = sortedItems
+        }
+    }
     
     public var homepage: String {
         set {
-            homepageURL = URL(homepage: newValue, path: HTML(index: self).url.lastPathComponent)
+            homepageURL = URL(homepage: newValue, path: "index.html")
         }
         get { homepageURL?.baseURL?.absoluteString ?? "" }
     }
@@ -20,8 +29,8 @@ public struct Index: Identifiable, CustomStringConvertible {
             try item.attachment.asset.artwork.write()
         }
         try icon.write()
-        try JSON(index: self).write()
         try HTML(index: self).write()
+        try JSON(index: self).write()
     }
     
     public init(url: URL) throws {
@@ -51,6 +60,15 @@ public struct Index: Identifiable, CustomStringConvertible {
         return URL(homepage: homepage, path: icon.url.lastPathComponent)
     }
     
+    func itemURL(_ item: Item) -> (attachment: URL, image: URL, link: URL)? {
+        guard let attachment: URL = URL(homepage: homepage, path: item.attachment.url.lastPathComponent),
+              let image: URL = URL(homepage: homepage, path: item.image.lastPathComponent),
+              let link: URL = URL(homepage: homepage, path: "\(item.id).html") else {
+            return nil
+        }
+        return (attachment, image, link)
+    }
+    
     // MARK: Identifiable
     public private(set) var id: String = "index"
     
@@ -70,8 +88,8 @@ extension Index: Codable {
             try container.encode(isExpired, forKey: .expired)
         }
         try container.encode(items, forKey: .items)
-        if let author: Author = author {
-            try container.encode(author, forKey: .author)
+        if !authors.isEmpty {
+            try container.encode(authors, forKey: .authors)
         }
         if let homepageURL: URL = homepageURL {
             try container.encode(homepageURL, forKey: .homepageURL)
@@ -87,12 +105,12 @@ extension Index: Codable {
         title = try container.decode(String.self, forKey: .title)
         isExpired = (try? container.decode(Bool.self, forKey: .expired)) ?? isExpired
         items = try container.decode([Item].self, forKey: .items)
-        author = try? container.decode(Author.self, forKey: .author)
+        authors = (try? container.decode([Author].self, forKey: .authors)) ?? []
         description = try container.decode(String.self, forKey: .description)
         homepage = (try? container.decode(URL.self, forKey: .homepageURL))?.absoluteString ?? ""
     }
     
     private enum Key: String, CodingKey {
-        case version, icon, title, homepageURL = "home_page_url", feedURL = "feed_url", description, expired, items, author
+        case version, icon, title, homepageURL = "home_page_url", feedURL = "feed_url", description, expired, items, authors
     }
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Item: Identifiable {
+public struct Item: Identifiable, Equatable {
     public let attachment: Attachment
     public let date: (published: Date, modified: Date?)
     public let isExplicit: Bool
@@ -26,6 +26,11 @@ public struct Item: Identifiable {
     // MARK: Identifiable
     public var id: String {
         return attachment.asset.id
+    }
+    
+    // MARK: Equatable
+    public static func ==(lhs: Item, rhs: Item) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
