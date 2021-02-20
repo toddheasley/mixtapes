@@ -1,6 +1,6 @@
 import Foundation
 
-struct RSS: Resource {
+struct RSSFeed: Resource {
     init(index: Index) {
         url = URL(fileURLWithPath: "\(index.id).rss", relativeTo: index.url)
         let dateFormatter: DateFormatter = .rfc822

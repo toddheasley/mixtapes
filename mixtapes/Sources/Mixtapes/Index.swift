@@ -25,12 +25,12 @@ public struct Index: Identifiable, CustomStringConvertible {
     }
     
     public func write() throws {
+        try JSONFeed(index: self).write()
         for item in items {
             try item.attachment.asset.artwork.write()
         }
         try icon.write()
-        try HTML(index: self).write()
-        try JSON(index: self).write()
+        try Site(index: self).write()
     }
     
     public init(url: URL) throws {
@@ -43,7 +43,7 @@ public struct Index: Identifiable, CustomStringConvertible {
                 self = try JSONDecoder(url: url).decode(Self.self, from: try Data(contentsOf: url))
             } else {
                 self.url = url
-                self.icon = Icon(url: url)
+                self.icon = try Icon(url: url)
             }
         } catch {
             throw Error("Feed decoding failed", url: url)
@@ -101,7 +101,7 @@ extension Index: Codable {
     public init(from decoder: Decoder) throws {
         url = try decoder.url()
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
-        icon = Icon(url: url, path: (try? container.decode(URL.self, forKey: .icon))?.lastPathComponent)
+        icon = try Icon(url: url, path: (try? container.decode(URL.self, forKey: .icon))?.lastPathComponent)
         title = try container.decode(String.self, forKey: .title)
         isExpired = (try? container.decode(Bool.self, forKey: .expired)) ?? isExpired
         items = try container.decode([Item].self, forKey: .items)

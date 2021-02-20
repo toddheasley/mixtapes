@@ -3,11 +3,11 @@ import Foundation
 protocol Resource {
     var url: URL { get }
     var data: Data { get }
-    var resources: [Self] { get }
+    var resources: [Resource] { get }
 }
 
 extension Resource {
-    var resources: [Self] {
+    var resources: [Resource] {
         return []
     }
     

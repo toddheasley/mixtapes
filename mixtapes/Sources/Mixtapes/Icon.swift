@@ -10,10 +10,10 @@ final public class Icon: Resource {
         self.data = data
     }
     
-    init(url: URL, path: String? = nil) {
+    init(url: URL, path: String? = nil) throws {
         self.url = url
         try? reset()
-        try? reset(try? Data(contentsOf: URL(fileURLWithPath: path ?? "", relativeTo: url)))
+        try? reset(try Data(contentsOf: URL(fileURLWithPath: path ?? "", relativeTo: url)))
     }
     
     // MARK: Resource

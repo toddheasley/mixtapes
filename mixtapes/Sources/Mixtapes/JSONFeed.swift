@@ -1,6 +1,6 @@
 import Foundation
 
-struct JSON: Resource {
+struct JSONFeed: Resource {
     init(index: Index) throws {
         url = index.url
         guard let url: URL = index.homepageURL else {
