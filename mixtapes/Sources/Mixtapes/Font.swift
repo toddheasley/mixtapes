@@ -19,7 +19,7 @@ struct Font: Resource {
     }
     
     init(_ name: Name, url: URL) throws {
-        self.url = URL(fileURLWithPath: "\(name.rawValue)", relativeTo: url)
+        self.url = URL(fileURLWithPath: "\(name.path)", relativeTo: url)
         data = try Bundle.module.resource(name.path)
     }
     

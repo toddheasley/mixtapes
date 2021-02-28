@@ -24,80 +24,64 @@ private let Stylesheet_Data: Data = """
 }
 
 :root {
-    --background: rgb(255, 255, 255);
-    --color: rgb(0, 0, 0);
+    --background-color: rgb(255, 255, 247);
+    --bleed-color: gainsboro;
+    --box-shadow: 0 0 1px 1px rgba(102, 102, 102, 0.2);
+    --color: rgb(51, 51, 51);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: rgb(0, 0, 0);
-        --color: rgb(255, 255, 255);
+        --bleed-color: var(--color);
     }
 }
 
 * {
-    -webkit-text-size-adjust: 100%;
-    font-weight: normal;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background: var(--background);
-    color: var(--color);
-    font: 19px "\(Font.Name.gaegu)";
-}
-""".data(using: .utf8)!
-
-/*
-private let Stylesheet_Data: Data = """
-@font-face {
-    font-family: "\(Font.Name.gaegu)";
-    font-style: normal;
-    font-weight: normal;
-    src: url("\(Font.Name.gaegu.path)") format("\(Font.Name.gaegu.path.components(separatedBy: ".").last ?? "")");
-}
-
-:root {
-    --background: #FEFEFE;
-    --color: #1C41BF;
-    --shadow: #DDDDDD;
-    --meta: #B7B7B7;
-    --opacity: 0.5;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #222222;
-        --color: #FEFEFE;
-        --shadow: #444444;
-        --meta: #444444;
-        --opacity: 0.25;
-    }
-}
-
-* {
-    -webkit-text-size-adjust: 100%;
-    font-weight: normal;
     margin: 0;
     padding: 0;
 }
 
 a {
+    background: pink;
     color: inherit;
     text-decoration: none;
+}
+
+article {
+    background: var(--background-color);
+    overflow: hidden;
+}
+
+article table {
+    margin: 13px 0;
+    width: 100%;
+}
+
+article td {
+    max-width: 0;
+}
+
+article td:nth-child(2) {
+    text-align: right;
+    padding-left: 0;
+    width: 25%;
 }
 
 audio, img {
     display: block;
 }
 
+audio, figure img {
+    width: 100%;
+}
+
 body {
-    background: var(--background);
-    color: var(--color);
-    font: 19px "gaegu";
+    background: var(--background-color);
+    color: mediumblue;
+    font: 19px "\(Font.Name.gaegu)";
     margin: 0 auto;
     max-width: 540px;
+    position: relative;
     text-transform: uppercase;
 }
 
@@ -105,71 +89,67 @@ figure {
     overflow: hidden;
 }
 
-figure img {
-    width: 100%;
-}
-
-footer {
-    margin: 16px 0 32px 0;
-}
-
-h1 {
-    font-size: 27px;
-}
-
-header {
-    margin: 16px 0 12px 0;
-}
-
 hr {
-    opacity: var(--opacity);
+    opacity: 0.5;
 }
 
-main {
-    border-radius: 3px;
-    box-shadow: 0 0 1px 1px var(--shadow);
+nav {
+    background: rgb(255, 255, 243);
+    border-radius: 9px;
+    box-shadow: var(--box-shadow);
+    left: 6px;
     overflow: hidden;
+    position: absolute;
+    transform: rotate(-0.5deg);
+    top: 6px;
 }
 
-table {
-    margin: 11px 0;
-    width: 100%;
+nav table {
+    border-collapse: collapse;
+    
+}
+
+nav td {
+    padding: 6px;
+}
+
+nav td:first-child {
+    background: var(--color);
+}
+
+nav td:nth-child(2) {
+    min-width: 210px;
+    text-align: center;
 }
 
 td, th {
-    max-width: 0;
     overflow: hidden;
     padding: 2px 11px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-td:nth-child(2) {
-    text-align: right;
-    width: 90px;
-}
-
-td audio {
-    margin: 4px 0 2px 0;
-    position: relative;
-    right: 1%;
-    width: 102%;
-}
-
 td hr {
-    border-top: 2px dotted var(--meta);
+    border-top: 2px dotted var(--color);
     display: block;
-    height: 0px;
+    height: 0;
 }
 
-td img {
-    float: right;
-    margin-right: 3px;
-}
-    
 th {
-    color: var(--meta);
-    font: bold 11px sans-serif;
+    color: var(--color);
+    font: bold 12px sans-serif;
     text-align: left;
 }
-""".data(using: .utf8)! */
+
+@media (min-width: 540px) {
+    article {
+        border-radius: 5px;
+        box-shadow: var(--box-shadow);
+    }
+    
+    body {
+        background: var(--bleed-color);
+        margin: 19px auto;
+    }
+}
+""".data(using: .utf8)!

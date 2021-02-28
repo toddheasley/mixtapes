@@ -9,6 +9,7 @@ struct Site: Resource {
             try Favicon(icon: index.icon),
             try Bookmark(icon: index.icon),
             try Stylesheet(url: index.url),
+            try RSSIcon(url: index.url),
             RSSFeed(index: index)
         ]
         for item in index.items {

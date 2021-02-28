@@ -3,7 +3,7 @@ import Foundation
 struct HTMLPage: Resource {
     init(index: Index, item: Item? = nil) {
         url = URL(fileURLWithPath: "\(item?.id ?? index.id).html", relativeTo: index.url)
-        data = Data()
+        data = Self.document(index: index, item: item).data(using: .utf8)!
     }
     
     // MARK: Resource
@@ -12,55 +12,54 @@ struct HTMLPage: Resource {
 }
 
 extension HTMLPage {
-    private static func document(index: Index, item: Item?) -> String {
+    private static func document(index: Index, item: Item? = nil) -> String {
         var string: String = "<!DOCTYPE html>\n"
         string += "\(Self.head(index: index, item: item))\n"
+        string += "\(self.body(index: index, item: item))"
         return string
     }
     
-    private static func head(index: Index, item: Item?) -> String {
-        var string: String = "<meta name=\"viewport\" content=\"initial-scale=1.0\">\n" // viewport-fit=cover?
+    private static func head(index: Index, item: Item? = nil) -> String {
+        var string: String = ""
         if let item: Item = item {
             string += "<title>\(item.title) - \(index.title)</title>\n"
         } else {
             string += "<title>\(index.title)</title>\n"
         }
+        string += "<meta name=\"viewport\" content=\"initial-scale=1.0\">\n"
         string += "<link rel=\"alternate\" href=\"\(RSSFeed(index: index).url.lastPathComponent)\" type=\"application/rss+xml\">\n"
-        if let stylesheet: String = try? Stylesheet(url: index.url).url.lastPathComponent {
-            string += "<link rel=\"stylesheet\" href=\"\(stylesheet)\">\n"
-        }
+        string += "<link rel=\"stylesheet\" href=\"\(try! Stylesheet(url: index.url).url.lastPathComponent)\">"
         return string
     }
     
-    private static func body(index: Index, item: Item?) -> String {
+    private static func body(index: Index, item: Item? = nil) -> String {
         var string: String = ""
-        string += "\(Self.header(index: index, item: item))"
-        string += "\(Self.main(index: index, item: item))"
-        string += "\(Self.footer(index: index))"
+        string += "\(Self.nav(index: index, item: item))\n"
+        string += "\(Self.article(index: index, item: item))"
         return string
     }
     
-    private static func header(index: Index, item: Item?) -> String {
+    private static func nav(index: Index, item: Item? = nil) -> String {
         var string: String = ""
-        string += "<header>\n"
+        string += "<nav>\n"
         string += "    <table>\n"
         string += "        <tr>\n"
-        if let href: String = index.homepageURL?.lastPathComponent,
-           item != nil {
-            string += "            <td><h1><a href=\"\(href)\">\(index.title)</a></h1></td>\n"
+        string += "            <td><a href=\"\(RSSFeed(index: index).url.lastPathComponent)\"><img src=\"\(try! RSSIcon(url: index.url).url.lastPathComponent)\" alt=\"Subscribe\"></a></td>\n"
+        if let homepageURL: URL = index.homepageURL, item != nil {
+            string += "            <td><a href=\"\(homepageURL.lastPathComponent)\">\(index.title)</a></td>\n"
         } else {
-            string += "            <td><h1>\(index.title)</h1></td>\n"
+            string += "            <td>\(index.title)</td>\n"
         }
-        string += "            <td><a href=\"\(RSSFeed(index: index).url.lastPathComponent)\"><img src=\"\" alt=\"\"></a></td>\n"
         string += "        </tr>\n"
         string += "    </table>\n"
-        string += "</header>"
+        string += "</nav>"
         return string
     }
     
-    private static func main(index: Index, item: Item?) -> String {
-        var string: String = "<main>\n"
-        if let item: Item = item {
+    private static func article(index: Index, item: Item? = nil) -> String {
+        var string: String = ""
+        string += "<article>\n"
+        if let item: Item = item ?? index.items.first {
             string += "    <figure><img src=\"\(item.image.lastPathComponent)\"></figure>\n"
             string += "    <hr>\n"
             string += "    <table>\n"
@@ -91,36 +90,32 @@ extension HTMLPage {
                 }
                 string += "    </table>\n"
             }
-        } else {
-            for (i, item) in index.items.enumerated() {
-                
-                if i > 0 {
-                    string += "    <hr>\n"
-                }
+            if let author: Author = index.authors.first {
                 string += "    <table>\n"
                 string += "        <tr>\n"
-                string += "            <td><a href=\"\(index.itemURL(item)?.link.lastPathComponent ?? "")\">\(item.title) - \(item.summary)</a></td>\n"
-                string += "            <td><time>\(item.attachment.asset.duration.timestamp)</time></td>\n"
+                string += "            <td><a href=\"\(author.url.absoluteString)\">\(author)</a></td>\n"
                 string += "        </tr>\n"
                 string += "    </table>\n"
             }
         }
-        string += "</main>"
-        return string
-    }
-    
-    private static func footer(index: Index) -> String {
-        var string: String = "<footer>\n"
-        if !index.authors.isEmpty {
+        if index.items.count > 1, item == nil {
+            string += "    <hr>\n"
             string += "    <table>\n"
-            for author in index.authors {
+            string += "        <tr>\n"
+            string += "            <th colspan=\"2\">Index</th>\n"
+            string += "        </tr>\n"
+            for item in index.items {
                 string += "        <tr>\n"
-                string += "            <td><a href=\"\(author.url.absoluteString)\">\(author)</a></td>\n"
+                string += "            <td colspan=\"2\"><hr></td>\n"
+                string += "        </tr>\n"
+                string += "        <tr>\n"
+                string += "            <td><a href=\"\(index.itemURL(item)!.link.lastPathComponent)\">\(item.title) - \(item.summary)</a></td>\n"
+                string += "            <td><time>\(item.attachment.asset.duration.timestamp)</time></td>\n"
                 string += "        </tr>\n"
             }
             string += "    </table>\n"
         }
-        string += "</footer>"
+        string += "</article>"
         return string
     }
 }
