@@ -1,4 +1,5 @@
 import SwiftUI
+import Mixtapes
 
 @main
 struct App: SwiftUI.App {
@@ -6,5 +7,6 @@ struct App: SwiftUI.App {
         WindowGroup {
             ContentView()
         }
+        .hideTitlebar()
     }
 }

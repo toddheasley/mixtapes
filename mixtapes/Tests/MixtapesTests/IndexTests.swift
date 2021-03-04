@@ -3,7 +3,7 @@ import XCTest
 
 final class IndexTests: XCTestCase {
     func testWrite() throws {
-        let url: URL = URL(fileURLWithPath: "/Users/toddheasley/Downloads/Mixtapes/mixtapes/")
+        let url: URL = URL(fileURLWithPath: "/Users/toddheasley/Documents/Web/s3.amazonaws.com/toddheasley/mixtapes")
         try Index(url: url).write()
     }
     

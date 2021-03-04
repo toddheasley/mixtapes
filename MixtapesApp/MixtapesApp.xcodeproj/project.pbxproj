@@ -3,24 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0B11A525EF3924001968C4 /* Gaegu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0B11A425EF3924001968C4 /* Gaegu.ttf */; };
 		5C24F65025EC08EB00543CDD /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24F64F25EC08EB00543CDD /* App.swift */; };
 		5C24F65225EC08EB00543CDD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24F65125EC08EB00543CDD /* ContentView.swift */; };
 		5C24F65425EC08EC00543CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C24F65325EC08EC00543CDD /* Assets.xcassets */; };
-		5C24F65725EC08EC00543CDD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C24F65625EC08EC00543CDD /* Preview Assets.xcassets */; };
+		5C7728F925EFEC0E00F4B9A2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7728F825EFEC0E00F4B9A2 /* Color.swift */; };
+		5C9BA52425EDFC7E002FD971 /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 5C9BA52325EDFC7E002FD971 /* Mixtapes */; };
+		5CA52FAB25F10E6F006F6458 /* WindowGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA52FAA25F10E6F006F6458 /* WindowGroup.swift */; };
+		5CD76E6B25EE092300D65799 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD76E6A25EE092300D65799 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C0B11A425EF3924001968C4 /* Gaegu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaegu.ttf; sourceTree = "<group>"; };
 		5C24F64C25EC08EB00543CDD /* Mixtapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixtapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C24F64F25EC08EB00543CDD /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C24F65125EC08EB00543CDD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C24F65325EC08EC00543CDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5C24F65625EC08EC00543CDD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C24F65825EC08EC00543CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CDFB31725EC09F3009158ED /* MixtapesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MixtapesApp.entitlements; sourceTree = "<group>"; };
+		5C7728F825EFEC0E00F4B9A2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		5CA52FAA25F10E6F006F6458 /* WindowGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowGroup.swift; sourceTree = "<group>"; };
+		5CD76E6A25EE092300D65799 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		5CDFB31725EC09F3009158ED /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9BA52425EDFC7E002FD971 /* Mixtapes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +47,7 @@
 			children = (
 				5C24F64E25EC08EB00543CDD /* MixtapesApp */,
 				5C24F64D25EC08EB00543CDD /* Products */,
+				5C9BA51C25EDFB4C002FD971 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,22 +62,32 @@
 		5C24F64E25EC08EB00543CDD /* MixtapesApp */ = {
 			isa = PBXGroup;
 			children = (
-				5CDFB31725EC09F3009158ED /* MixtapesApp.entitlements */,
+				5CDFB31725EC09F3009158ED /* App.entitlements */,
 				5C24F64F25EC08EB00543CDD /* App.swift */,
-				5C24F65125EC08EB00543CDD /* ContentView.swift */,
 				5C24F65325EC08EC00543CDD /* Assets.xcassets */,
+				5C24F65125EC08EB00543CDD /* ContentView.swift */,
+				5CD76E6925EE090D00D65799 /* SwiftUI */,
 				5C24F65825EC08EC00543CDD /* Info.plist */,
-				5C24F65525EC08EC00543CDD /* Preview Content */,
 			);
 			path = MixtapesApp;
 			sourceTree = "<group>";
 		};
-		5C24F65525EC08EC00543CDD /* Preview Content */ = {
+		5C9BA51C25EDFB4C002FD971 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C24F65625EC08EC00543CDD /* Preview Assets.xcassets */,
 			);
-			path = "Preview Content";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CD76E6925EE090D00D65799 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				5C7728F825EFEC0E00F4B9A2 /* Color.swift */,
+				5CD76E6A25EE092300D65799 /* Font.swift */,
+				5C0B11A425EF3924001968C4 /* Gaegu.ttf */,
+				5CA52FAA25F10E6F006F6458 /* WindowGroup.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,6 +107,9 @@
 			dependencies = (
 			);
 			name = MixtapesApp;
+			packageProductDependencies = (
+				5C9BA52325EDFC7E002FD971 /* Mixtapes */,
+			);
 			productName = MixtapesApp;
 			productReference = 5C24F64C25EC08EB00543CDD /* Mixtapes.app */;
 			productType = "com.apple.product-type.application";
@@ -129,7 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C24F65725EC08EC00543CDD /* Preview Assets.xcassets in Resources */,
+				5C0B11A525EF3924001968C4 /* Gaegu.ttf in Resources */,
 				5C24F65425EC08EC00543CDD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,7 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C24F65225EC08EB00543CDD /* ContentView.swift in Sources */,
+				5CA52FAB25F10E6F006F6458 /* WindowGroup.swift in Sources */,
+				5C7728F925EFEC0E00F4B9A2 /* Color.swift in Sources */,
 				5C24F65025EC08EB00543CDD /* App.swift in Sources */,
+				5CD76E6B25EE092300D65799 /* Font.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,10 +316,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MixtapesApp/MixtapesApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MixtapesApp/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_ASSET_PATHS = "\"MixtapesApp/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MixtapesApp/Info.plist;
@@ -304,10 +329,11 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = Mixtapes;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -316,10 +342,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MixtapesApp/MixtapesApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MixtapesApp/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_ASSET_PATHS = "\"MixtapesApp/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MixtapesApp/Info.plist;
@@ -329,10 +355,11 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = Mixtapes;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
@@ -358,6 +385,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C9BA52325EDFC7E002FD971 /* Mixtapes */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Mixtapes;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C24F64425EC08EB00543CDD /* Project object */;
 }

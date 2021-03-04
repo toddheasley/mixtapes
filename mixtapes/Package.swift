@@ -10,7 +10,7 @@ let package = Package(name: "mixtapes", platforms: [
         ])
     ], targets: [
         .target(name: "Mixtapes", resources: [
-            .copy("Resources")
+            .process("Resources")
         ]),
         .testTarget(name: "MixtapesTests", dependencies: [
             "Mixtapes"
