@@ -28,7 +28,7 @@ extension HTMLPage {
         }
         string += "<meta name=\"viewport\" content=\"initial-scale=1.0\">\n"
         string += "<link rel=\"alternate\" href=\"\(RSSFeed(index: index).url.lastPathComponent)\" type=\"application/rss+xml\">\n"
-        string += "<link rel=\"stylesheet\" href=\"\(try! Stylesheet(url: index.url).url.lastPathComponent)\">"
+        //string += "<link rel=\"stylesheet\" href=\"\(try! Stylesheet(url: index.url).url.lastPathComponent)\">"
         return string
     }
     

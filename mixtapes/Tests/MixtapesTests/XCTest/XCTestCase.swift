@@ -2,7 +2,7 @@ import XCTest
 
 extension XCTestCase {
     var resources: URL {
-        return URL(string: Bundle.module.resourceURL!.appendingPathComponent("Resources").absoluteString)!
+        return Bundle.module.resourceURL!
     }
     
     func resource(_ path: String) -> URL {

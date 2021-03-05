@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(name: "mixtapes", platforms: [
-        .iOS(.v14)
+        .macOS(.v11)
     ], products: [
         .library(name: "Mixtapes", targets: [
             "Mixtapes"
@@ -15,7 +15,7 @@ let package = Package(name: "mixtapes", platforms: [
         .testTarget(name: "MixtapesTests", dependencies: [
             "Mixtapes"
         ], resources: [
-            .copy("Resources")
+            .process("Resources")
         ])
     ]
 )

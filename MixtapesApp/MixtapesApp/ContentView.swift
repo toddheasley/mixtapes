@@ -2,11 +2,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("MIXTAPES")
-                .foregroundColor(.foreground)
-                .font(.gaegu())
-        }
+        Text("MIXTAPES")
+            .foregroundColor(.foreground)
+            .font(.gaegu())
+            .padding()
     }
 }
 

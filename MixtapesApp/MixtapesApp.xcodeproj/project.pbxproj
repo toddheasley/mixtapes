@@ -7,85 +7,82 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C0B11A525EF3924001968C4 /* Gaegu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0B11A425EF3924001968C4 /* Gaegu.ttf */; };
-		5C24F65025EC08EB00543CDD /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24F64F25EC08EB00543CDD /* App.swift */; };
-		5C24F65225EC08EB00543CDD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24F65125EC08EB00543CDD /* ContentView.swift */; };
-		5C24F65425EC08EC00543CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C24F65325EC08EC00543CDD /* Assets.xcassets */; };
-		5C7728F925EFEC0E00F4B9A2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7728F825EFEC0E00F4B9A2 /* Color.swift */; };
-		5C9BA52425EDFC7E002FD971 /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 5C9BA52325EDFC7E002FD971 /* Mixtapes */; };
-		5CA52FAB25F10E6F006F6458 /* WindowGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA52FAA25F10E6F006F6458 /* WindowGroup.swift */; };
-		5CD76E6B25EE092300D65799 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD76E6A25EE092300D65799 /* Font.swift */; };
+		5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDD25F1F269007B4B63 /* App.swift */; };
+		5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDF25F1F269007B4B63 /* ContentView.swift */; };
+		5C8A5FE225F1F26A007B4B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */; };
+		5C8A5FFF25F1F5FD007B4B63 /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8A5FFE25F1F5FD007B4B63 /* Mixtapes */; };
+		5C8A600325F1F8D7007B4B63 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A600225F1F8D7007B4B63 /* Color.swift */; };
+		5C8A600725F1F953007B4B63 /* Gaegu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8A600625F1F953007B4B63 /* Gaegu.ttf */; };
+		5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A600925F1F95C007B4B63 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C0B11A425EF3924001968C4 /* Gaegu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaegu.ttf; sourceTree = "<group>"; };
-		5C24F64C25EC08EB00543CDD /* Mixtapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixtapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C24F64F25EC08EB00543CDD /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		5C24F65125EC08EB00543CDD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		5C24F65325EC08EC00543CDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5C24F65825EC08EC00543CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C7728F825EFEC0E00F4B9A2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		5CA52FAA25F10E6F006F6458 /* WindowGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowGroup.swift; sourceTree = "<group>"; };
-		5CD76E6A25EE092300D65799 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		5CDFB31725EC09F3009158ED /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
+		5C8A5FDA25F1F269007B4B63 /* Mixtapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixtapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C8A5FDD25F1F269007B4B63 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		5C8A5FDF25F1F269007B4B63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C8A5FE625F1F26A007B4B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C8A5FE725F1F26A007B4B63 /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
+		5C8A600225F1F8D7007B4B63 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		5C8A600625F1F953007B4B63 /* Gaegu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaegu.ttf; sourceTree = "<group>"; };
+		5C8A600925F1F95C007B4B63 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5C24F64925EC08EB00543CDD /* Frameworks */ = {
+		5C8A5FD725F1F269007B4B63 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9BA52425EDFC7E002FD971 /* Mixtapes in Frameworks */,
+				5C8A5FFF25F1F5FD007B4B63 /* Mixtapes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C24F64325EC08EB00543CDD = {
+		5C8A5FD125F1F269007B4B63 = {
 			isa = PBXGroup;
 			children = (
-				5C24F64E25EC08EB00543CDD /* MixtapesApp */,
-				5C24F64D25EC08EB00543CDD /* Products */,
-				5C9BA51C25EDFB4C002FD971 /* Frameworks */,
+				5C8A5FDC25F1F269007B4B63 /* MixtapesApp */,
+				5C8A5FDB25F1F269007B4B63 /* Products */,
+				5C8A5FFD25F1F5FD007B4B63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		5C24F64D25EC08EB00543CDD /* Products */ = {
+		5C8A5FDB25F1F269007B4B63 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C24F64C25EC08EB00543CDD /* Mixtapes.app */,
+				5C8A5FDA25F1F269007B4B63 /* Mixtapes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C24F64E25EC08EB00543CDD /* MixtapesApp */ = {
+		5C8A5FDC25F1F269007B4B63 /* MixtapesApp */ = {
 			isa = PBXGroup;
 			children = (
-				5CDFB31725EC09F3009158ED /* App.entitlements */,
-				5C24F64F25EC08EB00543CDD /* App.swift */,
-				5C24F65325EC08EC00543CDD /* Assets.xcassets */,
-				5C24F65125EC08EB00543CDD /* ContentView.swift */,
-				5CD76E6925EE090D00D65799 /* SwiftUI */,
-				5C24F65825EC08EC00543CDD /* Info.plist */,
+				5C8A5FE725F1F26A007B4B63 /* App.entitlements */,
+				5C8A5FDD25F1F269007B4B63 /* App.swift */,
+				5C8A600125F1F8B6007B4B63 /* SwiftUI */,
+				5C8A5FDF25F1F269007B4B63 /* ContentView.swift */,
+				5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */,
+				5C8A5FE625F1F26A007B4B63 /* Info.plist */,
 			);
 			path = MixtapesApp;
 			sourceTree = "<group>";
 		};
-		5C9BA51C25EDFB4C002FD971 /* Frameworks */ = {
+		5C8A5FFD25F1F5FD007B4B63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5CD76E6925EE090D00D65799 /* SwiftUI */ = {
+		5C8A600125F1F8B6007B4B63 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				5C7728F825EFEC0E00F4B9A2 /* Color.swift */,
-				5CD76E6A25EE092300D65799 /* Font.swift */,
-				5C0B11A425EF3924001968C4 /* Gaegu.ttf */,
-				5CA52FAA25F10E6F006F6458 /* WindowGroup.swift */,
+				5C8A600225F1F8D7007B4B63 /* Color.swift */,
+				5C8A600925F1F95C007B4B63 /* Font.swift */,
+				5C8A600625F1F953007B4B63 /* Gaegu.ttf */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -93,14 +90,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C24F64B25EC08EB00543CDD /* MixtapesApp */ = {
+		5C8A5FD925F1F269007B4B63 /* MixtapesApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C24F65B25EC08EC00543CDD /* Build configuration list for PBXNativeTarget "MixtapesApp" */;
+			buildConfigurationList = 5C8A5FEA25F1F26A007B4B63 /* Build configuration list for PBXNativeTarget "MixtapesApp" */;
 			buildPhases = (
-				5C24F64825EC08EB00543CDD /* Sources */,
-				5C24F64925EC08EB00543CDD /* Frameworks */,
-				5C24F64A25EC08EB00543CDD /* Resources */,
-				5CDFB31B25EC0AC9009158ED /* Set Build Number */,
+				5C8A5FD625F1F269007B4B63 /* Sources */,
+				5C8A5FD725F1F269007B4B63 /* Frameworks */,
+				5C8A5FD825F1F269007B4B63 /* Resources */,
+				5C8A5FF825F1F4F6007B4B63 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -108,27 +105,27 @@
 			);
 			name = MixtapesApp;
 			packageProductDependencies = (
-				5C9BA52325EDFC7E002FD971 /* Mixtapes */,
+				5C8A5FFE25F1F5FD007B4B63 /* Mixtapes */,
 			);
 			productName = MixtapesApp;
-			productReference = 5C24F64C25EC08EB00543CDD /* Mixtapes.app */;
+			productReference = 5C8A5FDA25F1F269007B4B63 /* Mixtapes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5C24F64425EC08EB00543CDD /* Project object */ = {
+		5C8A5FD225F1F269007B4B63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					5C24F64B25EC08EB00543CDD = {
+					5C8A5FD925F1F269007B4B63 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
-			buildConfigurationList = 5C24F64725EC08EB00543CDD /* Build configuration list for PBXProject "MixtapesApp" */;
+			buildConfigurationList = 5C8A5FD525F1F269007B4B63 /* Build configuration list for PBXProject "MixtapesApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -136,30 +133,30 @@
 				en,
 				Base,
 			);
-			mainGroup = 5C24F64325EC08EB00543CDD;
-			productRefGroup = 5C24F64D25EC08EB00543CDD /* Products */;
+			mainGroup = 5C8A5FD125F1F269007B4B63;
+			productRefGroup = 5C8A5FDB25F1F269007B4B63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C24F64B25EC08EB00543CDD /* MixtapesApp */,
+				5C8A5FD925F1F269007B4B63 /* MixtapesApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5C24F64A25EC08EB00543CDD /* Resources */ = {
+		5C8A5FD825F1F269007B4B63 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C0B11A525EF3924001968C4 /* Gaegu.ttf in Resources */,
-				5C24F65425EC08EC00543CDD /* Assets.xcassets in Resources */,
+				5C8A600725F1F953007B4B63 /* Gaegu.ttf in Resources */,
+				5C8A5FE225F1F26A007B4B63 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5CDFB31B25EC0AC9009158ED /* Set Build Number */ = {
+		5C8A5FF825F1F4F6007B4B63 /* Set Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -180,22 +177,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5C24F64825EC08EB00543CDD /* Sources */ = {
+		5C8A5FD625F1F269007B4B63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C24F65225EC08EB00543CDD /* ContentView.swift in Sources */,
-				5CA52FAB25F10E6F006F6458 /* WindowGroup.swift in Sources */,
-				5C7728F925EFEC0E00F4B9A2 /* Color.swift in Sources */,
-				5C24F65025EC08EB00543CDD /* App.swift in Sources */,
-				5CD76E6B25EE092300D65799 /* Font.swift in Sources */,
+				5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */,
+				5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */,
+				5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */,
+				5C8A600325F1F8D7007B4B63 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5C24F65925EC08EC00543CDD /* Debug */ = {
+		5C8A5FE825F1F26A007B4B63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,17 +242,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		5C24F65A25EC08EC00543CDD /* Release */ = {
+		5C8A5FE925F1F26A007B4B63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -301,85 +297,84 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		5C24F65C25EC08EC00543CDD /* Debug */ = {
+		5C8A5FEB25F1F26A007B4B63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MixtapesApp/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MixtapesApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
-				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
-				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
-		5C24F65D25EC08EC00543CDD /* Release */ = {
+		5C8A5FEC25F1F26A007B4B63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MixtapesApp/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MixtapesApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
-				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
-				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C24F64725EC08EB00543CDD /* Build configuration list for PBXProject "MixtapesApp" */ = {
+		5C8A5FD525F1F269007B4B63 /* Build configuration list for PBXProject "MixtapesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C24F65925EC08EC00543CDD /* Debug */,
-				5C24F65A25EC08EC00543CDD /* Release */,
+				5C8A5FE825F1F26A007B4B63 /* Debug */,
+				5C8A5FE925F1F26A007B4B63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C24F65B25EC08EC00543CDD /* Build configuration list for PBXNativeTarget "MixtapesApp" */ = {
+		5C8A5FEA25F1F26A007B4B63 /* Build configuration list for PBXNativeTarget "MixtapesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C24F65C25EC08EC00543CDD /* Debug */,
-				5C24F65D25EC08EC00543CDD /* Release */,
+				5C8A5FEB25F1F26A007B4B63 /* Debug */,
+				5C8A5FEC25F1F26A007B4B63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -387,11 +382,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5C9BA52325EDFC7E002FD971 /* Mixtapes */ = {
+		5C8A5FFE25F1F5FD007B4B63 /* Mixtapes */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Mixtapes;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 5C24F64425EC08EB00543CDD /* Project object */;
+	rootObject = 5C8A5FD225F1F269007B4B63 /* Project object */;
 }

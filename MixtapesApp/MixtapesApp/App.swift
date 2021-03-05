@@ -5,8 +5,11 @@ import Mixtapes
 struct App: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+                ContentView()
+                ContentView()
+            }
         }
-        .hideTitlebar()
     }
 }

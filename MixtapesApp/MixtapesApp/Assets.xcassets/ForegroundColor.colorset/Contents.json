@@ -20,7 +20,7 @@
         }
       ],
       "color" : {
-        "platform" : "ios",
+        "platform" : "osx",
         "reference" : "labelColor"
       },
       "idiom" : "universal"
