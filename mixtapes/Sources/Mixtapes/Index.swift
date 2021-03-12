@@ -33,7 +33,10 @@ public struct Index: Identifiable, CustomStringConvertible {
         try Site(index: self).write()
     }
     
-    public init(url: URL) throws {
+    public init(url: URL?) throws {
+        guard let url: URL = url else {
+            throw Error("Resource URL not found")
+        }
         guard FileManager.default.fileExists(atPath: url.path) else {
             throw Error("Resource not found", url: url)
         }

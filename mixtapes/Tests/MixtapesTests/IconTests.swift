@@ -2,6 +2,10 @@ import XCTest
 @testable import Mixtapes
 
 final class IconTests: XCTestCase {
+    func testData() {
+        XCTAssertEqual(Icon.data.count, 188712)
+    }
+    
     func testReset() throws {
         let icon: Icon = try Icon(url: resource("example.m4a"))
         XCTAssertEqual(icon.url.relativePath, "icon.png")
