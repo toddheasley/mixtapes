@@ -1,11 +1,24 @@
 import SwiftUI
+import Mixtapes
 
 struct ContentView: View {
+    @State var item: Item?
     
     // MARK: View
     var body: some View {
-        List(0..<25) { index in
-            Text("CONTENT")
+        if let item: Item = item {
+            ItemView(item: item)
+        } else {
+            SettingsView()
         }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    
+    // MARK: PreviewProvider
+    static var previews: some View {
+        ContentView()
+            .environmentObject(Mixtapes())
     }
 }

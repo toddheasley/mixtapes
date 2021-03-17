@@ -8,28 +8,17 @@ struct App: SwiftUI.App {
     // MARK: App
     var body: some Scene {
         WindowGroup("Mixtapes") {
-            NavigationView {
-                SidebarView()
-                    .frame(minWidth: 210.0, idealWidth: 320.0)
-                    .toolbar {
-                        SidebarButton()
-                    }
-                ContentView()
-                    .background(Color(.textBackgroundColor))
-                    .frame(minWidth: 320.0, idealWidth: 540.0, maxWidth: .greatestFiniteMagnitude)
-                    .toolbar {
-                        ToolbarItem(placement: .navigation) {
-                            TitleView()
-                        }
-                    }
-            }
-            .environmentObject(mixtapes)
+            MainView()
+                .environmentObject(mixtapes)
         }
         .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
         .commands {
+            CommandGroup(replacing: .appSettings) {
+                SettingsCommands(index: mixtapes.index)
+            }
             SidebarCommands()
             CommandGroup(replacing: .help) {
-                HelpButton()
+                HelpCommands()
             }
         }
     }

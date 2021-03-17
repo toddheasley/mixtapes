@@ -10,12 +10,17 @@ struct TitleView: View {
     
     // MARK: View
     var body: some View {
-        HStack {
-            IconView(mixtapes.index?.icon, size: CGSize(width: 21.0, height: 21.0))
-                .cornerRadius(3.0)
-                .padding(.trailing, 6.0)
-            Text(title)
-                .bodyStyle()
-        }
+        Text(title)
+            .bodyStyle()
+            .padding(.horizontal, 4.0)
+    }
+}
+
+struct TitleView_Previews: PreviewProvider {
+    
+    // MARK: PreviewProvider
+    static var previews: some View {
+        TitleView()
+            .environmentObject(Mixtapes())
     }
 }

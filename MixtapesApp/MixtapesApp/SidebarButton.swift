@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SidebarButton: View {
     private func toggleSidebar() {
-        NSApplication.shared.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        NSApplication.shared.keyWindow?.toggleSidebar()
     }
     
     // MARK: View
@@ -15,6 +15,8 @@ struct SidebarButton: View {
 }
 
 struct SidebarButton_Previews: PreviewProvider {
+    
+    // MARK: PreviewProvider
     static var previews: some View {
         SidebarButton()
     }

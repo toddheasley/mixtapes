@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */; };
 		5C58AB8625FA5FA20009E22D /* SidebarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8525FA5FA20009E22D /* SidebarButton.swift */; };
 		5C58AB8A25FA62C40009E22D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8925FA62C40009E22D /* TitleView.swift */; };
-		5C58AB8E25FA67AB0009E22D /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8D25FA67AB0009E22D /* HelpButton.swift */; };
+		5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */; };
 		5C58AB9425FB01A20009E22D /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB9325FB01A20009E22D /* Text.swift */; };
 		5C58ABA325FB18BA0009E22D /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58ABA225FB18BA0009E22D /* IconView.swift */; };
+		5C5C4F1126022DD200919DF6 /* PreviewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F1026022DD200919DF6 /* PreviewButton.swift */; };
+		5C5C4F18260253C400919DF6 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F17260253C400919DF6 /* NSEvent.swift */; };
+		5C5C4F1B2602550C00919DF6 /* NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F1A2602550C00919DF6 /* NSWindow.swift */; };
 		5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDD25F1F269007B4B63 /* App.swift */; };
 		5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDF25F1F269007B4B63 /* ContentView.swift */; };
 		5C8A5FE225F1F26A007B4B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */; };
@@ -19,16 +23,23 @@
 		5C8A600325F1F8D7007B4B63 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A600225F1F8D7007B4B63 /* Color.swift */; };
 		5C8A600725F1F953007B4B63 /* Gaegu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8A600625F1F953007B4B63 /* Gaegu.ttf */; };
 		5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A600925F1F95C007B4B63 /* Font.swift */; };
+		5C93D66726014AB2003BC1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93D66626014AB2003BC1F6 /* MainView.swift */; };
 		5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA412C25F25E9600361312 /* SidebarView.swift */; };
+		5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */; };
+		5CF4E88525FB924D0028F87A /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF4E88425FB924D0028F87A /* SettingsButton.swift */; };
 		5CFD30BE25F7EC76009ED8AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCommands.swift; sourceTree = "<group>"; };
 		5C58AB8525FA5FA20009E22D /* SidebarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarButton.swift; sourceTree = "<group>"; };
 		5C58AB8925FA62C40009E22D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		5C58AB8D25FA67AB0009E22D /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
+		5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
 		5C58AB9325FB01A20009E22D /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		5C58ABA225FB18BA0009E22D /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		5C5C4F1026022DD200919DF6 /* PreviewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewButton.swift; sourceTree = "<group>"; };
+		5C5C4F17260253C400919DF6 /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
+		5C5C4F1A2602550C00919DF6 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
 		5C8A5FDA25F1F269007B4B63 /* Mixtapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixtapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8A5FDD25F1F269007B4B63 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C8A5FDF25F1F269007B4B63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,7 +49,10 @@
 		5C8A600225F1F8D7007B4B63 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		5C8A600625F1F953007B4B63 /* Gaegu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaegu.ttf; sourceTree = "<group>"; };
 		5C8A600925F1F95C007B4B63 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		5C93D66626014AB2003BC1F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5CCA412C25F25E9600361312 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		5CF4E88425FB924D0028F87A /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C5C4F16260253B400919DF6 /* AppKit */ = {
+			isa = PBXGroup;
+			children = (
+				5C5C4F17260253C400919DF6 /* NSEvent.swift */,
+				5C5C4F1A2602550C00919DF6 /* NSWindow.swift */,
+			);
+			path = AppKit;
+			sourceTree = "<group>";
+		};
 		5C8A5FD125F1F269007B4B63 = {
 			isa = PBXGroup;
 			children = (
@@ -74,17 +97,23 @@
 		5C8A5FDC25F1F269007B4B63 /* MixtapesApp */ = {
 			isa = PBXGroup;
 			children = (
+				5C5C4F16260253B400919DF6 /* AppKit */,
 				5C8A600125F1F8B6007B4B63 /* SwiftUI */,
 				5C8A5FE725F1F26A007B4B63 /* App.entitlements */,
 				5C8A5FDD25F1F269007B4B63 /* App.swift */,
+				5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */,
 				5C8A5FDF25F1F269007B4B63 /* ContentView.swift */,
-				5C58AB8D25FA67AB0009E22D /* HelpButton.swift */,
+				5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */,
 				5C58ABA225FB18BA0009E22D /* IconView.swift */,
+				5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */,
+				5C93D66626014AB2003BC1F6 /* MainView.swift */,
+				5C5C4F1026022DD200919DF6 /* PreviewButton.swift */,
+				5CF4E88425FB924D0028F87A /* SettingsButton.swift */,
+				5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */,
 				5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */,
 				5C58AB8525FA5FA20009E22D /* SidebarButton.swift */,
 				5CCA412C25F25E9600361312 /* SidebarView.swift */,
 				5C58AB8925FA62C40009E22D /* TitleView.swift */,
-				5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */,
 				5C8A5FE625F1F26A007B4B63 /* Info.plist */,
 			);
 			path = MixtapesApp;
@@ -203,15 +232,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */,
+				5C5C4F18260253C400919DF6 /* NSEvent.swift in Sources */,
+				5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */,
 				5C58AB8625FA5FA20009E22D /* SidebarButton.swift in Sources */,
 				5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */,
-				5C58AB8E25FA67AB0009E22D /* HelpButton.swift in Sources */,
+				5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */,
+				5CF4E88525FB924D0028F87A /* SettingsButton.swift in Sources */,
 				5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */,
+				5C5C4F1B2602550C00919DF6 /* NSWindow.swift in Sources */,
 				5C58ABA325FB18BA0009E22D /* IconView.swift in Sources */,
 				5CFD30BE25F7EC76009ED8AF /* SettingsView.swift in Sources */,
+				5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */,
 				5C58AB9425FB01A20009E22D /* Text.swift in Sources */,
 				5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */,
+				5C5C4F1126022DD200919DF6 /* PreviewButton.swift in Sources */,
 				5C8A600325F1F8D7007B4B63 /* Color.swift in Sources */,
+				5C93D66726014AB2003BC1F6 /* MainView.swift in Sources */,
 				5C58AB8A25FA62C40009E22D /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

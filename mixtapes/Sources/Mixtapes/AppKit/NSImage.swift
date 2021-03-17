@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit
 
 extension NSImage {
     func pngData(_ size: CGSize? = nil) throws -> Data {
