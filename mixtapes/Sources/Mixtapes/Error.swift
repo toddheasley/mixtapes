@@ -12,6 +12,13 @@ public struct Error: Swift.Error, CustomStringConvertible {
         self.url = url
     }
     
+    init?(_ error: Swift.Error) {
+        guard let error: Error = error as? Error else {
+            return nil
+        }
+        self = error
+    }
+    
     // MARK: CustomStringConvertible
     public let description: String
 }

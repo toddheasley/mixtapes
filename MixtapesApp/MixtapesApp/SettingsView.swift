@@ -5,7 +5,7 @@ struct SettingsView: View {
     
     // MARK: View
     var body: some View {
-        Image(systemName: "gearshape")
+        URLButton()
     }
 }
 

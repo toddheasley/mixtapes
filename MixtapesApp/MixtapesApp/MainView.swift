@@ -21,8 +21,10 @@ struct MainView: View {
                     ToolbarItemGroup {
                         TitleView()
                         Spacer()
-                        PreviewButton()
+                        ItemButton()
                         SettingsButton(item: $item)
+                        FinderButton()
+                        PreviewButton()
                     }
                 }
         }

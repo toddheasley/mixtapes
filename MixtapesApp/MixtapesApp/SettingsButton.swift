@@ -6,8 +6,6 @@ struct SettingsButton: View {
     
     private func toggleSettings() {
         item = nil
-        
-        print("toggleSettings")
     }
     
     // MARK: View
@@ -16,7 +14,7 @@ struct SettingsButton: View {
             Image(systemName: "gearshape")
                 .help("Podcast Settings")
         }
-        .keyboardShortcut(",", modifiers: .command)
+        .keyboardShortcut(",", modifiers: [.command, .option])
         .disabled(item == nil)
     }
 }

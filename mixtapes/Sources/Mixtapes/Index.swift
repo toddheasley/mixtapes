@@ -4,8 +4,9 @@ public struct Index: Identifiable, CustomStringConvertible {
     public let url: URL
     public let icon: Icon
     public var title: String = ""
-    public var isExpired: Bool = false
+    public var homepage: String = ""
     public var authors: [Author] = []
+    public var isExpired: Bool = false
     
     public var items: [Item] = [] {
         didSet {
@@ -15,13 +16,6 @@ public struct Index: Identifiable, CustomStringConvertible {
             }
             items = sortedItems
         }
-    }
-    
-    public var homepage: String {
-        set {
-            homepageURL = URL(homepage: newValue, path: "index.html")
-        }
-        get { homepageURL?.baseURL?.absoluteString ?? "" }
     }
     
     public func write() throws {
@@ -49,11 +43,16 @@ public struct Index: Identifiable, CustomStringConvertible {
                 self.icon = try Icon(url: url)
             }
         } catch {
+            
+            print("*** \(error)")
+            
             throw Error("Feed decoding failed", url: url)
         }
     }
     
-    private(set) var homepageURL: URL?
+    var homepageURL: URL? {
+        return URL(homepage: homepage, path: "index.html")
+    }
     
     var feedURL: URL? {
         return URL(homepage: homepage, path: url.lastPathComponent)
@@ -86,34 +85,38 @@ extension Index: Codable {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
         try container.encode("https://jsonfeed.org/version/1.1", forKey: .version)
         try container.encode(title, forKey: .title)
+        if let homepageURL: URL = homepageURL {
+            try container.encode(homepageURL, forKey: .homepageURL)
+        } else if !homepage.isEmpty {
+            try container.encode(homepage, forKey: .homepageURL)
+        }
+        try container.encodeIfPresent(feedURL, forKey: .feedURL)
         try container.encode(description, forKey: .description)
+        try container.encodeIfPresent(iconURL, forKey: .icon)
+        if !authors.isEmpty {
+            try container.encode(authors, forKey: .authors)
+        }
         if isExpired {
             try container.encode(isExpired, forKey: .expired)
         }
         try container.encode(items, forKey: .items)
-        if !authors.isEmpty {
-            try container.encode(authors, forKey: .authors)
-        }
-        if let homepageURL: URL = homepageURL {
-            try container.encode(homepageURL, forKey: .homepageURL)
-            try container.encode(feedURL!, forKey: .feedURL)
-            try container.encode(iconURL!, forKey: .icon)
-        }
     }
     
     public init(from decoder: Decoder) throws {
         url = try decoder.url()
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
-        icon = try Icon(url: url, path: (try? container.decode(URL.self, forKey: .icon))?.lastPathComponent)
         title = try container.decode(String.self, forKey: .title)
+        if let homepage: String = try? container.decode(String.self, forKey: .homepageURL) {
+            self.homepage = URL(homepage: homepage)?.absoluteString ?? homepage
+        }
+        description = try container.decode(String.self, forKey: .description)
+        icon = try Icon(url: url, path: (try? container.decode(URL.self, forKey: .icon))?.lastPathComponent)
+        authors = (try? container.decode([Author].self, forKey: .authors)) ?? []
         isExpired = (try? container.decode(Bool.self, forKey: .expired)) ?? isExpired
         items = try container.decode([Item].self, forKey: .items)
-        authors = (try? container.decode([Author].self, forKey: .authors)) ?? []
-        description = try container.decode(String.self, forKey: .description)
-        homepage = (try? container.decode(URL.self, forKey: .homepageURL))?.absoluteString ?? ""
     }
     
     private enum Key: String, CodingKey {
-        case version, icon, title, homepageURL = "home_page_url", feedURL = "feed_url", description, expired, items, authors
+        case version, title, homepageURL = "home_page_url", feedURL = "feed_url", description, icon, authors, expired, items
     }
 }

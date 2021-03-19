@@ -5,10 +5,10 @@ struct PreviewButton: View {
     @EnvironmentObject private var mixtapes: Mixtapes
     
     private func preview() {
-        guard let url: URL = mixtapes.index?.url.deletingPathExtension().appendingPathExtension("html") else {
+        guard let url: URL = mixtapes.index?.url.deletingPathExtension() else {
             return
         }
-        NSWorkspace.shared.open(url)
+        NSWorkspace.shared.open(url.appendingPathExtension("html"))
     }
     
     // MARK: View
@@ -17,6 +17,7 @@ struct PreviewButton: View {
             Image(systemName: "safari")
                 .help("Preview")
         }
+        .keyboardShortcut("O", modifiers: [.command, .option])
         .disabled(mixtapes.index == nil)
     }
 }

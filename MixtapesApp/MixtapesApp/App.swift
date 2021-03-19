@@ -14,7 +14,12 @@ struct App: SwiftUI.App {
         .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
         .commands {
             CommandGroup(replacing: .appSettings) {
-                SettingsCommands(index: mixtapes.index)
+                SettingsCommands()
+                    .environmentObject(mixtapes)
+            }
+            CommandGroup(after: CommandGroupPlacement.newItem) {
+                FileCommands()
+                    .environmentObject(mixtapes)
             }
             SidebarCommands()
             CommandGroup(replacing: .help) {

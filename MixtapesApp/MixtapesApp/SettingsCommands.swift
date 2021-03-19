@@ -2,7 +2,7 @@ import SwiftUI
 import Mixtapes
 
 struct SettingsCommands: View {
-    @State var index: Index?
+    @EnvironmentObject private var mixtapes: Mixtapes
     
     private func toggleSettings() {
         NSApplication.shared.keyWindow?.toggleSettings()
@@ -14,7 +14,7 @@ struct SettingsCommands: View {
             Text("Podcast Settings…")
         }
         .keyboardShortcut(",", modifiers: .command)
-        .disabled(index == nil)
+        .disabled(mixtapes.index == nil)
     }
 }
 
@@ -23,5 +23,6 @@ struct SettingsCommands_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         SettingsCommands()
+            .environmentObject(Mixtapes())
     }
 }

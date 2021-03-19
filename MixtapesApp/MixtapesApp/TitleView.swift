@@ -12,7 +12,7 @@ struct TitleView: View {
     var body: some View {
         Text(title)
             .bodyStyle()
-            .padding(.horizontal, 4.0)
+            .padding(.horizontal, 5.0)
     }
 }
 

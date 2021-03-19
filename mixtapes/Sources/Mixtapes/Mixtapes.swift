@@ -1,23 +1,41 @@
 import Foundation
+import SwiftUI
 
 public class Mixtapes: ObservableObject {
-    @Published public private(set) var index: Index?
+    @AppStorage("url") private static var url: URL?
     
-    public func open(_ url: URL?) throws {
-        index = try Index(url: url)
-        UserDefaults.standard.url = index?.url
+    @Published public private(set) var index: Index? {
+        didSet {
+            do {
+                try index?.write()
+            } catch {
+                self.error = Error(error)
+            }
+        }
     }
     
-    public func reset() {
-        UserDefaults.standard.url  = nil
-        index = nil
+    @Published public private(set) var error: Error? {
+        didSet {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                self?.error = nil
+            }
+        }
+    }
+    
+    public func open(_ url: URL?) {
+        do {
+            index = url != nil ? (try Index(url: url)) : nil
+            Self.url = index?.url
+        } catch {
+            self.error = Error(error)
+        }
     }
     
     public init() {
         do {
-            index = try Index(url: UserDefaults.standard.url)
+            index = try Index(url: Self.url)
         } catch {
-            UserDefaults.standard.url = nil
+            Self.url = nil
         }
     }
 }
