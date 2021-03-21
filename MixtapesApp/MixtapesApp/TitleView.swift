@@ -11,7 +11,7 @@ struct TitleView: View {
     // MARK: View
     var body: some View {
         Text(title)
-            .bodyStyle()
+            .primaryStyle()
             .padding(.horizontal, 5.0)
     }
 }

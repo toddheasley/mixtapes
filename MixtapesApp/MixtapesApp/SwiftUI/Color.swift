@@ -1,15 +1,7 @@
 import SwiftUI
 
 extension Color {
-    static var background: Self {
-        return Self("BackgroundColor")
-    }
-    
-    static var foreground: Self {
-        return Self("ForegroundColor")
-    }
-    
-    static var highlight: Self {
-        return accentColor.opacity(0.5)
+    static func highlightColor(_ isHighlighted: Bool = true) -> Self {
+        return Self("HighlightColor").opacity(isHighlighted ? 0.75 : 0.0)
     }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 import Mixtapes
 
-struct URLButton: View {
+struct FolderButton: View {
     @EnvironmentObject private var mixtapes: Mixtapes
     
     private let defaultMessage: String = "Choose Podcast Folder…"
@@ -10,7 +10,7 @@ struct URLButton: View {
         guard let url: URL = mixtapes.index?.url else {
             return defaultMessage
         }
-        return "\(url)"
+        return "\((url.deletingLastPathComponent().path as NSString).abbreviatingWithTildeInPath)"
     }
     
     private func openURL() {
@@ -34,6 +34,7 @@ struct URLButton: View {
             HStack {
                 Image(systemName: "folder")
                 Text(message)
+                    .secondaryStyle()
                     .padding(.trailing, 3.0)
             }
         }
@@ -41,13 +42,12 @@ struct URLButton: View {
     }
 }
 
-struct URLButton_Previews: PreviewProvider {
+struct FolderButton_Previews: PreviewProvider {
     @State static private var item: Item? = nil
     
     // MARK: PreviewProvider
     static var previews: some View {
-        URLButton()
+        FolderButton()
             .environmentObject(Mixtapes())
     }
 }
-

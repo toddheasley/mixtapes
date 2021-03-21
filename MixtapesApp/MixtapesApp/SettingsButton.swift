@@ -2,10 +2,11 @@ import SwiftUI
 import Mixtapes
 
 struct SettingsButton: View {
-    @Binding var item: Item?
+    @Binding var selection: Selection
     
     private func toggleSettings() {
-        item = nil
+        print("toggleSettings")
+        selection = .settings
     }
     
     // MARK: View
@@ -15,15 +16,15 @@ struct SettingsButton: View {
                 .help("Podcast Settings")
         }
         .keyboardShortcut(",", modifiers: [.command, .option])
-        .disabled(item == nil)
+        .disabled(selection == .settings)
     }
 }
 
 struct SettingsButton_Previews: PreviewProvider {
-    @State static private var item: Item? = nil
+    @State static private var selection: Selection = .auto
     
     // MARK: PreviewProvider
     static var previews: some View {
-        SettingsButton(item: $item)
+        SettingsButton(selection: $selection)
     }
 }

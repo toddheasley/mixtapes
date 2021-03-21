@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Error: Swift.Error, CustomStringConvertible {
+public struct Error: Swift.Error, Identifiable, CustomStringConvertible {
     public let url: URL?
     
     public init(_ description: String, url: URL? = nil) {
@@ -17,6 +17,11 @@ public struct Error: Swift.Error, CustomStringConvertible {
             return nil
         }
         self = error
+    }
+    
+    // MARK: Identifiable
+    public var id: String {
+        return description
     }
     
     // MARK: CustomStringConvertible

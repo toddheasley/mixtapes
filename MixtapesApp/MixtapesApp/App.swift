@@ -5,11 +5,16 @@ import Mixtapes
 struct App: SwiftUI.App {
     @StateObject private var mixtapes: Mixtapes = Mixtapes()
     
+    static let title: String = "Mixtapes"
+    
     // MARK: App
     var body: some Scene {
-        WindowGroup("Mixtapes") {
+        WindowGroup(Self.title) {
             MainView()
                 .environmentObject(mixtapes)
+                .alert(error: $mixtapes.error) {
+                    mixtapes.error = nil
+                }
         }
         .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
         .commands {

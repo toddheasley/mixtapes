@@ -2,23 +2,25 @@ import SwiftUI
 import Mixtapes
 
 struct ContentView: View {
-    @State var item: Item?
+    @Binding var selection: Selection
     
     // MARK: View
     var body: some View {
-        if let item: Item = item {
-            ItemView(item: item)
-        } else {
+        switch selection {
+        case .item:
+            ItemView(selection: $selection)
+        case .settings:
             SettingsView()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @State static private var selection: Selection = .auto
     
     // MARK: PreviewProvider
     static var previews: some View {
-        ContentView()
+        ContentView(selection: $selection)
             .environmentObject(Mixtapes())
     }
 }

@@ -7,6 +7,7 @@ public class Mixtapes: ObservableObject {
     @Published public private(set) var index: Index? {
         didSet {
             do {
+                error = nil
                 try index?.write()
             } catch {
                 self.error = Error(error)
@@ -14,11 +15,21 @@ public class Mixtapes: ObservableObject {
         }
     }
     
-    @Published public private(set) var error: Error? {
-        didSet {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-                self?.error = nil
+    @Published public var error: Error?
+    
+    public func importItem(_ url: URL?) {
+        guard let url: URL = url, url.isFileURL,
+              let destinationURL: URL = URL(string: url.lastPathComponent, relativeTo: index?.url) else {
+            return
+        }
+        do {
+            guard !(index?.items ?? []).map({ $0.id }).contains(url.deletingPathExtension().lastPathComponent) else {
+                throw Error("Duplicate file name", url: url)
             }
+            try FileManager.default.copyItem(at: url, to: destinationURL)
+            index?.items.append(try Item(url: destinationURL))
+        } catch {
+            self.error = Error(error) ?? Error(error.localizedDescription)
         }
     }
     

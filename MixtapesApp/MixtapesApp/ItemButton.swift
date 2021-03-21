@@ -2,28 +2,32 @@ import SwiftUI
 import Mixtapes
 
 struct ItemButton: View {
+    @State var item: Item
+    @Binding var selection: Selection
+    
     @EnvironmentObject private var mixtapes: Mixtapes
     
-    private func openItem() {
-        
+    private var isSelected: Bool {
+        switch selection {
+        case .item(let item):
+            return item == self.item
+        default:
+            return false
+        }
+    }
+    
+    private func selectItem() {
+        selection = .item(item)
     }
     
     // MARK: View
     var body: some View {
-        Button(action: openItem) {
-            Image(systemName: "plus.rectangle")
-                .help("Import Mixtape")
+        Button(action: selectItem) {
+            Text("\(item.title)")
+                .primaryStyle()
         }
-        .keyboardShortcut("N", modifiers: [.command, .option])
-        .disabled(mixtapes.index == nil)
-    }
-}
-
-struct ItemButton_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        ItemButton()
-            .environmentObject(Mixtapes())
+        .buttonStyle(PlainButtonStyle())
+        .padding(.vertical, 2.0)
+        .background(Color.highlightColor(isSelected))
     }
 }

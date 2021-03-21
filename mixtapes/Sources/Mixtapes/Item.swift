@@ -2,8 +2,8 @@ import Foundation
 
 public struct Item: Identifiable, Equatable {
     public let attachment: Attachment
-    public let date: (published: Date, modified: Date?)
-    public let isExplicit: Bool
+    public var date: (published: Date, modified: Date?)
+    public var isExplicit: Bool = false
     
     public var title: String {
         return attachment.asset.title
@@ -17,10 +17,9 @@ public struct Item: Identifiable, Equatable {
         return attachment.asset.artwork.url
     }
     
-    public init(asset: Asset, published date: Date? = nil, isExplicit: Bool = false) {
-        self.attachment = Attachment(asset: asset)
-        self.date = (date ?? Date(), nil)
-        self.isExplicit = isExplicit
+    public init(url: URL) throws {
+        self.attachment = Attachment(asset: try Asset(url: url))
+        self.date = (Date(), nil)
     }
     
     // MARK: Identifiable

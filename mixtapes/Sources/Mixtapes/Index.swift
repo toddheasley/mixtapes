@@ -8,7 +8,7 @@ public struct Index: Identifiable, CustomStringConvertible {
     public var authors: [Author] = []
     public var isExpired: Bool = false
     
-    public var items: [Item] = [] {
+    public internal(set) var items: [Item] = [] {
         didSet {
             let sortedItems: [Item] = items.sorted { $0.date.published > $1.date.published }
             guard items != sortedItems else {

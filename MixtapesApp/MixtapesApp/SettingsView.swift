@@ -2,10 +2,14 @@ import SwiftUI
 import Mixtapes
 
 struct SettingsView: View {
+    @EnvironmentObject private var mixtapes: Mixtapes
     
     // MARK: View
     var body: some View {
-        URLButton()
+        VStack {
+            IconView(mixtapes.index?.icon, size: CGSize(width: 270.0, height: 270.0))
+            FolderButton()
+        }
     }
 }
 

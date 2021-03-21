@@ -2,32 +2,33 @@ import SwiftUI
 import Mixtapes
 
 struct MainView: View {
-    @State private var item: Item?
+    @State var selection: Selection = .auto
     
     // MARK: View
     var body: some View {
         NavigationView {
-            SidebarView(item: $item)
+            SidebarView(selection: $selection)
                 .frame(minWidth: 210.0, idealWidth: 320.0)
                 .toolbar {
                     ToolbarItem {
                         SidebarButton()
                     }
                 }
-            ContentView(item: item)
+            ContentView(selection: $selection)
                 .frame(minWidth: 320.0, idealWidth: 540.0, maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
                 .background(Color(.textBackgroundColor))
                 .toolbar {
                     ToolbarItemGroup {
                         TitleView()
                         Spacer()
-                        ItemButton()
-                        SettingsButton(item: $item)
+                        ImportButton()
+                        SettingsButton(selection: $selection)
                         FinderButton()
                         PreviewButton()
                     }
                 }
         }
+        .navigationTitle(selection.description)
     }
 }
 

@@ -6,12 +6,6 @@ struct FileCommands: View {
     
     private func importAudio() {
         NSApplication.shared.keyWindow?.importAudio()
-        
-        /*
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
-            print(event)
-            return event
-        } */
     }
     
     private func showInFinder() {
@@ -25,7 +19,7 @@ struct FileCommands: View {
     // MARK: View
     var body: some View {
         Button(action: importAudio) {
-            Text("Import Mixtape Audio File…")
+            Text("Import Audio File…")
         }
         .keyboardShortcut("n", modifiers: [.command, .shift])
         .disabled(mixtapes.index == nil)

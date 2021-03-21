@@ -2,11 +2,20 @@ import SwiftUI
 import Mixtapes
 
 struct ItemView: View {
-    @State var item: Item
+    @Binding var selection: Selection
     @EnvironmentObject private var mixtapes: Mixtapes
+    
+    private var item: Item? {
+        switch selection {
+        case .item(let item):
+            return item
+        default:
+            return nil
+        }
+    }
     
     // MARK: View
     var body: some View {
-        Image(systemName: "play.rectangle")
+        ImageView(item?.image, size: CGSize(width: 270.0, height: 270.0))
     }
 }
