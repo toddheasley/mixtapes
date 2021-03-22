@@ -17,7 +17,6 @@
 		5C58AB8A25FA62C40009E22D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8925FA62C40009E22D /* TitleView.swift */; };
 		5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */; };
 		5C58AB9425FB01A20009E22D /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB9325FB01A20009E22D /* Text.swift */; };
-		5C58ABA325FB18BA0009E22D /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58ABA225FB18BA0009E22D /* IconView.swift */; };
 		5C5C4F1126022DD200919DF6 /* PreviewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F1026022DD200919DF6 /* PreviewButton.swift */; };
 		5C5C4F1B2602550C00919DF6 /* NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F1A2602550C00919DF6 /* NSWindow.swift */; };
 		5C5C4F2226026B5E00919DF6 /* FinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F2126026B5E00919DF6 /* FinderButton.swift */; };
@@ -36,6 +35,9 @@
 		5CBEFF8B260585B1009737F7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBEFF8A260585B1009737F7 /* View.swift */; };
 		5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA412C25F25E9600361312 /* SidebarView.swift */; };
 		5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */; };
+		5CEBFECC260816E300604192 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFECB260816E300604192 /* IconButton.swift */; };
+		5CEBFED226081D5B00604192 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFED126081D5B00604192 /* CGSize.swift */; };
+		5CEBFED526081E2D00604192 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFED426081E2D00604192 /* CGFloat.swift */; };
 		5CF4E88525FB924D0028F87A /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF4E88425FB924D0028F87A /* SettingsButton.swift */; };
 		5CFD30BE25F7EC76009ED8AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +53,6 @@
 		5C58AB8925FA62C40009E22D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
 		5C58AB9325FB01A20009E22D /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		5C58ABA225FB18BA0009E22D /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		5C5C4F1026022DD200919DF6 /* PreviewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewButton.swift; sourceTree = "<group>"; };
 		5C5C4F1A2602550C00919DF6 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
 		5C5C4F2126026B5E00919DF6 /* FinderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderButton.swift; sourceTree = "<group>"; };
@@ -72,6 +73,9 @@
 		5CBEFF8A260585B1009737F7 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5CCA412C25F25E9600361312 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		5CEBFECB260816E300604192 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		5CEBFED126081D5B00604192 /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		5CEBFED426081E2D00604192 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		5CF4E88425FB924D0028F87A /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				5C5C4F16260253B400919DF6 /* AppKit */,
+				5CEBFED026081D4500604192 /* CoreGraphics */,
 				5C8A600125F1F8B6007B4B63 /* SwiftUI */,
 				5C8A5FE725F1F26A007B4B63 /* App.entitlements */,
 				5C8A5FDD25F1F269007B4B63 /* App.swift */,
@@ -128,7 +133,7 @@
 				5C5C4F2126026B5E00919DF6 /* FinderButton.swift */,
 				5C24D98B2602E05700A6EB22 /* FolderButton.swift */,
 				5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */,
-				5C58ABA225FB18BA0009E22D /* IconView.swift */,
+				5CEBFECB260816E300604192 /* IconButton.swift */,
 				5C369B352606DB91007764A6 /* ImageView.swift */,
 				5CBEFF7D26051BAA009737F7 /* ImportButton.swift */,
 				5C80972A26060C250080B25F /* ItemButton.swift */,
@@ -165,6 +170,15 @@
 				5CBEFF8A260585B1009737F7 /* View.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		5CEBFED026081D4500604192 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				5CEBFED426081E2D00604192 /* CGFloat.swift */,
+				5CEBFED126081D5B00604192 /* CGSize.swift */,
+			);
+			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEBFED526081E2D00604192 /* CGFloat.swift in Sources */,
 				5C369B2626068181007764A6 /* Selection.swift in Sources */,
 				5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */,
 				5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */,
@@ -274,10 +289,11 @@
 				5CF4E88525FB924D0028F87A /* SettingsButton.swift in Sources */,
 				5CBEFF8B260585B1009737F7 /* View.swift in Sources */,
 				5C5C4F2226026B5E00919DF6 /* FinderButton.swift in Sources */,
+				5CEBFED226081D5B00604192 /* CGSize.swift in Sources */,
+				5CEBFECC260816E300604192 /* IconButton.swift in Sources */,
 				5C24D98C2602E05700A6EB22 /* FolderButton.swift in Sources */,
 				5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */,
 				5C5C4F1B2602550C00919DF6 /* NSWindow.swift in Sources */,
-				5C58ABA325FB18BA0009E22D /* IconView.swift in Sources */,
 				5CFD30BE25F7EC76009ED8AF /* SettingsView.swift in Sources */,
 				5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */,
 				5C58AB9425FB01A20009E22D /* Text.swift in Sources */,

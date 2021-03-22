@@ -7,7 +7,7 @@ struct SettingsView: View {
     // MARK: View
     var body: some View {
         VStack {
-            IconView(mixtapes.index?.icon, size: CGSize(width: 270.0, height: 270.0))
+            IconButton()
             FolderButton()
         }
     }

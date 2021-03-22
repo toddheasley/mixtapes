@@ -3,10 +3,6 @@ import Foundation
 struct JSONFeed: Resource {
     init(index: Index) throws {
         url = index.url
-        /*
-         guard let url: URL = index.homepageURL else {
-            throw Error("Home page URL not found", url: self.url)
-        } */
         data = try JSONEncoder(url: url, formatting: [.sortedKeys]).encode(index)
     }
     

@@ -5,7 +5,6 @@ struct SettingsButton: View {
     @Binding var selection: Selection
     
     private func toggleSettings() {
-        print("toggleSettings")
         selection = .settings
     }
     

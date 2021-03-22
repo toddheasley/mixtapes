@@ -1,11 +1,11 @@
 import Foundation
 
-final public class Icon: Resource {
+public struct Icon: Resource {
     public static var data: Data {
         return try! Bundle.module.resource("icon.png")
     }
     
-    public func reset(_ data: Data? = nil) throws {
+    public mutating func reset(_ data: Data? = nil) throws {
         guard let data: Data = data ?? (try? Bundle.module.resource("icon.png")),
               let pathExtension: String = data.pathExtension else {
             throw Error("Icon not PNG or JPEG")

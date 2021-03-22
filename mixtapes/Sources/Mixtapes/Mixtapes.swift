@@ -4,7 +4,7 @@ import SwiftUI
 public class Mixtapes: ObservableObject {
     @AppStorage("url") private static var url: URL?
     
-    @Published public private(set) var index: Index? {
+    @Published public var index: Index? {
         didSet {
             do {
                 error = nil
@@ -28,6 +28,18 @@ public class Mixtapes: ObservableObject {
             }
             try FileManager.default.copyItem(at: url, to: destinationURL)
             index?.items.append(try Item(url: destinationURL))
+        } catch {
+            self.error = Error(error) ?? Error(error.localizedDescription)
+        }
+    }
+    
+    public func importIcon(_ url: URL?) {
+        guard let url: URL = url, url.isFileURL else {
+            return
+        }
+        do {
+            let data: Data = try Data(contentsOf: url)
+            try index?.icon.reset(data)
         } catch {
             self.error = Error(error) ?? Error(error.localizedDescription)
         }

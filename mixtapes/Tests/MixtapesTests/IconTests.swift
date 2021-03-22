@@ -7,7 +7,7 @@ final class IconTests: XCTestCase {
     }
     
     func testReset() throws {
-        let icon: Icon = try Icon(url: resource("example.m4a"))
+        var icon: Icon = try Icon(url: resource("example.m4a"))
         XCTAssertEqual(icon.url.relativePath, "icon.png")
         XCTAssertEqual(icon.data.count, 188712)
         XCTAssertNoThrow(try icon.reset(try! Data(contentsOf: resource("example.png"))))

@@ -2,9 +2,9 @@ import Foundation
 
 public struct Index: Identifiable, CustomStringConvertible {
     public let url: URL
-    public let icon: Icon
     public var title: String = ""
     public var homepage: String = ""
+    public var icon: Icon
     public var authors: [Author] = []
     public var isExpired: Bool = false
     
@@ -43,9 +43,6 @@ public struct Index: Identifiable, CustomStringConvertible {
                 self.icon = try Icon(url: url)
             }
         } catch {
-            
-            print("*** \(error)")
-            
             throw Error("Feed decoding failed", url: url)
         }
     }

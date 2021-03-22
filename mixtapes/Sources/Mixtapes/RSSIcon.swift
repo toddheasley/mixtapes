@@ -1,6 +1,6 @@
 import Foundation
 
-final public class RSSIcon: Resource {
+public struct RSSIcon: Resource {
     init(url: URL) throws {
         let path: String = "rss.svg"
         self.url = URL(fileURLWithPath: path, relativeTo: url)

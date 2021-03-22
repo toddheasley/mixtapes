@@ -3,15 +3,15 @@ import Mixtapes
 
 struct ImageView: View {
     let size: CGSize
-    let url: URL?
+    let item: Item?
     
-    init(_ url: URL? = nil, size: CGSize = CGSize(width: 420.0, height: 420.0)) {
+    init(item: Item? = nil, size: CGSize = .square()) {
         self.size = size
-        self.url = url
+        self.item = item
     }
     
     private var nsImage: NSImage {
-        guard let url: URL = url,
+        guard let url: URL = item?.image,
               let data: Data = try? Data(contentsOf: url),
               let nsImage: NSImage = NSImage(data: data) else {
             return .clear
@@ -23,6 +23,7 @@ struct ImageView: View {
     var body: some View {
         Image(nsImage: nsImage)
             .resizable()
+            .aspectRatio(CGSize(width: 1.0, height: 1.0), contentMode: .fit)
             .frame(width: size.width, height: size.height)
     }
 }

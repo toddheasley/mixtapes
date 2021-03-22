@@ -16,6 +16,6 @@ struct ItemView: View {
     
     // MARK: View
     var body: some View {
-        ImageView(item?.image, size: CGSize(width: 270.0, height: 270.0))
+        ImageView(item: item)
     }
 }
