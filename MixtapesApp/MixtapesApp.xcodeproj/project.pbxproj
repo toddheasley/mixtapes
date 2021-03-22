@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */; };
+		5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */; };
 		5C24D97E2602CE9D00A6EB22 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24D97D2602CE9D00A6EB22 /* NSEvent.swift */; };
 		5C24D98C2602E05700A6EB22 /* FolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24D98B2602E05700A6EB22 /* FolderButton.swift */; };
 		5C369B2626068181007764A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B2526068181007764A6 /* Selection.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCommands.swift; sourceTree = "<group>"; };
+		5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSItemProvider.swift; sourceTree = "<group>"; };
 		5C24D97D2602CE9D00A6EB22 /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
 		5C24D98B2602E05700A6EB22 /* FolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButton.swift; sourceTree = "<group>"; };
 		5C369B2526068181007764A6 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
@@ -63,7 +65,6 @@
 		5C8A5FDF25F1F269007B4B63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C8A5FE625F1F26A007B4B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C8A5FE725F1F26A007B4B63 /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		5C8A600225F1F8D7007B4B63 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		5C8A600625F1F953007B4B63 /* Gaegu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaegu.ttf; sourceTree = "<group>"; };
 		5C8A600925F1F95C007B4B63 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -92,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C21E3442608C2DC00BA7DA2 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		5C5C4F16260253B400919DF6 /* AppKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +133,8 @@
 			children = (
 				5C5C4F16260253B400919DF6 /* AppKit */,
 				5CEBFED026081D4500604192 /* CoreGraphics */,
+				5C21E3442608C2DC00BA7DA2 /* Foundation */,
 				5C8A600125F1F8B6007B4B63 /* SwiftUI */,
-				5C8A5FE725F1F26A007B4B63 /* App.entitlements */,
 				5C8A5FDD25F1F269007B4B63 /* App.swift */,
 				5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */,
 				5C8A5FDF25F1F269007B4B63 /* ContentView.swift */,
@@ -275,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */,
 				5CEBFED526081E2D00604192 /* CGFloat.swift in Sources */,
 				5C369B2626068181007764A6 /* Selection.swift in Sources */,
 				5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */,
@@ -431,7 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MixtapesApp/App.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0;
@@ -458,7 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MixtapesApp/App.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0;

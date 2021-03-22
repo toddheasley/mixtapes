@@ -42,10 +42,15 @@ struct IconButton: View {
         }
         .opacity(isHovering ? 0.5 : 1.0)
         .buttonStyle(PlainButtonStyle())
-        /*
-        .onDrop(of: Icon.contentTypes, isTargeted: $isTargeted) { provider in
-            return false
-        } */
+        .onDrop(of: [.fileURL], isTargeted: $isTargeted) { items in
+            guard let item: NSItemProvider = items.first else {
+                return false
+            }
+            item.fileURL { url, error in
+                mixtapes.importIcon(url)
+            }
+            return true
+        }
         .onHover { isHovering in
             self.isHovering = isHovering
         }
