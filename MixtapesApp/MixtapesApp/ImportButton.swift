@@ -9,7 +9,7 @@ struct ImportButton: View {
         let panel: NSOpenPanel = NSOpenPanel()
         panel.message = "Choose Audio File…"
         panel.prompt = "Import"
-        panel.allowedContentTypes = [.mpeg4Audio, .mp3]
+        panel.allowedContentTypes = Asset.contentTypes
         panel.canChooseFiles = true
         panel.begin { _ in
             mixtapes.importItem(panel.url)

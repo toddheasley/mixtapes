@@ -1,6 +1,9 @@
 import Foundation
+import UniformTypeIdentifiers
 
 public struct Icon: Resource {
+    public static let contentTypes: [UTType] = [.png, .jpeg]
+    
     public static var data: Data {
         return try! Bundle.module.resource("icon.png")
     }

@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 import Mixtapes
 
 struct IconButton: View {
@@ -8,6 +9,8 @@ struct IconButton: View {
         self.size = size
     }
     
+    @State private var isTargeted: Bool = false
+    @State private var isHovering: Bool = false
     @EnvironmentObject private var mixtapes: Mixtapes
     
     private var nsImage: NSImage {
@@ -22,7 +25,7 @@ struct IconButton: View {
         let panel: NSOpenPanel = NSOpenPanel()
         panel.message = "Choose Icon File…"
         panel.prompt = "Import"
-        panel.allowedContentTypes = [.png, .jpeg]
+        panel.allowedContentTypes = Icon.contentTypes
         panel.canChooseFiles = true
         panel.begin { _ in
             mixtapes.importIcon(panel.url)
@@ -37,7 +40,15 @@ struct IconButton: View {
                 .aspectRatio(CGSize(width: 1.0, height: 1.0), contentMode: .fit)
                 .frame(width: size.width, height: size.height)
         }
+        .opacity(isHovering ? 0.5 : 1.0)
         .buttonStyle(PlainButtonStyle())
+        /*
+        .onDrop(of: Icon.contentTypes, isTargeted: $isTargeted) { provider in
+            return false
+        } */
+        .onHover { isHovering in
+            self.isHovering = isHovering
+        }
         .disabled(mixtapes.index == nil)
     }
 }

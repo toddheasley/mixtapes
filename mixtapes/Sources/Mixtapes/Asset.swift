@@ -2,6 +2,8 @@ import Foundation
 import AVFoundation
 
 public struct Asset: Identifiable {
+    public static let contentTypes: [UTType] = [.m4a, .mp3]
+    
     public let url: URL
     public let length: Int
     public let mimeType: String
@@ -18,9 +20,9 @@ public struct Asset: Identifiable {
         }
         self.length = length
         switch url.contentType {
-        case UTType("com.apple.m4a-audio"):
+        case Self.contentTypes[0]:
             mimeType = "audio/x-m4a"
-        case UTType.mp3:
+        case Self.contentTypes[1]:
             mimeType = "audio/mpeg"
         default:
             throw Error("Asset not AAC or MP3", url: url)
