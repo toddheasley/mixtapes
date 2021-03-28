@@ -25,9 +25,9 @@ struct ItemButton: View {
         Button(action: selectItem) {
             Text("\(item.title)")
                 .primaryStyle()
+                .padding(.vertical, 2.0)
+                .background(Color.highlightColor(isSelected))
         }
         .buttonStyle(PlainButtonStyle())
-        .padding(.vertical, 2.0)
-        .background(Color.highlightColor(isSelected))
     }
 }

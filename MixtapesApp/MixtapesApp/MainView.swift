@@ -11,20 +11,20 @@ struct MainView: View {
                 .frame(minWidth: 210.0, idealWidth: 320.0)
                 .toolbar {
                     ToolbarItem {
-                        SidebarButton()
+                        SidebarToolbarItem()
                     }
                 }
             ContentView(selection: $selection)
-                .frame(minWidth: 320.0, idealWidth: 540.0, maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
+                .frame(minWidth: 540.0, maxWidth: .infinity, minHeight: 360.0, maxHeight: .infinity)
                 .background(Color(.textBackgroundColor))
                 .toolbar {
                     ToolbarItemGroup {
-                        TitleView()
+                        TitleToolbarItem()
                         Spacer()
-                        ImportButton()
-                        SettingsButton(selection: $selection)
-                        FinderButton()
-                        PreviewButton()
+                        ImportToolbarItem()
+                        SettingsToolbarItem(selection: $selection)
+                        FolderToolbarItem()
+                        PreviewToolbarItem()
                     }
                 }
         }

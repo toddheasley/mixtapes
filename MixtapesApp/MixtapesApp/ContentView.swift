@@ -6,11 +6,19 @@ struct ContentView: View {
     
     // MARK: View
     var body: some View {
-        switch selection {
-        case .item:
-            ItemView(selection: $selection)
-        case .settings:
-            SettingsView()
+        GeometryReader { proxy in
+            ScrollView {
+                Group {
+                    switch selection {
+                    case .item:
+                        ItemView(selection: $selection)
+                    case .settings:
+                        SettingsView()
+                    }
+                }
+                .padding()
+                .frame(maxWidth: .infinity, minHeight: proxy.size.height, maxHeight: .infinity)
+            }
         }
     }
 }

@@ -25,5 +25,6 @@ struct ImageView: View {
             .resizable()
             .aspectRatio(CGSize(width: 1.0, height: 1.0), contentMode: .fit)
             .frame(width: size.width, height: size.height)
+            .cornerRadius(.cornerRadius)
     }
 }

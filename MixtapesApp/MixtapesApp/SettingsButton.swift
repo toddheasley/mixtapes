@@ -2,28 +2,30 @@ import SwiftUI
 import Mixtapes
 
 struct SettingsButton: View {
-    @Binding var selection: Selection
+    @State private var isPresented: Bool = false
+    @EnvironmentObject private var mixtapes: Mixtapes
     
-    private func toggleSettings() {
-        selection = .settings
+    private func editSettings() {
+        isPresented = true
     }
     
     // MARK: View
     var body: some View {
-        Button(action: toggleSettings) {
-            Image(systemName: "gearshape")
-                .help("Podcast Settings")
+        Button(action: editSettings) {
+            Text("Edit")
         }
-        .keyboardShortcut(",", modifiers: [.command, .option])
-        .disabled(selection == .settings)
+        .sheet(isPresented: $isPresented) {
+            SettingsEditor()
+        }
+        .disabled(mixtapes.index == nil)
     }
 }
 
 struct SettingsButton_Previews: PreviewProvider {
-    @State static private var selection: Selection = .auto
     
     // MARK: PreviewProvider
     static var previews: some View {
-        SettingsButton(selection: $selection)
+        SettingsButton()
+            .environmentObject(Mixtapes())
     }
 }

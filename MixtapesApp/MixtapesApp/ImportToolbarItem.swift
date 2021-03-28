@@ -2,7 +2,7 @@ import SwiftUI
 import AVFoundation
 import Mixtapes
 
-struct ImportButton: View {
+struct ImportToolbarItem: View {
     @EnvironmentObject private var mixtapes: Mixtapes
     
     private func importItem() {
@@ -24,14 +24,23 @@ struct ImportButton: View {
         }
         .keyboardShortcut("N", modifiers: [.command, .option])
         .disabled(mixtapes.index == nil)
+        .onDrop(of: [.fileURL], isTargeted: nil) { items in
+            guard let item: NSItemProvider = items.first else {
+                return false
+            }
+            item.fileURL { url, error in
+                mixtapes.importItem(url)
+            }
+            return true
+        }
     }
 }
 
-struct ImportButton_Previews: PreviewProvider {
+struct ImportToolbarItem_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        ImportButton()
+        ImportToolbarItem()
             .environmentObject(Mixtapes())
     }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 import Mixtapes
 
-struct PreviewButton: View {
+struct PreviewToolbarItem: View {
     @EnvironmentObject private var mixtapes: Mixtapes
     
     private func preview() {
@@ -22,11 +22,11 @@ struct PreviewButton: View {
     }
 }
 
-struct PreviewButton_Previews: PreviewProvider {
+struct PreviewToolbarItem_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        PreviewButton()
+        PreviewToolbarItem()
             .environmentObject(Mixtapes())
     }
 }

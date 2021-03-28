@@ -16,6 +16,24 @@ struct ItemView: View {
     
     // MARK: View
     var body: some View {
-        ImageView(item: item)
+        if let item: Item = item {
+            VStack(alignment: .leading, spacing: 10.0) {
+                HStack(alignment: .top, spacing: 10.0) {
+                    ImageView(item: item)
+                    VStack(alignment: .leading, spacing: 10.0) {
+                        Text("\(item.title)")
+                        Text("\(item.summary)")
+                    }
+                }
+                GroupBox(label: Label(title: { Text("Label") }, icon: {}), content: {
+                    VStack {
+                        ImageView(item: item)
+                        Text("Content")
+                    }
+                })
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }

@@ -9,6 +9,16 @@ struct SidebarView: View {
     var body: some View {
         List(mixtapes.index?.items ?? []) { item in
             ItemButton(item: item, selection: $selection)
+            
+        }
+        .onDrop(of: [.fileURL], isTargeted: nil) { items in
+            guard let item: NSItemProvider = items.first else {
+                return false
+            }
+            item.fileURL { url, error in
+                mixtapes.importItem(url)
+            }
+            return true
         }
     }
 }

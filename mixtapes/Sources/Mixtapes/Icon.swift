@@ -4,6 +4,10 @@ import UniformTypeIdentifiers
 public struct Icon: Resource {
     public static let contentTypes: [UTType] = [.png, .jpeg]
     
+    public var isDefault: Bool {
+        return Self.data == data
+    }
+    
     public static var data: Data {
         return try! Bundle.module.resource("icon.png")
     }

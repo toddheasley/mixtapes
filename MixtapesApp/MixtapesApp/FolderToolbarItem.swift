@@ -1,7 +1,7 @@
 import SwiftUI
 import Mixtapes
 
-struct FinderButton: View {
+struct FolderToolbarItem: View {
     @EnvironmentObject private var mixtapes: Mixtapes
     
     private func showInFinder() {
@@ -22,11 +22,11 @@ struct FinderButton: View {
     }
 }
 
-struct FinderButton_Previews: PreviewProvider {
+struct FolderToolbarItem_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        FinderButton()
+        FolderToolbarItem()
             .environmentObject(Mixtapes())
     }
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SidebarButton: View {
+struct SidebarToolbarItem: View {
     private func toggleSidebar() {
         NSApplication.shared.keyWindow?.toggleSidebar()
     }
@@ -14,10 +14,10 @@ struct SidebarButton: View {
     }
 }
 
-struct SidebarButton_Previews: PreviewProvider {
+struct SidebarToolbarItem_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        SidebarButton()
+        SidebarToolbarItem()
     }
 }

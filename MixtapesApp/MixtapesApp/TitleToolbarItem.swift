@@ -1,11 +1,11 @@
 import SwiftUI
 import Mixtapes
 
-struct TitleView: View {
+struct TitleToolbarItem: View {
     @EnvironmentObject private var mixtapes: Mixtapes
     
     private var title: String {
-        return mixtapes.index?.title.description ?? "Mixtapes"
+        return mixtapes.index?.title.description ?? App.title
     }
     
     // MARK: View
@@ -16,11 +16,11 @@ struct TitleView: View {
     }
 }
 
-struct TitleView_Previews: PreviewProvider {
+struct TitleToolbarItem_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        TitleView()
+        TitleToolbarItem()
             .environmentObject(Mixtapes())
     }
 }

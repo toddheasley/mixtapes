@@ -1,24 +1,24 @@
 import SwiftUI
 import Mixtapes
 
-struct SettingsView: View {
+struct SettingsEditor: View {
     @EnvironmentObject private var mixtapes: Mixtapes
     
     // MARK: View
     var body: some View {
         VStack {
-            IconButton()
-            SettingsButton()
-            FolderButton()
+            Text("Settings Editor")
         }
+        .padding()
+        .background(Color.white)
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct SettingsEditor_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        SettingsView()
-            .environmentObject(Mixtapes())
+        SettingsEditor()
     }
 }
+
