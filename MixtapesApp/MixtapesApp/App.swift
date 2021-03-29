@@ -3,9 +3,9 @@ import Mixtapes
 
 @main
 struct App: SwiftUI.App {
-    @StateObject private var mixtapes: Mixtapes = Mixtapes()
-    
     static let title: String = "Mixtapes"
+    
+    @StateObject private var mixtapes: Mixtapes = Mixtapes()
     
     // MARK: App
     var body: some Scene {

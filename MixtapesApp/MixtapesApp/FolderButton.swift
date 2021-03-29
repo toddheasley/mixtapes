@@ -34,8 +34,7 @@ struct FolderButton: View {
             HStack {
                 Image(systemName: "folder")
                 Text(message)
-                    .secondaryStyle()
-                    .padding(.trailing, 3.0)
+                    .padding(.trailing, 2.0)
             }
         }
         .buttonStyle(BorderedButtonStyle())
@@ -43,7 +42,6 @@ struct FolderButton: View {
 }
 
 struct FolderButton_Previews: PreviewProvider {
-    @State static private var item: Item? = nil
     
     // MARK: PreviewProvider
     static var previews: some View {

@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */; };
-		5C1BBCE7260E486500FC71D7 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1BBCE6260E486500FC71D7 /* SettingsButton.swift */; };
 		5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */; };
 		5C24D97E2602CE9D00A6EB22 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24D97D2602CE9D00A6EB22 /* NSEvent.swift */; };
 		5C24D98C2602E05700A6EB22 /* FolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24D98B2602E05700A6EB22 /* FolderButton.swift */; };
 		5C369B2626068181007764A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B2526068181007764A6 /* Selection.swift */; };
 		5C369B362606DB91007764A6 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B352606DB91007764A6 /* ImageView.swift */; };
 		5C369B392606DEFA007764A6 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B382606DEFA007764A6 /* NSImage.swift */; };
-		5C4AFAB5260D80A300A62498 /* SettingsEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4AFAB4260D80A300A62498 /* SettingsEditor.swift */; };
 		5C58AB8625FA5FA20009E22D /* SidebarToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */; };
 		5C58AB8A25FA62C40009E22D /* TitleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */; };
 		5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */; };
@@ -37,6 +35,9 @@
 		5CBEFF882605816A009737F7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBEFF872605816A009737F7 /* Alert.swift */; };
 		5CBEFF8B260585B1009737F7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBEFF8A260585B1009737F7 /* View.swift */; };
 		5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA412C25F25E9600361312 /* SidebarView.swift */; };
+		5CD15BFC2610C49F007E5553 /* ExplicitToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD15BFB2610C49F007E5553 /* ExplicitToggle.swift */; };
+		5CD15C082610F9A7007E5553 /* ContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD15C072610F9A7007E5553 /* ContentRow.swift */; };
+		5CD15C1226111C6E007E5553 /* DateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD15C1126111C6E007E5553 /* DateEditor.swift */; };
 		5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */; };
 		5CEBFECC260816E300604192 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFECB260816E300604192 /* IconButton.swift */; };
 		5CEBFED226081D5B00604192 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFED126081D5B00604192 /* CGSize.swift */; };
@@ -47,14 +48,12 @@
 
 /* Begin PBXFileReference section */
 		5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCommands.swift; sourceTree = "<group>"; };
-		5C1BBCE6260E486500FC71D7 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSItemProvider.swift; sourceTree = "<group>"; };
 		5C24D97D2602CE9D00A6EB22 /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
 		5C24D98B2602E05700A6EB22 /* FolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButton.swift; sourceTree = "<group>"; };
 		5C369B2526068181007764A6 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		5C369B352606DB91007764A6 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		5C369B382606DEFA007764A6 /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
-		5C4AFAB4260D80A300A62498 /* SettingsEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditor.swift; sourceTree = "<group>"; };
 		5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarToolbarItem.swift; sourceTree = "<group>"; };
 		5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleToolbarItem.swift; sourceTree = "<group>"; };
 		5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
@@ -77,6 +76,9 @@
 		5CBEFF872605816A009737F7 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5CBEFF8A260585B1009737F7 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5CCA412C25F25E9600361312 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		5CD15BFB2610C49F007E5553 /* ExplicitToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplicitToggle.swift; sourceTree = "<group>"; };
+		5CD15C072610F9A7007E5553 /* ContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRow.swift; sourceTree = "<group>"; };
+		5CD15C1126111C6E007E5553 /* DateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEditor.swift; sourceTree = "<group>"; };
 		5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		5CEBFECB260816E300604192 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		5CEBFED126081D5B00604192 /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
@@ -120,7 +122,6 @@
 			children = (
 				5C8A5FDC25F1F269007B4B63 /* MixtapesApp */,
 				5C8A5FDB25F1F269007B4B63 /* Products */,
-				5C8A5FFD25F1F5FD007B4B63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +143,9 @@
 				5C8A5FDD25F1F269007B4B63 /* App.swift */,
 				5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */,
 				5C8A5FDF25F1F269007B4B63 /* ContentView.swift */,
+				5CD15C072610F9A7007E5553 /* ContentRow.swift */,
+				5CD15C1126111C6E007E5553 /* DateEditor.swift */,
+				5CD15BFB2610C49F007E5553 /* ExplicitToggle.swift */,
 				5C5C4F27260271DA00919DF6 /* FileCommands.swift */,
 				5C24D98B2602E05700A6EB22 /* FolderButton.swift */,
 				5C5C4F2126026B5E00919DF6 /* FolderToolbarItem.swift */,
@@ -155,9 +159,7 @@
 				5C93D66626014AB2003BC1F6 /* MainView.swift */,
 				5C5C4F1026022DD200919DF6 /* PreviewToolbarItem.swift */,
 				5C369B2526068181007764A6 /* Selection.swift */,
-				5C1BBCE6260E486500FC71D7 /* SettingsButton.swift */,
 				5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */,
-				5C4AFAB4260D80A300A62498 /* SettingsEditor.swift */,
 				5CF4E88425FB924D0028F87A /* SettingsToolbarItem.swift */,
 				5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */,
 				5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */,
@@ -166,13 +168,6 @@
 				5C8A5FE625F1F26A007B4B63 /* Info.plist */,
 			);
 			path = MixtapesApp;
-			sourceTree = "<group>";
-		};
-		5C8A5FFD25F1F5FD007B4B63 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5C8A600125F1F8B6007B4B63 /* SwiftUI */ = {
@@ -290,14 +285,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD15C1226111C6E007E5553 /* DateEditor.swift in Sources */,
 				5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */,
 				5CEBFED526081E2D00604192 /* CGFloat.swift in Sources */,
+				5CD15BFC2610C49F007E5553 /* ExplicitToggle.swift in Sources */,
 				5C369B2626068181007764A6 /* Selection.swift in Sources */,
 				5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */,
 				5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */,
 				5C80972B26060C250080B25F /* ItemButton.swift in Sources */,
 				5C369B392606DEFA007764A6 /* NSImage.swift in Sources */,
-				5C4AFAB5260D80A300A62498 /* SettingsEditor.swift in Sources */,
 				5C5C4F28260271DA00919DF6 /* FileCommands.swift in Sources */,
 				5CBEFF882605816A009737F7 /* Alert.swift in Sources */,
 				5C58AB8625FA5FA20009E22D /* SidebarToolbarItem.swift in Sources */,
@@ -312,6 +308,7 @@
 				5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */,
 				5C5C4F1B2602550C00919DF6 /* NSWindow.swift in Sources */,
 				5CFD30BE25F7EC76009ED8AF /* SettingsView.swift in Sources */,
+				5CD15C082610F9A7007E5553 /* ContentRow.swift in Sources */,
 				5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */,
 				5C58AB9425FB01A20009E22D /* Text.swift in Sources */,
 				5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */,
@@ -321,7 +318,6 @@
 				5C8A600325F1F8D7007B4B63 /* Color.swift in Sources */,
 				5C369B362606DB91007764A6 /* ImageView.swift in Sources */,
 				5C93D66726014AB2003BC1F6 /* MainView.swift in Sources */,
-				5C1BBCE7260E486500FC71D7 /* SettingsButton.swift in Sources */,
 				5C58AB8A25FA62C40009E22D /* TitleToolbarItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

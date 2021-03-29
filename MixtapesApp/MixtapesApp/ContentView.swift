@@ -4,6 +4,8 @@ import Mixtapes
 struct ContentView: View {
     @Binding var selection: Selection
     
+    private let maxWidth: CGFloat = 720.0
+    
     // MARK: View
     var body: some View {
         GeometryReader { proxy in
@@ -12,8 +14,10 @@ struct ContentView: View {
                     switch selection {
                     case .item:
                         ItemView(selection: $selection)
+                            .frame(maxWidth: maxWidth)
                     case .settings:
                         SettingsView()
+                            .frame(maxWidth: maxWidth)
                     }
                 }
                 .padding()
@@ -24,11 +28,10 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @State static private var selection: Selection = .auto
     
     // MARK: PreviewProvider
     static var previews: some View {
-        ContentView(selection: $selection)
+        ContentView(selection: .constant(.auto))
             .environmentObject(Mixtapes())
     }
 }

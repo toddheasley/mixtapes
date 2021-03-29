@@ -3,37 +3,43 @@ import Mixtapes
 
 struct ItemView: View {
     @Binding var selection: Selection
-    @EnvironmentObject private var mixtapes: Mixtapes
-    
-    private var item: Item? {
-        switch selection {
-        case .item(let item):
-            return item
-        default:
-            return nil
-        }
-    }
     
     // MARK: View
     var body: some View {
-        if let item: Item = item {
-            VStack(alignment: .leading, spacing: 10.0) {
+        if let item: Item = selection.item {
+            VStack(spacing: 10.0) {
                 HStack(alignment: .top, spacing: 10.0) {
-                    ImageView(item: item)
+                    ContentRow(label: "Image") {
+                        ImageView(item: item)
+                    }
+                    .frame(width: .defaultLength + 20.0)
                     VStack(alignment: .leading, spacing: 10.0) {
-                        Text("\(item.title)")
-                        Text("\(item.summary)")
+                        ContentRow(label: "ID") {
+                            Text(item.id)
+                                .primaryStyle()
+                        }
+                        ContentRow(label: "Title") {
+                            Text(item.title)
+                                .primaryStyle()
+                        }
+                        ContentRow(label: "Summary") {
+                            Text(item.summary)
+                                .primaryStyle()
+                        }
+                        ContentRow(label: "Date") {
+                            HStack {
+                                DateEditor(selection: $selection)
+                                ExplicitToggle(selection: $selection)
+                            }
+                        }
                     }
                 }
-                GroupBox(label: Label(title: { Text("Label") }, icon: {}), content: {
-                    VStack {
-                        ImageView(item: item)
-                        Text("Content")
+                ContentRow(label: "Attachment") {
+                    GroupBox {
+                        
                     }
-                })
+                }
             }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }

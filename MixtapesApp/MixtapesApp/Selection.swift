@@ -6,6 +6,15 @@ enum Selection: Equatable, CustomStringConvertible {
     
     static let auto: Self = .settings
     
+    var item: Item? {
+        switch self {
+        case .item(let item):
+            return item
+        default:
+            return nil
+        }
+    }
+    
     // MARK: CustomStringConvertible
     var description: String {
         switch self {

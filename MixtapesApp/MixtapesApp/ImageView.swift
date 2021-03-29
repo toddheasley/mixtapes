@@ -28,3 +28,11 @@ struct ImageView: View {
             .cornerRadius(.cornerRadius)
     }
 }
+
+struct ImageView_Previews: PreviewProvider {
+    
+    // MARK: PreviewProvider
+    static var previews: some View {
+        ImageView(item: nil)
+    }
+}
