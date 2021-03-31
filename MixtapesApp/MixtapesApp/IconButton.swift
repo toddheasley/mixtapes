@@ -41,13 +41,14 @@ struct IconButton: View {
                     .aspectRatio(CGSize(width: 1.0, height: 1.0), contentMode: .fit)
                     .frame(width: size.width, height: size.height)
                     .cornerRadius(.cornerRadius)
-                if isTargeted {
-                    Text("TARGETED")
-                } else if isHovering {
-                    Text("HOVERING")
+                    .opacity(isHovering ? 0.1 : 1.0)
+                if isHovering {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .frame(width: 61.0, height: 48.0, alignment: .center)
+                        .foregroundColor(.secondary)
                 }
             }
-            .opacity(isHovering ? 0.5 : 1.0)
         }
         .buttonStyle(PlainButtonStyle())
         .onDrop(of: [.fileURL], isTargeted: $isTargeted) { items in

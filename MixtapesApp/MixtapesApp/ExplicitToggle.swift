@@ -31,10 +31,8 @@ struct ExplicitToggle: View {
     var body: some View {
         Button(action: toggleExplicit) {
             Image(systemName: isExplicit ? "e.square.fill" : "c.square")
-                .resizable()
-                .frame(width: 18.0, height: 18.0, alignment: .center)
+                .opacity(isExplicit ? 0.9 : 0.2)
         }
-        .buttonStyle(PlainButtonStyle())
         .help(isExplicit ? "Explicit" : "Clean")
         .disabled(i == nil)
     }

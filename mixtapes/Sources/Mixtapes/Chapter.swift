@@ -1,11 +1,11 @@
 import Foundation
 import AVFoundation
 
-public struct Chapter {
+public struct Chapter: Identifiable {
     public let duration: ClosedRange<TimeInterval>?
     public let title: String
     
-    init(metadata: [AVMetadataItem]) throws {
+    init(id: String = "", metadata: [AVMetadataItem]) throws {
         var duration: ClosedRange<TimeInterval>?
         var title: String = ""
         for metadataItem in metadata {
@@ -21,7 +21,11 @@ public struct Chapter {
         guard !title.isEmpty else {
             throw Error("Chapter title not found")
         }
+        self.id = id
         self.duration = duration
         self.title = title
     }
+    
+    // MARK: Identifiable
+    public let id: String
 }

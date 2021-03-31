@@ -7,20 +7,20 @@ struct ItemView: View {
     // MARK: View
     var body: some View {
         if let item: Item = selection.item {
-            VStack(spacing: 10.0) {
-                HStack(alignment: .top, spacing: 10.0) {
+            VStack(spacing: .spacing) {
+                HStack(alignment: .top, spacing: .spacing) {
                     ContentRow(label: "Image") {
                         ImageView(item: item)
                     }
-                    .frame(width: .defaultLength + 20.0)
-                    VStack(alignment: .leading, spacing: 10.0) {
-                        ContentRow(label: "ID") {
-                            Text(item.id)
-                                .primaryStyle()
-                        }
+                    .frame(width: .defaultLength + (.spacing * 2.0))
+                    VStack(alignment: .leading, spacing: .spacing) {
                         ContentRow(label: "Title") {
-                            Text(item.title)
+                            HStack {
+                                Text(item.title)
                                 .primaryStyle()
+                                Spacer()
+                                DeleteButton(selection: $selection)
+                            }
                         }
                         ContentRow(label: "Summary") {
                             Text(item.summary)
@@ -32,12 +32,39 @@ struct ItemView: View {
                                 ExplicitToggle(selection: $selection)
                             }
                         }
+                        ContentRow(label: "File") {
+                            HStack(spacing: .spacing) {
+                                Text(item.attachment.mimeType)
+                                    .primaryStyle()
+                                Spacer()
+                                Text(item.attachment.asset.duration.timestamp)
+                                    .primaryStyle()
+                            }
+                        }
                     }
                 }
-                ContentRow(label: "Attachment") {
+                if item.attachment.asset.chapters.count > 1 {
                     GroupBox {
-                        
+                        VStack(alignment: .leading, spacing: .spacing) {
+                            ContentRow(label: "Chapters") {
+                                
+                            }
+                            .padding(.bottom, 6.0)
+                            .padding(.top, -6.0)
+                            ForEach(item.attachment.asset.chapters) { chapter in
+                                ContentRow(label: chapter.id) {
+                                    HStack(spacing: .spacing) {
+                                        Text(chapter.title)
+                                            .primaryStyle()
+                                        Spacer()
+                                        Text(chapter.duration?.lowerBound.timestamp ?? "")
+                                            .primaryStyle()
+                                    }
+                                }
+                            }
+                        }
                     }
+                    .clipped()
                 }
             }
         }

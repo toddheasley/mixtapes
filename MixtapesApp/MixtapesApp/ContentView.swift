@@ -3,9 +3,7 @@ import Mixtapes
 
 struct ContentView: View {
     @Binding var selection: Selection
-    
-    private let maxWidth: CGFloat = 720.0
-    
+        
     // MARK: View
     var body: some View {
         GeometryReader { proxy in
@@ -14,10 +12,10 @@ struct ContentView: View {
                     switch selection {
                     case .item:
                         ItemView(selection: $selection)
-                            .frame(maxWidth: maxWidth)
+                            .frame(maxWidth: .maxWidth)
                     case .settings:
-                        SettingsView()
-                            .frame(maxWidth: maxWidth)
+                        SettingsView(selection: $selection)
+                            .frame(maxWidth: .maxWidth)
                     }
                 }
                 .padding()

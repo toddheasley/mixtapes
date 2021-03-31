@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Index: Identifiable, CustomStringConvertible {
+public struct Index: Identifiable, Equatable, CustomStringConvertible {
     public let url: URL
     public var title: String = ""
     public var homepage: String = ""
@@ -70,6 +70,11 @@ public struct Index: Identifiable, CustomStringConvertible {
     
     // MARK: Identifiable
     public private(set) var id: String = "index"
+    
+    // MARK: Equatable
+    public static func ==(lhs: Index, rhs: Index) -> Bool {
+        return lhs.id == rhs.id
+    }
     
     // MARK: CustomStringConvertible
     public var description: String = ""

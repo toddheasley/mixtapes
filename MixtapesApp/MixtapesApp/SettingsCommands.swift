@@ -8,12 +8,20 @@ struct SettingsCommands: View {
         NSApplication.shared.keyWindow?.toggleSettings()
     }
     
+    private func forgetSettings() {
+        mixtapes.open(nil)
+    }
+    
     // MARK: View
     var body: some View {
         Button(action: toggleSettings) {
             Text("Podcast Settings…")
         }
         .keyboardShortcut(",", modifiers: .command)
+        .disabled(mixtapes.index == nil)
+        Button(action: forgetSettings) {
+            Text("Forget Current Podcast")
+        }
         .disabled(mixtapes.index == nil)
     }
 }

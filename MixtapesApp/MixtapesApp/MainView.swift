@@ -4,6 +4,8 @@ import Mixtapes
 struct MainView: View {
     @State var selection: Selection = .auto
     
+    @EnvironmentObject private var mixtapes: Mixtapes
+    
     // MARK: View
     var body: some View {
         NavigationView {
@@ -15,7 +17,7 @@ struct MainView: View {
                     }
                 }
             ContentView(selection: $selection)
-                .frame(minWidth: 540.0, maxWidth: .infinity, minHeight: 360.0, maxHeight: .infinity)
+                .frame(minWidth: .maxWidth, maxWidth: .infinity, minHeight: 360.0, maxHeight: .infinity)
                 .background(Color(.textBackgroundColor))
                 .toolbar {
                     ToolbarItemGroup {
@@ -29,6 +31,12 @@ struct MainView: View {
                 }
         }
         .navigationTitle(selection.description)
+        .onChange(of: mixtapes.index) { value in
+            guard mixtapes.index == nil else {
+                return
+            }
+            selection = .auto
+        }
     }
 }
 

@@ -29,8 +29,9 @@ public struct Asset: Identifiable {
         }
         let asset: AVAsset = AVAsset(url: url)
         duration = asset.duration.seconds
-        let chapters: [Chapter] = try asset.chapterMetadataGroups().map { group in
-            return try Chapter(metadata: group.items)
+        var chapters: [Chapter] = []
+        for (i, group) in asset.chapterMetadataGroups().enumerated() {
+            chapters.append(try Chapter(id: "\(i + 1)", metadata: group.items))
         }
         self.chapters = chapters.count > 1 ? chapters : []
         self.artwork = try Artwork(asset.artwork, url: url)

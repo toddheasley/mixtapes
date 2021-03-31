@@ -23,6 +23,7 @@
 		5C5C4F2226026B5E00919DF6 /* FolderToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F2126026B5E00919DF6 /* FolderToolbarItem.swift */; };
 		5C5C4F28260271DA00919DF6 /* FileCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F27260271DA00919DF6 /* FileCommands.swift */; };
 		5C64526F260C4B3000EA977E /* Gaegu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8A600625F1F953007B4B63 /* Gaegu.ttf */; };
+		5C7F8B862613AD6B00A2A11F /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F8B852613AD6B00A2A11F /* DeleteButton.swift */; };
 		5C80972B26060C250080B25F /* ItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80972A26060C250080B25F /* ItemButton.swift */; };
 		5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDD25F1F269007B4B63 /* App.swift */; };
 		5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDF25F1F269007B4B63 /* ContentView.swift */; };
@@ -32,7 +33,6 @@
 		5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A600925F1F95C007B4B63 /* Font.swift */; };
 		5C93D66726014AB2003BC1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93D66626014AB2003BC1F6 /* MainView.swift */; };
 		5CBEFF7E26051BAA009737F7 /* ImportToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBEFF7D26051BAA009737F7 /* ImportToolbarItem.swift */; };
-		5CBEFF882605816A009737F7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBEFF872605816A009737F7 /* Alert.swift */; };
 		5CBEFF8B260585B1009737F7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBEFF8A260585B1009737F7 /* View.swift */; };
 		5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA412C25F25E9600361312 /* SidebarView.swift */; };
 		5CD15BFC2610C49F007E5553 /* ExplicitToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD15BFB2610C49F007E5553 /* ExplicitToggle.swift */; };
@@ -62,6 +62,7 @@
 		5C5C4F1A2602550C00919DF6 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
 		5C5C4F2126026B5E00919DF6 /* FolderToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderToolbarItem.swift; sourceTree = "<group>"; };
 		5C5C4F27260271DA00919DF6 /* FileCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCommands.swift; sourceTree = "<group>"; };
+		5C7F8B852613AD6B00A2A11F /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 		5C80972A26060C250080B25F /* ItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemButton.swift; sourceTree = "<group>"; };
 		5C8A5FDA25F1F269007B4B63 /* Mixtapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixtapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8A5FDD25F1F269007B4B63 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		5C8A600925F1F95C007B4B63 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		5C93D66626014AB2003BC1F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5CBEFF7D26051BAA009737F7 /* ImportToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportToolbarItem.swift; sourceTree = "<group>"; };
-		5CBEFF872605816A009737F7 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5CBEFF8A260585B1009737F7 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5CCA412C25F25E9600361312 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		5CD15BFB2610C49F007E5553 /* ExplicitToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplicitToggle.swift; sourceTree = "<group>"; };
@@ -145,6 +145,7 @@
 				5C8A5FDF25F1F269007B4B63 /* ContentView.swift */,
 				5CD15C072610F9A7007E5553 /* ContentRow.swift */,
 				5CD15C1126111C6E007E5553 /* DateEditor.swift */,
+				5C7F8B852613AD6B00A2A11F /* DeleteButton.swift */,
 				5CD15BFB2610C49F007E5553 /* ExplicitToggle.swift */,
 				5C5C4F27260271DA00919DF6 /* FileCommands.swift */,
 				5C24D98B2602E05700A6EB22 /* FolderButton.swift */,
@@ -173,7 +174,6 @@
 		5C8A600125F1F8B6007B4B63 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				5CBEFF872605816A009737F7 /* Alert.swift */,
 				5C8A600225F1F8D7007B4B63 /* Color.swift */,
 				5C8A600925F1F95C007B4B63 /* Font.swift */,
 				5C58AB9325FB01A20009E22D /* Text.swift */,
@@ -292,10 +292,10 @@
 				5C369B2626068181007764A6 /* Selection.swift in Sources */,
 				5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */,
 				5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */,
+				5C7F8B862613AD6B00A2A11F /* DeleteButton.swift in Sources */,
 				5C80972B26060C250080B25F /* ItemButton.swift in Sources */,
 				5C369B392606DEFA007764A6 /* NSImage.swift in Sources */,
 				5C5C4F28260271DA00919DF6 /* FileCommands.swift in Sources */,
-				5CBEFF882605816A009737F7 /* Alert.swift in Sources */,
 				5C58AB8625FA5FA20009E22D /* SidebarToolbarItem.swift in Sources */,
 				5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */,
 				5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */,
@@ -444,7 +444,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -471,7 +470,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
