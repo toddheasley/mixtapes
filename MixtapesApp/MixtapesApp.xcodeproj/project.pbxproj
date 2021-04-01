@@ -24,6 +24,11 @@
 		5C5C4F28260271DA00919DF6 /* FileCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F27260271DA00919DF6 /* FileCommands.swift */; };
 		5C64526F260C4B3000EA977E /* Gaegu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8A600625F1F953007B4B63 /* Gaegu.ttf */; };
 		5C7F8B862613AD6B00A2A11F /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F8B852613AD6B00A2A11F /* DeleteButton.swift */; };
+		5C7F8B962613FAAD00A2A11F /* TitleEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F8B952613FAAD00A2A11F /* TitleEditor.swift */; };
+		5C7F8B992613FF9D00A2A11F /* DescriptionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F8B982613FF9D00A2A11F /* DescriptionEditor.swift */; };
+		5C7F8B9C2614019E00A2A11F /* HomePageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F8B9B2614019E00A2A11F /* HomePageEditor.swift */; };
+		5C7F8B9F2614097C00A2A11F /* AuthorEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F8B9E2614097C00A2A11F /* AuthorEditor.swift */; };
+		5C7F8BAA2614A49800A2A11F /* DebounceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F8BA92614A49800A2A11F /* DebounceEditor.swift */; };
 		5C80972B26060C250080B25F /* ItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80972A26060C250080B25F /* ItemButton.swift */; };
 		5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDD25F1F269007B4B63 /* App.swift */; };
 		5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDF25F1F269007B4B63 /* ContentView.swift */; };
@@ -39,6 +44,7 @@
 		5CD15C082610F9A7007E5553 /* ContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD15C072610F9A7007E5553 /* ContentRow.swift */; };
 		5CD15C1226111C6E007E5553 /* DateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD15C1126111C6E007E5553 /* DateEditor.swift */; };
 		5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */; };
+		5CE236682615684C00FDA717 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE236672615684C00FDA717 /* LinkButton.swift */; };
 		5CEBFECC260816E300604192 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFECB260816E300604192 /* IconButton.swift */; };
 		5CEBFED226081D5B00604192 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFED126081D5B00604192 /* CGSize.swift */; };
 		5CEBFED526081E2D00604192 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFED426081E2D00604192 /* CGFloat.swift */; };
@@ -63,6 +69,11 @@
 		5C5C4F2126026B5E00919DF6 /* FolderToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderToolbarItem.swift; sourceTree = "<group>"; };
 		5C5C4F27260271DA00919DF6 /* FileCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCommands.swift; sourceTree = "<group>"; };
 		5C7F8B852613AD6B00A2A11F /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
+		5C7F8B952613FAAD00A2A11F /* TitleEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditor.swift; sourceTree = "<group>"; };
+		5C7F8B982613FF9D00A2A11F /* DescriptionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionEditor.swift; sourceTree = "<group>"; };
+		5C7F8B9B2614019E00A2A11F /* HomePageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageEditor.swift; sourceTree = "<group>"; };
+		5C7F8B9E2614097C00A2A11F /* AuthorEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEditor.swift; sourceTree = "<group>"; };
+		5C7F8BA92614A49800A2A11F /* DebounceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceEditor.swift; sourceTree = "<group>"; };
 		5C80972A26060C250080B25F /* ItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemButton.swift; sourceTree = "<group>"; };
 		5C8A5FDA25F1F269007B4B63 /* Mixtapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixtapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8A5FDD25F1F269007B4B63 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -80,6 +91,7 @@
 		5CD15C072610F9A7007E5553 /* ContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRow.swift; sourceTree = "<group>"; };
 		5CD15C1126111C6E007E5553 /* DateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEditor.swift; sourceTree = "<group>"; };
 		5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		5CE236672615684C00FDA717 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		5CEBFECB260816E300604192 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		5CEBFED126081D5B00604192 /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		5CEBFED426081E2D00604192 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
@@ -142,21 +154,26 @@
 				5C8A600125F1F8B6007B4B63 /* SwiftUI */,
 				5C8A5FDD25F1F269007B4B63 /* App.swift */,
 				5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */,
+				5C7F8B9E2614097C00A2A11F /* AuthorEditor.swift */,
 				5C8A5FDF25F1F269007B4B63 /* ContentView.swift */,
 				5CD15C072610F9A7007E5553 /* ContentRow.swift */,
 				5CD15C1126111C6E007E5553 /* DateEditor.swift */,
+				5C7F8BA92614A49800A2A11F /* DebounceEditor.swift */,
 				5C7F8B852613AD6B00A2A11F /* DeleteButton.swift */,
+				5C7F8B982613FF9D00A2A11F /* DescriptionEditor.swift */,
 				5CD15BFB2610C49F007E5553 /* ExplicitToggle.swift */,
 				5C5C4F27260271DA00919DF6 /* FileCommands.swift */,
 				5C24D98B2602E05700A6EB22 /* FolderButton.swift */,
 				5C5C4F2126026B5E00919DF6 /* FolderToolbarItem.swift */,
 				5C8A600625F1F953007B4B63 /* Gaegu.ttf */,
 				5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */,
+				5C7F8B9B2614019E00A2A11F /* HomePageEditor.swift */,
 				5CEBFECB260816E300604192 /* IconButton.swift */,
 				5C369B352606DB91007764A6 /* ImageView.swift */,
 				5CBEFF7D26051BAA009737F7 /* ImportToolbarItem.swift */,
 				5C80972A26060C250080B25F /* ItemButton.swift */,
 				5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */,
+				5CE236672615684C00FDA717 /* LinkButton.swift */,
 				5C93D66626014AB2003BC1F6 /* MainView.swift */,
 				5C5C4F1026022DD200919DF6 /* PreviewToolbarItem.swift */,
 				5C369B2526068181007764A6 /* Selection.swift */,
@@ -165,6 +182,7 @@
 				5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */,
 				5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */,
 				5CCA412C25F25E9600361312 /* SidebarView.swift */,
+				5C7F8B952613FAAD00A2A11F /* TitleEditor.swift */,
 				5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */,
 				5C8A5FE625F1F26A007B4B63 /* Info.plist */,
 			);
@@ -288,6 +306,7 @@
 				5CD15C1226111C6E007E5553 /* DateEditor.swift in Sources */,
 				5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */,
 				5CEBFED526081E2D00604192 /* CGFloat.swift in Sources */,
+				5C7F8BAA2614A49800A2A11F /* DebounceEditor.swift in Sources */,
 				5CD15BFC2610C49F007E5553 /* ExplicitToggle.swift in Sources */,
 				5C369B2626068181007764A6 /* Selection.swift in Sources */,
 				5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */,
@@ -300,23 +319,28 @@
 				5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */,
 				5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */,
 				5CF4E88525FB924D0028F87A /* SettingsToolbarItem.swift in Sources */,
+				5C7F8B9F2614097C00A2A11F /* AuthorEditor.swift in Sources */,
 				5CBEFF8B260585B1009737F7 /* View.swift in Sources */,
 				5C5C4F2226026B5E00919DF6 /* FolderToolbarItem.swift in Sources */,
 				5CEBFED226081D5B00604192 /* CGSize.swift in Sources */,
 				5CEBFECC260816E300604192 /* IconButton.swift in Sources */,
 				5C24D98C2602E05700A6EB22 /* FolderButton.swift in Sources */,
 				5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */,
+				5C7F8B992613FF9D00A2A11F /* DescriptionEditor.swift in Sources */,
 				5C5C4F1B2602550C00919DF6 /* NSWindow.swift in Sources */,
 				5CFD30BE25F7EC76009ED8AF /* SettingsView.swift in Sources */,
 				5CD15C082610F9A7007E5553 /* ContentRow.swift in Sources */,
 				5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */,
+				5C7F8B962613FAAD00A2A11F /* TitleEditor.swift in Sources */,
 				5C58AB9425FB01A20009E22D /* Text.swift in Sources */,
+				5C7F8B9C2614019E00A2A11F /* HomePageEditor.swift in Sources */,
 				5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */,
 				5C24D97E2602CE9D00A6EB22 /* NSEvent.swift in Sources */,
 				5C5C4F1126022DD200919DF6 /* PreviewToolbarItem.swift in Sources */,
 				5CBEFF7E26051BAA009737F7 /* ImportToolbarItem.swift in Sources */,
 				5C8A600325F1F8D7007B4B63 /* Color.swift in Sources */,
 				5C369B362606DB91007764A6 /* ImageView.swift in Sources */,
+				5CE236682615684C00FDA717 /* LinkButton.swift in Sources */,
 				5C93D66726014AB2003BC1F6 /* MainView.swift in Sources */,
 				5C58AB8A25FA62C40009E22D /* TitleToolbarItem.swift in Sources */,
 			);

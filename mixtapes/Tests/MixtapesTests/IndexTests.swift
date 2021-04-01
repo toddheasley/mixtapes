@@ -54,7 +54,7 @@ extension IndexTests {
     func testDecoderInit() throws {
         let index: Index = try JSONDecoder(url: URL(string: "index.json", relativeTo: resources)!).decode(Index.self, from: IndexTests_Data)
         XCTAssertEqual(index.authors.first?.name, "Todd Heasley")
-        XCTAssertEqual(index.authors.first?.url, URL(string: "mailto:toddheasley@me.com"))
+        XCTAssertEqual(index.authors.first?.url, "mailto:toddheasley@me.com")
         XCTAssertEqual(index.authors.count, 1)
         XCTAssertEqual(index.description, "Example mixtapes podcast")
         XCTAssertEqual(index.feedURL, URL(homepage: "https://example.com/mixtapes/", path: "index.json"))

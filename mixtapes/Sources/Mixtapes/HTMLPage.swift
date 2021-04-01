@@ -20,15 +20,22 @@ extension HTMLPage {
     }
     
     private static func head(index: Index, item: Item? = nil) -> String {
-        var string: String = ""
-        if let item: Item = item {
-            string += "<title>\(item.title) - \(index.title)</title>\n"
-        } else {
-            string += "<title>\(index.title)</title>\n"
+        var title: String {
+            guard let item: Item = item else {
+                return index.title
+            }
+            return "\(item.title) - \(index.title)"
         }
+        
+        var string: String = ""
+        string += "<title>\(title)</title>\n"
         string += "<meta name=\"viewport\" content=\"initial-scale=1.0\">\n"
-        string += "<meta name=\"og:image\" content=\"\">\n"
-        string += "<meta name=\"og:title\" content=\"\">\n"
+        if let item: Item = item, let imageURL: URL = index.itemURL(item)?.image {
+            string += "<meta name=\"og:image\" content=\"\(imageURL.absoluteString)\">\n"
+        } else if let iconURL: URL = index.iconURL {
+            string += "<meta name=\"og:image\" content=\"\(iconURL.absoluteString)\">\n"
+        }
+        string += "<meta name=\"og:title\" content=\"\(title)\">\n"
         string += "<link rel=\"alternate\" href=\"\(RSSFeed(index: index).url.lastPathComponent)\" type=\"application/rss+xml\">\n"
         string += "<link rel=\"stylesheet\" href=\"\(try! Stylesheet(url: index.url).url.lastPathComponent)\">"
         return string
@@ -95,7 +102,7 @@ extension HTMLPage {
             if let author: Author = index.authors.first {
                 string += "    <table>\n"
                 string += "        <tr>\n"
-                string += "            <td><a href=\"\(author.url.absoluteString)\">\(author)</a></td>\n"
+                string += "            <td><a href=\"\(author.url)\">\(author)</a></td>\n"
                 string += "        </tr>\n"
                 string += "    </table>\n"
             }
@@ -111,7 +118,11 @@ extension HTMLPage {
                 string += "            <td colspan=\"2\"><hr></td>\n"
                 string += "        </tr>\n"
                 string += "        <tr>\n"
-                string += "            <td><a href=\"\(index.itemURL(item)!.link.lastPathComponent)\">\(item.title) - \(item.summary)</a></td>\n"
+                if let linkURL: URL = index.itemURL(item)?.link {
+                    string += "            <td><a href=\"\(linkURL.lastPathComponent)\">\(item.title) - \(item.summary)</a></td>\n"
+                } else {
+                    string += "            <td>\(item.title) - \(item.summary)</td>\n"
+                }
                 string += "            <td><time>\(item.attachment.asset.duration.timestamp)</time></td>\n"
                 string += "        </tr>\n"
             }

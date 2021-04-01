@@ -31,7 +31,7 @@ struct MainView: View {
                 }
         }
         .navigationTitle(selection.description)
-        .onChange(of: mixtapes.index) { value in
+        .onChange(of: mixtapes.index) { _ in
             guard mixtapes.index == nil else {
                 return
             }

@@ -8,8 +8,11 @@ struct SettingsView: View {
     
     // MARK: View
     var body: some View {
-        VStack(spacing: .spacing) {
-            if let index: Index = mixtapes.index {
+        if let _: Index = mixtapes.index {
+            VStack(spacing: .spacing) {
+                ContentRow(label: "Home Page") {
+                    HomePageEditor()
+                }
                 HStack(alignment: .top, spacing: .spacing) {
                     GroupBox {
                         ContentRow(label: "Icon") {
@@ -24,24 +27,22 @@ struct SettingsView: View {
                     .frame(width: .defaultLength + (.spacing * 2.0))
                     VStack(alignment: .leading, spacing: .spacing) {
                         ContentRow(label: "Title") {
-                            Text(index.title)
-                                .primaryStyle()
+                            TitleEditor()
                         }
                         ContentRow(label: "Description") {
-                            Text(index.description)
-                                .primaryStyle()
-                        }
-                        ContentRow(label: "Home Page") {
-                            Text(index.homepage)
-                                .primaryStyle()
+                            DescriptionEditor()
                         }
                         ContentRow(label: "Author") {
-                            Text(index.authors.first?.description ?? "")
-                                .primaryStyle()
+                            AuthorEditor()
+                        }
+                        ContentRow(label: "Folder") {
+                            FolderButton()
+                                .padding(3.0)
                         }
                     }
                 }
             }
+        } else {
             FolderButton()
         }
     }
