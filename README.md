@@ -4,7 +4,7 @@ Mixtapes is a Mac app that I wrote to publish [my collection of personal mixtape
 
 ![](Mixtapes.png)
 
-[![Todd's Mixtapes](Mixtapes.svg)](https://s3.amazonaws.com/toddheasley/mixtapes/index.html) [![Download for macOS 11](MixtapesApp.svg)](MixtapesApp.zipl)
+[![Todd's Mixtapes](Mixtapes.svg)](https://s3.amazonaws.com/toddheasley/mixtapes/index.html) [![Download for macOS 11](MixtapesApp.svg)](MixtapesApp.zip)
 
 ## Workflow
 
