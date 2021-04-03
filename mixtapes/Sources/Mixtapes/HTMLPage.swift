@@ -37,6 +37,12 @@ extension HTMLPage {
         }
         string += "<meta name=\"og:title\" content=\"\(title)\">\n"
         string += "<link rel=\"alternate\" href=\"\(RSSFeed(index: index).url.lastPathComponent)\" type=\"application/rss+xml\">\n"
+        if let bookmark: Bookmark = try? Bookmark(icon: index.icon) {
+            string += "<link rel=\"apple-touch-icon\" href=\"\(bookmark.url.lastPathComponent)\">\n"
+        }
+        if let favicon: Favicon = try? Favicon(icon: index.icon) {
+            string += "<link rel=\"shortcut icon\" href=\"\(favicon.url.lastPathComponent)\">\n"
+        }
         string += "<link rel=\"stylesheet\" href=\"\(try! Stylesheet(url: index.url).url.lastPathComponent)\">"
         return string
     }

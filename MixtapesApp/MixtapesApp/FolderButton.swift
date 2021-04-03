@@ -34,10 +34,9 @@ struct FolderButton: View {
             HStack {
                 Image(systemName: "folder")
                 Text(message)
-                    .padding(.trailing, 2.0)
+                    .frame(maxWidth: .defaultLength)
             }
         }
-        .buttonStyle(BorderedButtonStyle())
     }
 }
 
