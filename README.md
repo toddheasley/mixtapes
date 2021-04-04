@@ -1,17 +1,25 @@
-# `Mixtapes`
+# Mixtapes
 
-`Mixtapes` is a Mac command-line utility that I wrote to publish [my collection of personal mixtapes](https://s3.amazonaws.com/toddheasley/mixtapes/index.html) as a podcast:
+Mixtapes is a Mac app that I wrote to publish [my collection of personal mixtapes](https://s3.amazonaws.com/toddheasley/mixtapes/index.html) as a podcast. 
 
-![](Mixtapes.png)
+![](docs/mixtapes.png)
 
-[![Todd's Mixtapes](Mixtapes.svg)](https://s3.amazonaws.com/toddheasley/mixtapes/index.html)
+The app is built with [SwiftUI](https://developer.apple.com/xcode/swiftui) and a couple dabs of [AppKit](https://developer.apple.com/documentation/appkit) glue. Choose a folder and add MP3s. Mixtapes automatically derives album artwork and metadata from a handful of [required ID3 tags](mixtapes/README.md), then generates a complete static web site and RSS feed.
 
-## Audio and Metadata
+[![Download for macOS 11](docs/mixtapes.svg)](docs/mixtapes.zip)
 
-Supports AAC files with the `.m4a` file extension and pulls metadata for each podcast episode from ID3 tags. Audio files are required to contain values for __title__, __artist__ and __album name__, as well as  __embedded artwork__ in JPEG format. Chapter markers are supported but optional.
+## Workflow
 
-Feeds are published in both [RSS](https://validator.w3.org/feed/docs/rss2.html) and [JSON Feed](https://jsonfeed.org) formats.
+![](docs/mixtapes-workflow.png)
+
+Mixtapes joins a workflow that includes a bunch of my favorite Mac apps:
+
+* [Audio Hijack](https://www.rogueamoeba.com/audiohijack) - If you can't buy it, rip it.
+* [GarageBand for Mac](https://www.apple.com/mac/garageband) - Mix and master.
+* [Acorn](https://flyingmeat.com/acorn) - Cover art is half the fun of making a mixtape.
+* [Fission](https://www.rogueamoeba.com/fission) - Tailor audio chapters and metadata.
+* [Transmit](https://panic.com/transmit) - Upload to the cloud.
 
 ## Requirements
 
-Targets [macOS](https://developer.apple.com/macos) 11 Big Sur. Written in [Swift](https://developer.apple.com/documentation/swift) 5.3 and requires [Xcode](https://developer.apple.com/xcode) 12 or newer to build. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
+Targets [macOS](https://developer.apple.com/macos) 11 Big Sur. Written in [Swift](https://developer.apple.com/documentation/swift) 5.3 and requires [Xcode](https://developer.apple.com/xcode) 12 or newer to build.
