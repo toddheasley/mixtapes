@@ -22,4 +22,4 @@ Mixtapes joins a workflow that includes a bunch of my favorite Mac apps:
 
 ## Requirements
 
-Targets [macOS](https://developer.apple.com/macos) 11 Big Sur. Written in [Swift](https://developer.apple.com/documentation/swift) 5.3 and requires [Xcode](https://developer.apple.com/xcode) 12 or newer to build.
+Targets [macOS](https://developer.apple.com/macos) 11 Big Sur. Written in [Swift](https://developer.apple.com/documentation/swift) 5.4 and requires [Xcode](https://developer.apple.com/xcode) 12.5 or newer to build.
