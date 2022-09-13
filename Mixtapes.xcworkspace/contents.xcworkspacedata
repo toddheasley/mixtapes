@@ -2,12 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:Mixtapes.sketch">
+   </FileRef>
+   <FileRef
       location = "group:MixtapesApp/MixtapesApp.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:mixtapes">
-   </FileRef>
-   <FileRef
-      location = "group:README.md">
    </FileRef>
 </Workspace>

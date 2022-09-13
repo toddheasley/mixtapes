@@ -8,4 +8,4 @@ Feeds are published in both [RSS](https://validator.w3.org/feed/docs/rss2.html) 
 
 ## Requirements
 
-Targets [macOS](https://developer.apple.com/macos) 11 Big Sur. Written in [Swift](https://developer.apple.com/documentation/swift) 5.4 and requires [Xcode](https://developer.apple.com/xcode) 12.5 or newer to build.
+Targets [macOS](https://developer.apple.com/macos) 12 Monterey. Written in [Swift](https://developer.apple.com/documentation/swift) 5.7 and requires [Xcode](https://developer.apple.com/xcode) 14 or newer to build.

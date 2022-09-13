@@ -1,9 +1,9 @@
-// swift-tools-version:5.4
+// swift-tools-version:5.7
 
 import PackageDescription
 
 let package = Package(name: "mixtapes", platforms: [
-        .macOS(.v11)
+        .macOS(.v12)
     ], products: [
         .library(name: "Mixtapes", targets: [
             "Mixtapes"

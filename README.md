@@ -6,8 +6,6 @@ Mixtapes is a Mac app that I wrote to publish [my collection of personal mixtape
 
 The app is built with [SwiftUI](https://developer.apple.com/xcode/swiftui) and a couple dabs of [AppKit](https://developer.apple.com/documentation/appkit) glue. Choose a folder and add MP3s. Mixtapes automatically derives album artwork and metadata from a handful of [required ID3 tags](mixtapes/README.md), then generates a complete static web site and RSS feed.
 
-[![Download for macOS 11](docs/mixtapes.svg)](docs/mixtapes.zip)
-
 ## Workflow
 
 ![](docs/mixtapes-workflow.png)
@@ -22,4 +20,4 @@ Mixtapes joins a workflow that includes a bunch of my favorite Mac apps:
 
 ## Requirements
 
-Targets [macOS](https://developer.apple.com/macos) 11 Big Sur. Written in [Swift](https://developer.apple.com/documentation/swift) 5.4 and requires [Xcode](https://developer.apple.com/xcode) 12.5 or newer to build.
+Targets [macOS](https://developer.apple.com/macos) 12 Monterey. Written in [Swift](https://developer.apple.com/documentation/swift) 5.7 and requires [Xcode](https://developer.apple.com/xcode) 14 or newer to build.

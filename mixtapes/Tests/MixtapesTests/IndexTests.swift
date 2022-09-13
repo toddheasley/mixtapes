@@ -2,11 +2,6 @@ import XCTest
 @testable import Mixtapes
 
 final class IndexTests: XCTestCase {
-    func testWrite() throws {
-        let url: URL = URL(fileURLWithPath: "/Users/toddheasley/Documents/Web/s3.amazonaws.com/toddheasley/mixtapes")
-        try Index(url: url).write()
-    }
-    
     func testHomepage() throws {
         var index: Index = try Index(url: resources)
         XCTAssertNil(index.homepageURL)
