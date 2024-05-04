@@ -7,28 +7,38 @@ final class AVAssetTests: XCTestCase {
 }
 
 extension AVAssetTests {
-    func testChapterMetadataGroups() throws {
-        XCTAssertEqual(AVAsset(url: resource("example.m4a")).chapterMetadataGroups().count, 5)
-        XCTAssertEqual(AVAsset(url: resource("example.mp3")).chapterMetadataGroups().count, 3)
+    func testChapterMetadataGroups() async throws {
+        let m4a: [AVMetadataGroup] = try await AVAsset(url: resource("example.m4a")).chapterMetadataGroups()
+        XCTAssertEqual(m4a.count, 5)
+        let mp3: [AVMetadataGroup] = try await AVAsset(url: resource("example.mp3")).chapterMetadataGroups()
+        XCTAssertEqual(mp3.count, 3)
     }
     
-    func testArtwork() {
-        XCTAssertEqual(AVAsset(url: resource("example.m4a")).artwork?.count, 3252)
-        XCTAssertEqual(AVAsset(url: resource("example.mp3")).artwork?.count, 3924)
+    func testArtwork() async throws {
+        let m4a: Data = try await AVAsset(url: resource("example.m4a")).artwork()
+        XCTAssertEqual(m4a.count, 3252)
+        let mp3: Data = try await AVAsset(url: resource("example.mp3")).artwork()
+        XCTAssertEqual(mp3.count, 3924)
     }
     
-    func testArtist() {
-        XCTAssertEqual(AVAsset(url: resource("example.m4a")).artist, "Artist")
-        XCTAssertEqual(AVAsset(url: resource("example.mp3")).artist, "Artist")
+    func testArtist() async throws {
+        let m4a: String = try await AVAsset(url: resource("example.m4a")).artist()
+        XCTAssertEqual(m4a, "Artist")
+        let mp3: String = try await AVAsset(url: resource("example.mp3")).artist()
+        XCTAssertEqual(mp3, "Artist")
     }
     
-    func testTitle() {
-        XCTAssertEqual(AVAsset(url: resource("example.m4a")).title, "Album")
-        XCTAssertEqual(AVAsset(url: resource("example.mp3")).title, "Album")
+    func testTitle() async throws {
+        let m4a: String = try await AVAsset(url: resource("example.m4a")).title()
+        XCTAssertEqual(m4a, "Album")
+        let mp3: String = try await AVAsset(url: resource("example.mp3")).title()
+        XCTAssertEqual(mp3, "Album")
     }
     
-    func testMetadataItem() {
-        XCTAssertEqual(AVAsset(url: resource("example.m4a")).metadataItem("artist")?.stringValue, "Artist")
-        XCTAssertEqual(AVAsset(url: resource("example.mp3")).metadataItem("title")?.stringValue, "Album")
+    func testMetadataItem() async throws {
+        let m4a: String? = try await AVAsset(url: resource("example.m4a")).metadataItem("artist").load(.stringValue)
+        XCTAssertEqual(m4a, "Artist")
+        let mp3: String? = try await AVAsset(url: resource("example.mp3")).metadataItem("title").load(.stringValue)
+        XCTAssertEqual(mp3, "Album")
     }
 }

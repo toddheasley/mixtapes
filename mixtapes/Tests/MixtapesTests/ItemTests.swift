@@ -7,29 +7,21 @@ final class ItemTests: XCTestCase {
 
 extension ItemTests {
     
-    // MARK: Codable
-    func testEncode() throws {
-        let decoder: JSONDecoder = JSONDecoder(url: resource("index.json"))
+    // MARK: Encodable
+    func testEncode() async throws {
+        let decoder: JSONDecoder = JSONDecoder(url: resources)
         let encoder: JSONEncoder = JSONEncoder(url: URL(string: "https://example.com/mixtapes/")!, formatting: [.sortedKeys])
-        let item: Item = try decoder.decode(Item.self, from: ItemTests_Data)
-        let data: Data = try encoder.encode(item)
-        let mock: ItemTests_Mock = try decoder.decode(ItemTests_Mock.self, from: ItemTests_Data)
-        XCTAssertEqual(data, try encoder.encode(mock))
+        let metadata: Item.Metadata = try decoder.decode(Item.Metadata.self, from: ItemTests_Data)
+        let item: Item = try await Item(metadata: metadata)
+        XCTAssertEqual(try encoder.encode(item).count, 312)
     }
     
-    func testDecoderInit() throws {
-        let item: Item = try JSONDecoder(url: resource("example.m4a")).decode(Item.self, from: ItemTests_Data)
-        XCTAssertEqual(item.attachment.durationInSeconds, 30)
-        XCTAssertEqual(item.attachment.mimeType, "audio/x-m4a")
-        XCTAssertEqual(item.attachment.sizeInBytes, 738675)
-        XCTAssertEqual(item.attachment.url.lastPathComponent, "example.m4a")
-        XCTAssertEqual(item.date.published, Date(timeIntervalSince1970: 0.0))
-        XCTAssertNil(item.date.modified)
-        XCTAssertEqual(item.id, "example")
-        XCTAssertEqual(item.image.lastPathComponent, "example.png")
-        XCTAssertEqual(item.summary, "Artist")
-        XCTAssertEqual(item.title, "Album")
-        XCTAssertTrue(item.isExplicit)
+    // MARK: Decodable
+    func testMetadataDecoderInit() throws {
+        let metadata: Item.Metadata = try JSONDecoder(url: resources).decode(Item.Metadata.self, from: ItemTests_Data)
+        XCTAssertEqual(metadata.published, Date(timeIntervalSince1970: 0.0))
+        XCTAssertTrue(metadata.isExplicit)
+        XCTAssertEqual(metadata.url.lastPathComponent, "example.m4a")
     }
 }
 

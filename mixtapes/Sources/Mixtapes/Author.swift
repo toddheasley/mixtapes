@@ -1,16 +1,14 @@
 import Foundation
 
 public struct Author: Codable, CustomStringConvertible {
-    public let url: String
     public let name: String?
+    public let url: String
     
-    public init(_ url: String, name: String? = nil) {
-        self.url = url
+    public init(_ name: String? = nil, url: String) {
         self.name = name
+        self.url = url
     }
     
     // MARK: CustomStringConvertible
-    public var description: String {
-        return name ?? url
-    }
+    public var description: String { name ?? url }
 }

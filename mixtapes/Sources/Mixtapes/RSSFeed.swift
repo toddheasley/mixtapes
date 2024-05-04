@@ -29,22 +29,21 @@ struct RSSFeed: Resource {
             string += "            <description>\(item.summary)</description>\n"
             string += "            <guid isPermaLink=\"false\">\(item.id)</guid>\n"
             string += "            <link>\(itemURL.link.absoluteString)</link>\n"
-            string += "            <pubDate>\(dateFormatter.string(from: item.date.published))</pubDate>\n"
+            string += "            <pubDate>\(dateFormatter.string(from: item.metadata.published))</pubDate>\n"
             string += "            <enclosure url=\"\(itemURL.attachment.absoluteString)\" length=\"\(item.attachment.sizeInBytes)\" type=\"\(item.attachment.mimeType)\" />\n"
             string += "            <itunes:image href=\"\(itemURL.image.absoluteString)\" />\n"
             string += "            <itunes:duration>\(item.attachment.durationInSeconds)</itunes:duration>\n"
-            if item.isExplicit {
+            if item.metadata.isExplicit {
                 string += "            <itunes:explicit>yes</itunes:explicit>\n"
             }
             string += "        </item>\n"
         }
         string += "    </channel>\n"
         string += "</rss>"
-        
         data = string.data(using: .utf8)!
     }
     
     // MARK: Resource
-    public let url: URL
     public let data: Data
+    public let url: URL
 }

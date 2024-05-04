@@ -10,6 +10,6 @@ struct Bookmark: Resource {
     }
     
     // MARK: Resource
-    public let url: URL
     public let data: Data
+    public let url: URL
 }

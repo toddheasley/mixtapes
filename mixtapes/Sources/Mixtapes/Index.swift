@@ -10,10 +10,8 @@ public struct Index: Identifiable, Equatable, CustomStringConvertible {
     
     public var items: [Item] = [] {
         didSet {
-            let sortedItems: [Item] = items.sorted { $0.date.published > $1.date.published }
-            guard items != sortedItems else {
-                return
-            }
+            let sortedItems: [Item] = items.sorted { $0.metadata.published > $1.metadata.published }
+            guard items != sortedItems else { return }
             items = sortedItems
         }
     }
@@ -27,8 +25,8 @@ public struct Index: Identifiable, Equatable, CustomStringConvertible {
         try Site(index: self).write()
     }
     
-    public init(url: URL?) throws {
-        guard let url: URL = url else {
+    public init(url: URL?) async throws {
+        guard let url else {
             throw Error("Resource URL not found")
         }
         guard FileManager.default.fileExists(atPath: url.path) else {
@@ -37,27 +35,58 @@ public struct Index: Identifiable, Equatable, CustomStringConvertible {
         do {
             let url: URL = URL(fileURLWithPath: "\(id).json", relativeTo: url)
             if FileManager.default.fileExists(atPath: url.path) {
-                self = try JSONDecoder(url: url).decode(Self.self, from: try Data(contentsOf: url))
+                let metadata: Metadata = try JSONDecoder(url: url).decode(Metadata.self, from: Data(contentsOf: url))
+                self = try await Self(metadata: metadata)
             } else {
-                self.url = url
-                self.icon = try Icon(url: url)
+                let metadata: Metadata = try Metadata(url: url)
+                self = try await Self(metadata: metadata)
             }
         } catch {
             throw Error("Feed decoding failed", url: url)
         }
     }
     
-    var homepageURL: URL? {
-        return URL(homepage: homepage, path: "index.html")
+    struct Metadata: CustomStringConvertible {
+        let url: URL
+        let title: String
+        var homepage: String = ""
+        let icon: Icon
+        let authors: [Author]
+        let isExpired: Bool
+        let items: [Item.Metadata]
+        
+        init(url: URL) throws {
+            self.url = url
+            self.title = ""
+            self.icon = try Icon(url: url)
+            self.authors = []
+            self.isExpired = false
+            self.items = []
+            self.description = ""
+        }
+        
+        // MARK: CustomStringConvertible
+        let description: String
     }
     
-    var feedURL: URL? {
-        return URL(homepage: homepage, path: url.lastPathComponent)
+    init(metadata: Metadata) async throws {
+        url = metadata.url
+        for metadata in metadata.items {
+            print("*** \(metadata.url.absoluteString)")
+            let item: Item = try await Item(metadata: metadata)
+            items.append(item)
+        }
+        title = metadata.title
+        homepage = metadata.homepage
+        icon = metadata.icon
+        authors = metadata.authors
+        isExpired = metadata.isExpired
+        description = metadata.description
     }
     
-    var iconURL: URL? {
-        return URL(homepage: homepage, path: icon.url.lastPathComponent)
-    }
+    var homepageURL: URL? { URL(homepage: homepage, path: "index.html") }
+    var feedURL: URL? { URL(homepage: homepage, path: url.lastPathComponent) }
+    var iconURL: URL? { URL(homepage: homepage, path: icon.url.lastPathComponent) }
     
     func itemURL(_ item: Item) -> (attachment: URL, image: URL, link: URL)? {
         guard let attachment: URL = URL(homepage: homepage, path: item.attachment.url.lastPathComponent),
@@ -72,22 +101,20 @@ public struct Index: Identifiable, Equatable, CustomStringConvertible {
     public private(set) var id: String = "index"
     
     // MARK: Equatable
-    public static func ==(lhs: Index, rhs: Index) -> Bool {
-        return lhs.id == rhs.id
-    }
+    public static func ==(lhs: Self, rhs: Self) -> Bool { lhs.id == rhs.id }
     
     // MARK: CustomStringConvertible
     public var description: String = ""
 }
 
-extension Index: Codable {
+extension Index: Encodable {
     
-    // MARK: Codable
+    // MARK: Encodable
     public func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
         try container.encode("https://jsonfeed.org/version/1.1", forKey: .version)
         try container.encode(title, forKey: .title)
-        if let homepageURL: URL = homepageURL {
+        if let homepageURL {
             try container.encode(homepageURL, forKey: .homepageURL)
         } else if !homepage.isEmpty {
             try container.encode(homepage, forKey: .homepageURL)
@@ -103,8 +130,12 @@ extension Index: Codable {
         }
         try container.encode(items, forKey: .items)
     }
+}
+
+extension Index.Metadata: Decodable {
     
-    public init(from decoder: Decoder) throws {
+    // MARK: Decodable
+    init(from decoder: Decoder) throws {
         url = try decoder.url()
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
         title = try container.decode(String.self, forKey: .title)
@@ -114,11 +145,11 @@ extension Index: Codable {
         description = try container.decode(String.self, forKey: .description)
         icon = try Icon(url: url, path: (try? container.decode(URL.self, forKey: .icon))?.lastPathComponent)
         authors = (try? container.decode([Author].self, forKey: .authors)) ?? []
-        isExpired = (try? container.decode(Bool.self, forKey: .expired)) ?? isExpired
-        items = try container.decode([Item].self, forKey: .items)
+        isExpired = (try? container.decode(Bool.self, forKey: .expired)) ?? false
+        items = try container.decode([Item.Metadata].self, forKey: .items)
     }
-    
-    private enum Key: String, CodingKey {
-        case version, title, homepageURL = "home_page_url", feedURL = "feed_url", description, icon, authors, expired, items
-    }
+}
+
+private enum Key: String, CodingKey {
+    case version, title, homepageURL = "home_page_url", feedURL = "feed_url", description, icon, authors, expired, items
 }

@@ -6,7 +6,7 @@ struct Site: Resource {
         url = html.url
         data = html.data
         var resources: [Resource] = [
-            try Favicon(icon: index.icon),
+            try Favicon(url: index.url),
             try Bookmark(icon: index.icon),
             try Stylesheet(url: index.url),
             try RSSIcon(url: index.url),
@@ -19,7 +19,7 @@ struct Site: Resource {
     }
     
     // MARK: Resource
-    public let url: URL
     public let data: Data
     public let resources: [Resource]
+    public let url: URL
 }

@@ -5,7 +5,7 @@ public struct Error: Swift.Error, Identifiable, CustomStringConvertible {
     
     public init(_ description: String, url: URL? = nil) {
         if let url: URL = url {
-            self.description = "\(description): \(url)"
+            self.description = "\(description): \(url.absoluteString)"
         } else {
             self.description = description
         }
@@ -20,9 +20,7 @@ public struct Error: Swift.Error, Identifiable, CustomStringConvertible {
     }
     
     // MARK: Identifiable
-    public var id: String {
-        return description
-    }
+    public var id: String { description }
     
     // MARK: CustomStringConvertible
     public let description: String

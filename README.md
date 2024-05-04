@@ -20,4 +20,4 @@ Mixtapes joins a workflow that includes a bunch of my favorite Mac apps:
 
 ## Requirements
 
-Targets [macOS](https://developer.apple.com/macos) 12 Monterey. Written in [Swift](https://developer.apple.com/documentation/swift) 5.7 and requires [Xcode](https://developer.apple.com/xcode) 14 or newer to build.
+Targets [macOS](https://developer.apple.com/macos) 14 Sonoma. Written in [Swift](https://developer.apple.com/documentation/swift) 5.10, and builds with [Xcode](https://developer.apple.com/xcode) 15 or newer.

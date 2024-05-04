@@ -1,15 +1,14 @@
 import Foundation
 
 protocol Resource {
-    var url: URL { get }
     var data: Data { get }
-    var resources: [Resource] { get }
+    var resources: [Self] { get }
+    var url: URL { get }
+
 }
 
 extension Resource {
-    var resources: [Resource] {
-        return []
-    }
+    var resources: [Self] { [] }
     
     func write() throws {
         do {

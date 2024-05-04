@@ -1,8 +1,6 @@
 import Foundation
 
 public struct Attachment {
-    public let asset: Asset
-    
     public var url: URL {
         return asset.url
     }
@@ -19,12 +17,19 @@ public struct Attachment {
         return Int(asset.duration)
     }
     
+    public init(url: URL) async throws {
+        let asset: Asset = try await Asset(url: url)
+        self.init(asset: asset)
+    }
+    
     init(asset: Asset) {
         self.asset = asset
     }
+    
+    let asset: Asset
 }
 
-extension Attachment: Codable {
+extension Attachment: Encodable {
     
     // MARK: Codable
     public func encode(to encoder: Encoder) throws {
@@ -33,16 +38,6 @@ extension Attachment: Codable {
         try container.encode(mimeType, forKey: .mimeType)
         try container.encode(sizeInBytes, forKey: .sizeInBytes)
         try container.encode(durationInSeconds, forKey: .durationInSeconds)
-    }
-    
-    public init(from decoder: Decoder) throws {
-        let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
-        let path: String = try container.decode(URL.self, forKey: .url).lastPathComponent
-        guard path.count > 1 else {
-            throw DecodingError.valueNotFound(URL.self, DecodingError.Context(codingPath: [], debugDescription: ""))
-        }
-        let url: URL = URL(fileURLWithPath: path, relativeTo: try decoder.url())
-        self.asset = try Asset(url: url)
     }
     
     private enum Key: String, CodingKey {

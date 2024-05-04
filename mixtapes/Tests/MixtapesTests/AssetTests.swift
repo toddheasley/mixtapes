@@ -2,8 +2,8 @@ import XCTest
 @testable import Mixtapes
 
 final class AssetTests: XCTestCase {
-    func testURLInit() throws {
-        let aac: Asset = try Asset(url: resource("example.m4a"))
+    func testURLInit() async throws {
+        let aac: Asset = try await Asset(url: resource("example.m4a"))
         XCTAssertEqual(aac.url, resource("example.m4a"))
         XCTAssertEqual(aac.length, 738675)
         XCTAssertEqual(aac.mimeType, "audio/x-m4a")
@@ -19,7 +19,7 @@ final class AssetTests: XCTestCase {
         XCTAssertEqual(aac.artwork.url.lastPathComponent, "example.png")
         XCTAssertEqual(aac.artist, "Artist")
         XCTAssertEqual(aac.title, "Album")
-        let mp3: Asset = try Asset(url: resource("example.mp3"))
+        let mp3: Asset = try await Asset(url: resource("example.mp3"))
         XCTAssertEqual(mp3.url, resource("example.mp3"))
         XCTAssertEqual(mp3.length, 738325)
         XCTAssertEqual(mp3.mimeType, "audio/mpeg")
