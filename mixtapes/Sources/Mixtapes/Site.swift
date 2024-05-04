@@ -3,8 +3,8 @@ import Foundation
 struct Site: Resource {
     init(index: Index) throws {
         let html: HTMLPage = HTMLPage(index: index)
-        url = html.url
         data = html.data
+        url = html.url
         var resources: [Resource] = [
             try Favicon(url: index.url),
             try Bookmark(icon: index.icon),

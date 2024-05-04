@@ -24,7 +24,6 @@ extension URL {
     }
     
     var fileSize: Int? { try? resourceValues(forKeys: [.fileSizeKey]).fileSize }
-    
     var contentType: UTType? { try? resourceValues(forKeys: [.contentTypeKey]).contentType }
     
     var id: String? {

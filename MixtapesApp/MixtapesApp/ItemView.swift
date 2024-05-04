@@ -2,7 +2,11 @@ import SwiftUI
 import Mixtapes
 
 struct ItemView: View {
-    @Binding var selection: Selection
+    init(selection: Binding<Selection>) {
+        _selection = selection
+    }
+    
+    @Binding private var selection: Selection
     
     // MARK: View
     var body: some View {

@@ -2,18 +2,12 @@ import SwiftUI
 import Mixtapes
 
 struct AuthorEditor: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
-    private var url: URL? {
-        return URL(string: mixtapes.index?.authors.first?.url ?? "")
-    }
+    private var url: URL? { URL(string: mixtapes.index?.authors.first?.url ?? "") }
     
     private func changeURL(_ url: String) {
-        guard !url.isEmpty else {
-            mixtapes.index?.authors = []
-            return
-        }
-        mixtapes.index?.authors = [Author(url, name: mixtapes.index?.authors.first?.name)]
+        mixtapes.index?.authors = !url.isEmpty ? [Author(mixtapes.index?.authors.first?.name, url: url)] : []
     }
     
     private func changeName(_ name: String) {
@@ -21,7 +15,7 @@ struct AuthorEditor: View {
               !url.isEmpty else {
             return
         }
-        mixtapes.index?.authors = [Author(url, name: !name.isEmpty ? name : nil)]
+        mixtapes.index?.authors = [Author(!name.isEmpty ? name : nil, url: url)]
     }
     
     // MARK: View
@@ -43,11 +37,7 @@ struct AuthorEditor: View {
     }
 }
 
-struct AuthorEditor_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        AuthorEditor()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    AuthorEditor()
+        .environment(Mixtapes())
 }

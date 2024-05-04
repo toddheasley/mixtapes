@@ -2,7 +2,11 @@ import SwiftUI
 import Mixtapes
 
 struct ContentView: View {
-    @Binding var selection: Selection
+    init(selection: Binding<Selection>) {
+        _selection = selection
+    }
+    
+    @Binding private var selection: Selection
         
     // MARK: View
     var body: some View {
@@ -25,11 +29,6 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        ContentView(selection: .constant(.auto))
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    ContentView(selection: .constant(.auto))
 }

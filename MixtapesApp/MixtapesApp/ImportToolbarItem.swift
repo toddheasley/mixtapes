@@ -3,7 +3,7 @@ import AVFoundation
 import Mixtapes
 
 struct ImportToolbarItem: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
     private func importItem() {
         let panel: NSOpenPanel = NSOpenPanel()
@@ -36,11 +36,7 @@ struct ImportToolbarItem: View {
     }
 }
 
-struct ImportToolbarItem_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        ImportToolbarItem()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    ImportToolbarItem()
+        .environment(Mixtapes())
 }

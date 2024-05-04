@@ -16,17 +16,9 @@ public struct Item: Identifiable, Equatable {
     public let attachment: Attachment
     public var metadata: Metadata
     
-    public var title: String {
-        return attachment.asset.title
-    }
-    
-    public var summary: String {
-        return attachment.asset.artist
-    }
-    
-    public var image: URL {
-        return attachment.asset.artwork.url
-    }
+    public var title: String { attachment.asset.title }
+    public var summary: String { attachment.asset.artist }
+    public var image: URL { attachment.asset.artwork.url }
     
     public init(url: URL, published: Date = Date(), isExplicit: Bool = false) async throws {
         try await self.init(metadata: Metadata(url: url, published: published, isExplicit: isExplicit))
@@ -39,13 +31,11 @@ public struct Item: Identifiable, Equatable {
     }
     
     // MARK: Identifiable
-    public var id: String {
-        return attachment.asset.id
-    }
+    public var id: String { attachment.asset.id }
     
     // MARK: Equatable
     public static func ==(lhs: Item, rhs: Item) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
     }
 }
 
@@ -54,7 +44,6 @@ extension Item: Encodable {
     // MARK: Encodable
     public func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
-        try container.encode(id, forKey: .id)
         try container.encode(title, forKey: .title)
         try container.encode(summary, forKey: .summary)
         try container.encode(URL(string: image.relativePath, relativeTo: try encoder.url())!, forKey: .image)
@@ -63,6 +52,7 @@ extension Item: Encodable {
         if metadata.isExplicit {
             try container.encode([Key.explicit.stringValue], forKey: .tags)
         }
+        try container.encode(id, forKey: .id)
     }
 }
 
@@ -83,9 +73,9 @@ extension Item.Metadata: Decodable {
     private struct Attachment: Decodable {
         let url: URL
     }
-
 }
 
 private enum Key: String, CodingKey {
-    case id, title, summary, image, datePublished = "date_published", attachments, tags, explicit
+    case title, summary, image, attachments, tags, explicit, id
+    case datePublished = "date_published"
 }

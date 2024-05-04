@@ -5,7 +5,7 @@ struct ImageView: View {
     let size: CGSize
     let item: Item?
     
-    init(item: Item? = nil, size: CGSize = .square()) {
+    init(size: CGSize = .square(), item: Item? = nil) {
         self.size = size
         self.item = item
     }
@@ -29,10 +29,6 @@ struct ImageView: View {
     }
 }
 
-struct ImageView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        ImageView(item: nil)
-    }
+#Preview {
+    ImageView(item: nil)
 }

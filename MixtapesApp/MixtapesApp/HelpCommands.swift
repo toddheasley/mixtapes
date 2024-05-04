@@ -13,10 +13,6 @@ struct HelpCommands: View {
     }
 }
 
-struct HelpCommands_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        HelpCommands()
-    }
+#Preview {
+    HelpCommands()
 }

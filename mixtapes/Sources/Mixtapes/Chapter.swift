@@ -20,9 +20,9 @@ public struct Chapter: Identifiable {
         guard !title.isEmpty else {
             throw Error("Chapter title not found")
         }
-        self.id = id
         self.duration = duration
         self.title = title
+        self.id = id
     }
     
     // MARK: Identifiable

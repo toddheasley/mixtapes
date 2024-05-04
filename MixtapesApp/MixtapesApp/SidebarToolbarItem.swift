@@ -14,10 +14,6 @@ struct SidebarToolbarItem: View {
     }
 }
 
-struct SidebarToolbarItem_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        SidebarToolbarItem()
-    }
+#Preview {
+    SidebarToolbarItem()
 }

@@ -2,7 +2,7 @@ import SwiftUI
 import Mixtapes
 
 struct FileCommands: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
     private func importAudio() {
         NSApplication.shared.keyWindow?.importAudio()
@@ -36,11 +36,7 @@ struct FileCommands: View {
     }
 }
 
-struct FileCommands_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        FileCommands()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    FileCommands()
+        .environment(Mixtapes())
 }

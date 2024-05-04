@@ -2,7 +2,7 @@ import SwiftUI
 import Mixtapes
 
 struct PreviewToolbarItem: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
     private func preview() {
         guard let url: URL = mixtapes.index?.url.deletingPathExtension() else {
@@ -22,11 +22,7 @@ struct PreviewToolbarItem: View {
     }
 }
 
-struct PreviewToolbarItem_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        PreviewToolbarItem()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    PreviewToolbarItem()
+        .environment(Mixtapes())
 }

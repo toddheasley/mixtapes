@@ -2,10 +2,14 @@ import SwiftUI
 import Mixtapes
 
 struct ItemButton: View {
-    @State var item: Item
-    @Binding var selection: Selection
+    init(_ item: Item, selection: Binding<Selection>) {
+        _selection = selection
+        self.item = item
+    }
     
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
+    @Binding private var selection: Selection
+    @State private var item: Item
     
     private var isSelected: Bool {
         switch selection {

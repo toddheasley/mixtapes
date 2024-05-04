@@ -1,21 +1,11 @@
 import Foundation
 
 public struct Attachment {
-    public var url: URL {
-        return asset.url
-    }
-    
-    public var mimeType: String {
-        return asset.mimeType
-    }
-    
-    public var sizeInBytes: Int {
-        return asset.length
-    }
-    
-    public var durationInSeconds: Int {
-        return Int(asset.duration)
-    }
+    public var mimeType: String { asset.mimeType }
+    public var sizeInBytes: Int { asset.length }
+    public var durationInSeconds: Int { Int(asset.duration) }
+    public var url: URL { asset.url }
+    public let asset: Asset
     
     public init(url: URL) async throws {
         let asset: Asset = try await Asset(url: url)
@@ -25,13 +15,11 @@ public struct Attachment {
     init(asset: Asset) {
         self.asset = asset
     }
-    
-    let asset: Asset
 }
 
 extension Attachment: Encodable {
     
-    // MARK: Codable
+    // MARK: Encodable
     public func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
         try container.encode(URL(string: url.lastPathComponent, relativeTo: try encoder.url())!, forKey: .url)
@@ -41,6 +29,9 @@ extension Attachment: Encodable {
     }
     
     private enum Key: String, CodingKey {
-        case url, mimeType = "mime_type", title, sizeInBytes = "size_in_bytes", durationInSeconds = "duration_in_seconds"
+        case mimeType = "mime_type"
+        case sizeInBytes = "size_in_bytes"
+        case durationInSeconds = "duration_in_seconds"
+        case url
     }
 }

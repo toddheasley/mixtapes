@@ -1,8 +1,6 @@
 import SwiftUI
 
 @Observable public class Mixtapes {
-    @AppStorage("url") private static var url: URL?
-    
     public var index: Index? {
         didSet {
             do {
@@ -16,7 +14,11 @@ import SwiftUI
     
     public var error: Error? {
         didSet {
-            
+            guard let error else { return }
+            DispatchQueue.main.asyncAfter(deadline: .deadline) {
+                guard self.error == error else { return }
+                self.error = nil
+            }
         }
     }
     
@@ -63,4 +65,10 @@ import SwiftUI
     public init() {
         open(Self.url)
     }
+    
+    @AppStorage("url") private static var url: URL?
+}
+
+private extension DispatchTime {
+    static var deadline: Self { .now() + 3.5 }
 }

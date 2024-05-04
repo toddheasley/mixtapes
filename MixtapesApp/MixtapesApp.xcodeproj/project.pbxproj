@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		5C369B2626068181007764A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B2526068181007764A6 /* Selection.swift */; };
 		5C369B362606DB91007764A6 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B352606DB91007764A6 /* ImageView.swift */; };
 		5C369B392606DEFA007764A6 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B382606DEFA007764A6 /* NSImage.swift */; };
+		5C3E349D2BE6CDCA000553C0 /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3E349C2BE6CDCA000553C0 /* Mixtapes */; };
 		5C58AB8625FA5FA20009E22D /* SidebarToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */; };
 		5C58AB8A25FA62C40009E22D /* TitleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */; };
 		5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */; };
@@ -33,7 +34,6 @@
 		5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDD25F1F269007B4B63 /* App.swift */; };
 		5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A5FDF25F1F269007B4B63 /* ContentView.swift */; };
 		5C8A5FE225F1F26A007B4B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */; };
-		5C8A5FFF25F1F5FD007B4B63 /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8A5FFE25F1F5FD007B4B63 /* Mixtapes */; };
 		5C8A600325F1F8D7007B4B63 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A600225F1F8D7007B4B63 /* Color.swift */; };
 		5C8A600A25F1F95C007B4B63 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A600925F1F95C007B4B63 /* Font.swift */; };
 		5C93D66726014AB2003BC1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93D66626014AB2003BC1F6 /* MainView.swift */; };
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C8A5FFF25F1F5FD007B4B63 /* Mixtapes in Frameworks */,
+				5C3E349D2BE6CDCA000553C0 /* Mixtapes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +219,6 @@
 				5C8A5FD625F1F269007B4B63 /* Sources */,
 				5C8A5FD725F1F269007B4B63 /* Frameworks */,
 				5C8A5FD825F1F269007B4B63 /* Resources */,
-				5C8A5FF825F1F4F6007B4B63 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -227,7 +226,7 @@
 			);
 			name = MixtapesApp;
 			packageProductDependencies = (
-				5C8A5FFE25F1F5FD007B4B63 /* Mixtapes */,
+				5C3E349C2BE6CDCA000553C0 /* Mixtapes */,
 			);
 			productName = MixtapesApp;
 			productReference = 5C8A5FDA25F1F269007B4B63 /* Mixtapes.app */;
@@ -241,7 +240,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					5C8A5FD925F1F269007B4B63 = {
 						CreatedOnToolsVersion = 12.4;
@@ -257,6 +256,9 @@
 				Base,
 			);
 			mainGroup = 5C8A5FD125F1F269007B4B63;
+			packageReferences = (
+				5C3E349B2BE6CDCA000553C0 /* XCLocalSwiftPackageReference "../mixtapes" */,
+			);
 			productRefGroup = 5C8A5FDB25F1F269007B4B63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -277,28 +279,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5C8A5FF825F1F4F6007B4B63 /* Set Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Set Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "build=`$(sh /etc/profile; which git) rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build\" \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5C8A5FD625F1F269007B4B63 /* Sources */ = {
@@ -355,6 +335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -404,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -418,6 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -461,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -489,7 +471,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
@@ -516,7 +499,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
@@ -547,8 +531,15 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		5C3E349B2BE6CDCA000553C0 /* XCLocalSwiftPackageReference "../mixtapes" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../mixtapes;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		5C8A5FFE25F1F5FD007B4B63 /* Mixtapes */ = {
+		5C3E349C2BE6CDCA000553C0 /* Mixtapes */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Mixtapes;
 		};

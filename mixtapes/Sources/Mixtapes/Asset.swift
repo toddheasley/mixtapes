@@ -3,7 +3,6 @@ import AVFoundation
 public struct Asset: Identifiable {
     public static let contentTypes: [UTType] = [.m4a, .mp3]
     
-    public let url: URL
     public let length: Int
     public let mimeType: String
     public let duration: TimeInterval
@@ -11,6 +10,7 @@ public struct Asset: Identifiable {
     public let artwork: Artwork
     public let artist: String
     public let title: String
+    public let url: URL
     
     public init(url: URL) async throws {
         self.url = url

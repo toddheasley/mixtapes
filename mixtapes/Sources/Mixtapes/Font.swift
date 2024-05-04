@@ -12,8 +12,8 @@ struct Font: Resource {
     }
     
     init(_ name: Name, url: URL) throws {
-        data = try Bundle.module.resource(name.path)
         self.url = URL(fileURLWithPath: "\(name.path)", relativeTo: url)
+        data = try Bundle.module.resource(name.path)
     }
     
     // MARK: Resource

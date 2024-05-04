@@ -2,7 +2,7 @@ import SwiftUI
 import Mixtapes
 
 struct TitleEditor: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
     // MARK: View
     var body: some View {
@@ -13,11 +13,7 @@ struct TitleEditor: View {
     }
 }
 
-struct TitleEditor_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        TitleEditor()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    TitleEditor()
+        .environment(Mixtapes())
 }

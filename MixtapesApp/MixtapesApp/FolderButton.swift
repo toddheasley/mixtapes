@@ -2,14 +2,11 @@ import SwiftUI
 import Mixtapes
 
 struct FolderButton: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
-    
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     private let defaultMessage: String = "Choose Podcast Folder…"
     
     private var message: String {
-        guard let url: URL = mixtapes.index?.url else {
-            return defaultMessage
-        }
+        guard let url: URL = mixtapes.index?.url else { return defaultMessage }
         return "\((url.deletingLastPathComponent().path as NSString).abbreviatingWithTildeInPath)"
     }
     
@@ -21,9 +18,7 @@ struct FolderButton: View {
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
         panel.begin { _ in
-            guard let url: URL = panel.url else {
-                return
-            }
+            guard let url: URL = panel.url else { return }
             mixtapes.open(url)
         }
     }
@@ -40,11 +35,7 @@ struct FolderButton: View {
     }
 }
 
-struct FolderButton_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        FolderButton()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    FolderButton()
+        .environment(Mixtapes())
 }

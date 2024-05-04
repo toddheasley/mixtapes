@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit
 
 struct Bookmark: Resource {
     init(icon: Icon) throws {

@@ -2,29 +2,26 @@ import SwiftUI
 import Mixtapes
 
 struct ExplicitToggle: View {
-    @Binding var selection: Selection
+    init(selection: Binding<Selection>) {
+        _selection = selection
+    }
     
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
+    @Binding private var selection: Selection
     
     private var i: Int? {
-        guard let item: Item = selection.item else {
-            return nil
-        }
+        guard let item: Item = selection.item else { return nil }
         return mixtapes.index?.items.firstIndex(of: item)
     }
     
     private var isExplicit: Bool {
-        guard let i: Int = i else {
-            return false
-        }
-        return mixtapes.index!.items[i].isExplicit
+        guard let i else { return false }
+        return mixtapes.index!.items[i].metadata.isExplicit
     }
     
     private func toggleExplicit() {
-        guard let i: Int = i else {
-            return
-        }
-        mixtapes.index?.items[i].isExplicit.toggle()
+        guard let i else { return }
+        mixtapes.index?.items[i].metadata.isExplicit.toggle()
     }
     
     // MARK: View
@@ -38,10 +35,7 @@ struct ExplicitToggle: View {
     }
 }
 
-struct ExplicitToggle_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        ExplicitToggle(selection: .constant(.auto))
-    }
+#Preview {
+    ExplicitToggle(selection: .constant(.auto))
+        .environment(Mixtapes())
 }

@@ -27,12 +27,8 @@ struct ContentRow<Content>: View where Content: View {
     }
 }
 
-struct ContentRow_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        ContentRow {
-            
-        }
+#Preview {
+    ContentRow {
+        
     }
 }

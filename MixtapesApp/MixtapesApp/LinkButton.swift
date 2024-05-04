@@ -40,10 +40,8 @@ struct LinkButton: View {
     }
 }
 
-struct LinkButton_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
+#Preview {
+    VStack {
         LinkButton(URL(string: "https://github.com/toddheasley"))
         LinkButton(URL(string: "mailto:toddheasley@me.com"))
         LinkButton(URL(string: "file:///Users/toddheasley"))

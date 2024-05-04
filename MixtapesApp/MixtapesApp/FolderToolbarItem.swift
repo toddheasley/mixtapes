@@ -2,12 +2,10 @@ import SwiftUI
 import Mixtapes
 
 struct FolderToolbarItem: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
     private func showInFinder() {
-        guard let url: URL = mixtapes.index?.url.deletingLastPathComponent() else {
-            return
-        }
+        guard let url: URL = mixtapes.index?.url.deletingLastPathComponent() else { return }
         NSWorkspace.shared.open(url)
     }
     
@@ -22,11 +20,7 @@ struct FolderToolbarItem: View {
     }
 }
 
-struct FolderToolbarItem_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        FolderToolbarItem()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    FolderToolbarItem()
+        .environment(Mixtapes())
 }

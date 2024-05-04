@@ -2,7 +2,7 @@ import SwiftUI
 import Mixtapes
 
 struct SettingsCommands: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
     private func toggleSettings() {
         NSApplication.shared.keyWindow?.toggleSettings()
@@ -26,11 +26,7 @@ struct SettingsCommands: View {
     }
 }
 
-struct SettingsCommands_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        SettingsCommands()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    SettingsCommands()
+        .environment(Mixtapes())
 }

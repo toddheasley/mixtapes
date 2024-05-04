@@ -2,7 +2,7 @@ import SwiftUI
 import Mixtapes
 
 struct TitleToolbarItem: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
     private var title: String {
         return mixtapes.index?.title.description ?? App.title
@@ -16,11 +16,7 @@ struct TitleToolbarItem: View {
     }
 }
 
-struct TitleToolbarItem_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        TitleToolbarItem()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    TitleToolbarItem()
+        .environment(Mixtapes())
 }

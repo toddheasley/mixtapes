@@ -13,8 +13,6 @@ final class IndexTests: XCTestCase {
         index.homepage = ""
         XCTAssertNil(index.homepageURL)
         XCTAssertEqual(index.homepage, "")
-        
-        print(resources.absoluteString)
     }
     
     func testURLInit() async throws {

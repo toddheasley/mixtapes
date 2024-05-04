@@ -9,9 +9,9 @@ struct IconButton: View {
         self.size = size
     }
     
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     @State private var isTargeted: Bool = false
     @State private var isHovering: Bool = false
-    @EnvironmentObject private var mixtapes: Mixtapes
     
     private var nsImage: NSImage {
         guard let icon: Icon = mixtapes.index?.icon,
@@ -67,11 +67,7 @@ struct IconButton: View {
     }
 }
 
-struct IconButton_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        IconButton()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    IconButton()
+        .environment(Mixtapes())
 }

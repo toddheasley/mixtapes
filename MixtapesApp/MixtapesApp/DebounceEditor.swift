@@ -18,7 +18,7 @@ struct DebounceEditor: View {
     // MARK: View
     var body: some View {
         TextField(placeholder, text: $text)
-            .onChange(of: text) { _ in
+            .onChange(of: text) {
                 subscriber?.cancel()
                 subscriber = CurrentValueSubject<String, Never>(text)
                     .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
@@ -29,13 +29,8 @@ struct DebounceEditor: View {
     }
 }
 
-struct DebounceEditor_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        DebounceEditor { _ in
-            
-        }
-        .environmentObject(Mixtapes())
+#Preview {
+    DebounceEditor { _ in
+        
     }
 }

@@ -1,8 +1,10 @@
 import SwiftUI
 
 extension Font {
-    static func gaegu(_ size: CGFloat = 17.0) -> Self {
-        return custom("Gaegu-Regular", size: size)
+    static var gaegu: Self { gaegu(17.0) }
+    
+    static func gaegu(_ size: CGFloat) -> Self {
+        custom("Gaegu-Regular", size: size)
     }
 }
 

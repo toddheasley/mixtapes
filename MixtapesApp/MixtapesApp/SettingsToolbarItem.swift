@@ -2,7 +2,11 @@ import SwiftUI
 import Mixtapes
 
 struct SettingsToolbarItem: View {
-    @Binding var selection: Selection
+    init(selection: Binding<Selection>) {
+        _selection = selection
+    }
+    
+    @Binding private var selection: Selection
     
     private func toggleSettings() {
         selection = .settings
@@ -19,11 +23,6 @@ struct SettingsToolbarItem: View {
     }
 }
 
-struct SettingsToolbarItem_Previews: PreviewProvider {
-    @State static private var selection: Selection = .auto
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        SettingsToolbarItem(selection: $selection)
-    }
+#Preview {
+    SettingsToolbarItem(selection: .constant(.auto))
 }

@@ -2,9 +2,8 @@ import SwiftUI
 import Mixtapes
 
 struct MainView: View {
-    @State var selection: Selection = .auto
-    
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
+    @State private var selection: Selection = .auto
     
     // MARK: View
     var body: some View {
@@ -31,20 +30,14 @@ struct MainView: View {
                 }
         }
         .navigationTitle(selection.description)
-        .onChange(of: mixtapes.index) { _ in
-            guard mixtapes.index == nil else {
-                return
-            }
+        .onChange(of: mixtapes.index) {
+            guard mixtapes.index == nil else { return }
             selection = .auto
         }
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        MainView()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    MainView()
+        .environment(Mixtapes())
 }

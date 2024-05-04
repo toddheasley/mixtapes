@@ -3,14 +3,8 @@ import UniformTypeIdentifiers
 
 public struct Icon: Resource {
     public static let contentTypes: [UTType] = [.png, .jpeg]
-    
-    public var isDefault: Bool {
-        return Self.data == data
-    }
-    
-    public static var data: Data {
-        return try! Bundle.module.resource("icon.png")
-    }
+    public static var data: Data { try! Bundle.module.resource("icon.png") }
+    public var isDefault: Bool { Self.data == data }
     
     public mutating func reset(_ data: Data? = nil) throws {
         guard let data: Data = data ?? (try? Bundle.module.resource("icon.png")),
@@ -28,6 +22,6 @@ public struct Icon: Resource {
     }
     
     // MARK: Resource
-    public private(set) var url: URL
     public private(set) var data: Data = Data()
+    public private(set) var url: URL
 }

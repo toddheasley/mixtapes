@@ -12,6 +12,6 @@ extension Text {
         return truncationMode(.tail)
             .foregroundColor(.accentColor)
             .textCase(.uppercase)
-            .font(.gaegu())
+            .font(.gaegu)
     }
 }

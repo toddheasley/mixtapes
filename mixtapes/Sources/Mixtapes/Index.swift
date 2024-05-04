@@ -1,12 +1,12 @@
 import Foundation
 
 public struct Index: Identifiable, Equatable, CustomStringConvertible {
-    public let url: URL
     public var title: String = ""
     public var homepage: String = ""
-    public var icon: Icon
     public var authors: [Author] = []
     public var isExpired: Bool = false
+    public var icon: Icon
+    public let url: URL
     
     public var items: [Item] = [] {
         didSet {
@@ -47,30 +47,24 @@ public struct Index: Identifiable, Equatable, CustomStringConvertible {
     }
     
     struct Metadata: CustomStringConvertible {
-        let url: URL
-        let title: String
-        var homepage: String = ""
+        private(set) var title: String = ""
+        private(set) var homepage: String = ""
+        private(set) var authors: [Author] = []
+        private(set) var isExpired: Bool = false
+        private(set) var items: [Item.Metadata] = []
         let icon: Icon
-        let authors: [Author]
-        let isExpired: Bool
-        let items: [Item.Metadata]
+        let url: URL
         
         init(url: URL) throws {
-            self.url = url
-            self.title = ""
             self.icon = try Icon(url: url)
-            self.authors = []
-            self.isExpired = false
-            self.items = []
-            self.description = ""
+            self.url = url
         }
         
         // MARK: CustomStringConvertible
-        let description: String
+        private(set) var description: String = ""
     }
     
     init(metadata: Metadata) async throws {
-        url = metadata.url
         for metadata in metadata.items {
             print("*** \(metadata.url.absoluteString)")
             let item: Item = try await Item(metadata: metadata)
@@ -78,10 +72,11 @@ public struct Index: Identifiable, Equatable, CustomStringConvertible {
         }
         title = metadata.title
         homepage = metadata.homepage
-        icon = metadata.icon
         authors = metadata.authors
         isExpired = metadata.isExpired
         description = metadata.description
+        icon = metadata.icon
+        url = metadata.url
     }
     
     var homepageURL: URL? { URL(homepage: homepage, path: "index.html") }
@@ -119,16 +114,16 @@ extension Index: Encodable {
         } else if !homepage.isEmpty {
             try container.encode(homepage, forKey: .homepageURL)
         }
-        try container.encodeIfPresent(feedURL, forKey: .feedURL)
-        try container.encode(description, forKey: .description)
-        try container.encodeIfPresent(iconURL, forKey: .icon)
         if !authors.isEmpty {
             try container.encode(authors, forKey: .authors)
         }
         if isExpired {
             try container.encode(isExpired, forKey: .expired)
         }
+        try container.encodeIfPresent(feedURL, forKey: .feedURL)
+        try container.encodeIfPresent(iconURL, forKey: .icon)
         try container.encode(items, forKey: .items)
+        try container.encode(description, forKey: .description)
     }
 }
 
@@ -142,14 +137,17 @@ extension Index.Metadata: Decodable {
         if let homepage: String = try? container.decode(String.self, forKey: .homepageURL) {
             self.homepage = URL(homepage: homepage)?.absoluteString ?? homepage
         }
-        description = try container.decode(String.self, forKey: .description)
-        icon = try Icon(url: url, path: (try? container.decode(URL.self, forKey: .icon))?.lastPathComponent)
         authors = (try? container.decode([Author].self, forKey: .authors)) ?? []
         isExpired = (try? container.decode(Bool.self, forKey: .expired)) ?? false
+        
+        icon = try Icon(url: url, path: (try? container.decode(URL.self, forKey: .icon))?.lastPathComponent)
         items = try container.decode([Item.Metadata].self, forKey: .items)
+        description = try container.decode(String.self, forKey: .description)
     }
 }
 
 private enum Key: String, CodingKey {
-    case version, title, homepageURL = "home_page_url", feedURL = "feed_url", description, icon, authors, expired, items
+    case version, title, authors, expired, icon, items, description
+    case homepageURL = "home_page_url"
+    case feedURL = "feed_url"
 }
