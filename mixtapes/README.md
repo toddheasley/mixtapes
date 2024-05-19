@@ -2,7 +2,7 @@
 
 ## Audio and Metadata
 
-Supports AAC files with `.m4a` file extensions and MP3 files with `.mp3` file extensions. Metadata for each podcast episode is derived automatically from embedded [ID3 tags.](https://developer.apple.com/documentation/avfoundation/media_assets_and_metadata) Audio files are required to contain values for __title__, __artist__ and __album name__, as well as  __embedded artwork__ in PNG or JPEG format. Chapter markers are supported but optional.
+`Mixtapes` supports MP3 (`.mp3`) and AAC (`.m4a`) audio. Metadata for each podcast episode is derived from embedded [ID3 tags.](https://developer.apple.com/documentation/avfoundation/media_assets_and_metadata) Audio files are required to contain values for __title__, __artist__ and __album name__, as well as JPEG or PNG __embedded artwork__. Chapter markers are supported but optional.
 
 Feeds are published in both [RSS](https://validator.w3.org/feed/docs/rss2.html) and [JSON Feed](https://jsonfeed.org) formats.
 

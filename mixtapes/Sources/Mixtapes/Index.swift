@@ -66,7 +66,6 @@ public struct Index: Identifiable, Equatable, CustomStringConvertible {
     
     init(metadata: Metadata) async throws {
         for metadata in metadata.items {
-            print("*** \(metadata.url.absoluteString)")
             let item: Item = try await Item(metadata: metadata)
             items.append(item)
         }

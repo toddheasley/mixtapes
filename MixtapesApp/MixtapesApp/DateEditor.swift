@@ -17,7 +17,7 @@ struct DateEditor: View {
     
     private func changeDate(_ date: Date? = nil) {
         guard let i else { return }
-        if let date: Date = date {
+        if let date {
             mixtapes.index?.items[i].metadata.published = date
         } else {
             self.date = mixtapes.index!.items[i].metadata.published
@@ -27,12 +27,8 @@ struct DateEditor: View {
     // MARK: View
     var body: some View {
         DatePicker("", selection: $date)
-            .padding(.leading, -8.0)
-            .padding(.trailing, 10.0)
-            .onAppear {
-                changeDate()
-            }
-            .onChange(of: selection) {
+            .padding(.leading, -7.5)
+            .onChange(of: selection, initial: true) {
                 changeDate()
             }
             .onChange(of: date) {

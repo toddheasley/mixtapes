@@ -4,34 +4,25 @@ import Mixtapes
 struct FileCommands: View {
     @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     
-    private func importAudio() {
-        NSApplication.shared.keyWindow?.importAudio()
-    }
-    
-    private func showInFinder() {
-        NSApplication.shared.keyWindow?.showInFinder()
-    }
-    
-    private func preview() {
-        NSApplication.shared.keyWindow?.preview()
-    }
-    
     // MARK: View
     var body: some View {
-        Button(action: importAudio) {
+        Button(action: {
+            mixtapes.importAudio("Choose Audio File…", prompt: "Import")
+        }) {
             Text("Import Audio File…")
         }
-        .keyboardShortcut("n", modifiers: [.command, .shift])
+        .keyboardShortcut("N", modifiers: [.command, .option])
         .disabled(mixtapes.index == nil)
         Divider()
-        Button(action: showInFinder) {
+        Button(action: mixtapes.showInFinder) {
             Text("Show in Finder")
         }
+        .keyboardShortcut("O")
         .disabled(mixtapes.index == nil)
-        Button(action: preview) {
+        Button(action: mixtapes.preview) {
             Text("Preview")
         }
-        .keyboardShortcut("o", modifiers: [.command, .shift])
+        .keyboardShortcut("O", modifiers: [.command, .option])
         .disabled(mixtapes.index == nil)
     }
 }

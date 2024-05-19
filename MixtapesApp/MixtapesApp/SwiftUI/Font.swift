@@ -1,4 +1,5 @@
 import SwiftUI
+import Mixtapes
 
 extension Font {
     static var gaegu: Self { gaegu(17.0) }
@@ -6,6 +7,11 @@ extension Font {
     static func gaegu(_ size: CGFloat) -> Self {
         custom("Gaegu-Regular", size: size)
     }
+}
+
+#Preview {
+    Text("Gaegu Regular")
+        .font(.gaegu)
 }
 
 /*

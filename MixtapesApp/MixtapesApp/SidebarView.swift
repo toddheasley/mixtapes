@@ -11,20 +11,22 @@ struct SidebarView: View {
     
     // MARK: View
     var body: some View {
-        if let index: Index = mixtapes.index {
-            List(index.items) { item in
-                ItemButton(item, selection: $selection)
-                
-            }
-            .onDrop(of: [.fileURL], isTargeted: nil) { items in
-                guard let item: NSItemProvider = items.first else {
-                    return false
+        ScrollView {
+            LazyVStack {
+                ForEach(mixtapes.index?.items ?? []) { item in
+                    ItemButton(item, selection: $selection)
                 }
+            }
+            .padding()
+        }
+        .onDrop(of: [.fileURL], isTargeted: nil) { items in
+            guard !items.isEmpty else { return false }
+            for item in items {
                 item.fileURL { url, error in
                     mixtapes.importItem(url)
                 }
-                return true
             }
+            return true
         }
     }
 }

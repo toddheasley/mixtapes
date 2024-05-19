@@ -9,14 +9,13 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             SidebarView(selection: $selection)
-                .frame(minWidth: 210.0, idealWidth: 320.0)
                 .toolbar {
                     ToolbarItem {
                         SidebarToolbarItem()
                     }
                 }
             ContentView(selection: $selection)
-                .frame(minWidth: .maxWidth, maxWidth: .infinity, minHeight: 360.0, maxHeight: .infinity)
+                .frame(minWidth: 512.0, maxWidth: .infinity, minHeight: 384.0, maxHeight: .infinity)
                 .background(Color(.textBackgroundColor))
                 .toolbar {
                     ToolbarItemGroup {

@@ -8,13 +8,9 @@ struct SettingsToolbarItem: View {
     
     @Binding private var selection: Selection
     
-    private func toggleSettings() {
-        selection = .settings
-    }
-    
     // MARK: View
     var body: some View {
-        Button(action: toggleSettings) {
+        Button(action: { selection = .settings }) {
             Image(systemName: "gearshape")
                 .help("Podcast Settings")
         }

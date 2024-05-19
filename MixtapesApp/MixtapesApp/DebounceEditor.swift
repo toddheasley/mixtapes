@@ -9,9 +9,8 @@ struct DebounceEditor: View {
         self.action = action
     }
     
-    @State private var text: String
     @State private var subscriber: AnyCancellable?
-    
+    @State private var text: String
     private let placeholder: String
     private let action: (String) -> Void
     
@@ -22,15 +21,11 @@ struct DebounceEditor: View {
                 subscriber?.cancel()
                 subscriber = CurrentValueSubject<String, Never>(text)
                     .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-                    .sink { text in
-                        action(text)
-                    }
+                    .sink { action($0) }
             }
     }
 }
 
 #Preview {
-    DebounceEditor { _ in
-        
-    }
+    DebounceEditor { _ in }
 }

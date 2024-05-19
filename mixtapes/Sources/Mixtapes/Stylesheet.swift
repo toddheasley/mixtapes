@@ -24,7 +24,7 @@ private let Stylesheet_Data: Data = """
 }
 
 body {
-    font: 19px "\(Font.Name.gaegu)";
+    font: 1em "\(Font.Name.gaegu)";
     text-transform: uppercase;
 }
 """.data(using: .utf8)!

@@ -3,7 +3,6 @@ import Mixtapes
 
 struct HomePageEditor: View {
     @Environment(Mixtapes.self) private var mixtapes: Mixtapes
-    
     private var url: URL? { URL(homepage: mixtapes.index?.homepage ?? "", path: "index.html") }
     
     // MARK: View

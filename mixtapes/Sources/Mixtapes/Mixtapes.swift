@@ -15,7 +15,7 @@ import SwiftUI
     public var error: Error? {
         didSet {
             guard let error else { return }
-            DispatchQueue.main.asyncAfter(deadline: .deadline) {
+            DispatchQueue.main.asyncAfter(deadline: .secondsFromNow(5.0)) {
                 guard self.error == error else { return }
                 self.error = nil
             }
@@ -70,5 +70,7 @@ import SwiftUI
 }
 
 private extension DispatchTime {
-    static var deadline: Self { .now() + 3.5 }
+    static func secondsFromNow(_ seconds: TimeInterval) -> Self {
+        .now() + max(seconds, 0.0)
+    }
 }

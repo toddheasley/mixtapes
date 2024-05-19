@@ -49,7 +49,7 @@ struct DeleteButton: View {
     }
     
     private func delete() {
-        if let i: Int = i {
+        if let i {
             mixtapes.index?.items.remove(at: i)
             selection = .auto
         } else {

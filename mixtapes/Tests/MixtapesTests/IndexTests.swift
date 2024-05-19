@@ -62,13 +62,7 @@ extension IndexTests {
         let metadata: Index.Metadata = try decoder.decode(Index.Metadata.self, from: IndexTests_Data)
         let index: Index = try await Index(metadata: metadata)
         let data: Data = try encoder.encode(index)
-        if let string = String(data: data, encoding: .utf8) {
-            print(string)
-        }
         let mock: IndexTests_Mock = try decoder.decode(IndexTests_Mock.self, from: IndexTests_Data)
-        if let string = String(data: try encoder.encode(mock), encoding: .utf8) {
-            print(string)
-        }
         XCTAssertEqual(data, try encoder.encode(mock))
     }
     

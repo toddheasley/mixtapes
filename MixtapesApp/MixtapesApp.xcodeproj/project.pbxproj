@@ -9,18 +9,17 @@
 /* Begin PBXBuildFile section */
 		5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */; };
 		5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */; };
-		5C24D97E2602CE9D00A6EB22 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24D97D2602CE9D00A6EB22 /* NSEvent.swift */; };
 		5C24D98C2602E05700A6EB22 /* FolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24D98B2602E05700A6EB22 /* FolderButton.swift */; };
+		5C2670FF2BF58DB800D45E9C /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C2670FE2BF58DB800D45E9C /* Mixtapes */; };
+		5C26711E2BF78F6600D45E9C /* Mixtapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26711D2BF78F6600D45E9C /* Mixtapes.swift */; };
 		5C369B2626068181007764A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B2526068181007764A6 /* Selection.swift */; };
-		5C369B362606DB91007764A6 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B352606DB91007764A6 /* ImageView.swift */; };
-		5C369B392606DEFA007764A6 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B382606DEFA007764A6 /* NSImage.swift */; };
+		5C369B362606DB91007764A6 /* ArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B352606DB91007764A6 /* ArtworkView.swift */; };
 		5C3E349D2BE6CDCA000553C0 /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3E349C2BE6CDCA000553C0 /* Mixtapes */; };
 		5C58AB8625FA5FA20009E22D /* SidebarToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */; };
 		5C58AB8A25FA62C40009E22D /* TitleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */; };
 		5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */; };
 		5C58AB9425FB01A20009E22D /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB9325FB01A20009E22D /* Text.swift */; };
 		5C5C4F1126022DD200919DF6 /* PreviewToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F1026022DD200919DF6 /* PreviewToolbarItem.swift */; };
-		5C5C4F1B2602550C00919DF6 /* NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F1A2602550C00919DF6 /* NSWindow.swift */; };
 		5C5C4F2226026B5E00919DF6 /* FolderToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F2126026B5E00919DF6 /* FolderToolbarItem.swift */; };
 		5C5C4F28260271DA00919DF6 /* FileCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C4F27260271DA00919DF6 /* FileCommands.swift */; };
 		5C64526F260C4B3000EA977E /* Gaegu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8A600625F1F953007B4B63 /* Gaegu.ttf */; };
@@ -46,8 +45,6 @@
 		5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */; };
 		5CE236682615684C00FDA717 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE236672615684C00FDA717 /* LinkButton.swift */; };
 		5CEBFECC260816E300604192 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFECB260816E300604192 /* IconButton.swift */; };
-		5CEBFED226081D5B00604192 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFED126081D5B00604192 /* CGSize.swift */; };
-		5CEBFED526081E2D00604192 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBFED426081E2D00604192 /* CGFloat.swift */; };
 		5CF4E88525FB924D0028F87A /* SettingsToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF4E88425FB924D0028F87A /* SettingsToolbarItem.swift */; };
 		5CFD30BE25F7EC76009ED8AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */; };
 /* End PBXBuildFile section */
@@ -55,17 +52,15 @@
 /* Begin PBXFileReference section */
 		5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCommands.swift; sourceTree = "<group>"; };
 		5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSItemProvider.swift; sourceTree = "<group>"; };
-		5C24D97D2602CE9D00A6EB22 /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
 		5C24D98B2602E05700A6EB22 /* FolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButton.swift; sourceTree = "<group>"; };
+		5C26711D2BF78F6600D45E9C /* Mixtapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mixtapes.swift; sourceTree = "<group>"; };
 		5C369B2526068181007764A6 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
-		5C369B352606DB91007764A6 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
-		5C369B382606DEFA007764A6 /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
+		5C369B352606DB91007764A6 /* ArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkView.swift; sourceTree = "<group>"; };
 		5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarToolbarItem.swift; sourceTree = "<group>"; };
 		5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleToolbarItem.swift; sourceTree = "<group>"; };
 		5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
 		5C58AB9325FB01A20009E22D /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		5C5C4F1026022DD200919DF6 /* PreviewToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewToolbarItem.swift; sourceTree = "<group>"; };
-		5C5C4F1A2602550C00919DF6 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
 		5C5C4F2126026B5E00919DF6 /* FolderToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderToolbarItem.swift; sourceTree = "<group>"; };
 		5C5C4F27260271DA00919DF6 /* FileCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCommands.swift; sourceTree = "<group>"; };
 		5C7F8B852613AD6B00A2A11F /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
@@ -93,8 +88,6 @@
 		5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		5CE236672615684C00FDA717 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		5CEBFECB260816E300604192 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
-		5CEBFED126081D5B00604192 /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
-		5CEBFED426081E2D00604192 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		5CF4E88425FB924D0028F87A /* SettingsToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToolbarItem.swift; sourceTree = "<group>"; };
 		5CFD30BD25F7EC76009ED8AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C3E349D2BE6CDCA000553C0 /* Mixtapes in Frameworks */,
+				5C2670FF2BF58DB800D45E9C /* Mixtapes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,16 +111,6 @@
 				5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		5C5C4F16260253B400919DF6 /* AppKit */ = {
-			isa = PBXGroup;
-			children = (
-				5C24D97D2602CE9D00A6EB22 /* NSEvent.swift */,
-				5C369B382606DEFA007764A6 /* NSImage.swift */,
-				5C5C4F1A2602550C00919DF6 /* NSWindow.swift */,
-			);
-			path = AppKit;
 			sourceTree = "<group>";
 		};
 		5C8A5FD125F1F269007B4B63 = {
@@ -148,15 +132,14 @@
 		5C8A5FDC25F1F269007B4B63 /* MixtapesApp */ = {
 			isa = PBXGroup;
 			children = (
-				5C5C4F16260253B400919DF6 /* AppKit */,
-				5CEBFED026081D4500604192 /* CoreGraphics */,
 				5C21E3442608C2DC00BA7DA2 /* Foundation */,
 				5C8A600125F1F8B6007B4B63 /* SwiftUI */,
 				5C8A5FDD25F1F269007B4B63 /* App.swift */,
+				5C369B352606DB91007764A6 /* ArtworkView.swift */,
 				5C8A5FE125F1F26A007B4B63 /* Assets.xcassets */,
 				5C7F8B9E2614097C00A2A11F /* AuthorEditor.swift */,
-				5C8A5FDF25F1F269007B4B63 /* ContentView.swift */,
 				5CD15C072610F9A7007E5553 /* ContentRow.swift */,
+				5C8A5FDF25F1F269007B4B63 /* ContentView.swift */,
 				5CD15C1126111C6E007E5553 /* DateEditor.swift */,
 				5C7F8BA92614A49800A2A11F /* DebounceEditor.swift */,
 				5C7F8B852613AD6B00A2A11F /* DeleteButton.swift */,
@@ -169,12 +152,13 @@
 				5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */,
 				5C7F8B9B2614019E00A2A11F /* HomePageEditor.swift */,
 				5CEBFECB260816E300604192 /* IconButton.swift */,
-				5C369B352606DB91007764A6 /* ImageView.swift */,
 				5CBEFF7D26051BAA009737F7 /* ImportToolbarItem.swift */,
+				5C8A5FE625F1F26A007B4B63 /* Info.plist */,
 				5C80972A26060C250080B25F /* ItemButton.swift */,
 				5CDD6A4D25FED6D8008B6FF6 /* ItemView.swift */,
 				5CE236672615684C00FDA717 /* LinkButton.swift */,
 				5C93D66626014AB2003BC1F6 /* MainView.swift */,
+				5C26711D2BF78F6600D45E9C /* Mixtapes.swift */,
 				5C5C4F1026022DD200919DF6 /* PreviewToolbarItem.swift */,
 				5C369B2526068181007764A6 /* Selection.swift */,
 				5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */,
@@ -184,7 +168,6 @@
 				5CCA412C25F25E9600361312 /* SidebarView.swift */,
 				5C7F8B952613FAAD00A2A11F /* TitleEditor.swift */,
 				5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */,
-				5C8A5FE625F1F26A007B4B63 /* Info.plist */,
 			);
 			path = MixtapesApp;
 			sourceTree = "<group>";
@@ -198,15 +181,6 @@
 				5CBEFF8A260585B1009737F7 /* View.swift */,
 			);
 			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		5CEBFED026081D4500604192 /* CoreGraphics */ = {
-			isa = PBXGroup;
-			children = (
-				5CEBFED426081E2D00604192 /* CGFloat.swift */,
-				5CEBFED126081D5B00604192 /* CGSize.swift */,
-			);
-			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +201,7 @@
 			name = MixtapesApp;
 			packageProductDependencies = (
 				5C3E349C2BE6CDCA000553C0 /* Mixtapes */,
+				5C2670FE2BF58DB800D45E9C /* Mixtapes */,
 			);
 			productName = MixtapesApp;
 			productReference = 5C8A5FDA25F1F269007B4B63 /* Mixtapes.app */;
@@ -257,7 +232,7 @@
 			);
 			mainGroup = 5C8A5FD125F1F269007B4B63;
 			packageReferences = (
-				5C3E349B2BE6CDCA000553C0 /* XCLocalSwiftPackageReference "../mixtapes" */,
+				5C2670FD2BF58DB800D45E9C /* XCLocalSwiftPackageReference "../mixtapes" */,
 			);
 			productRefGroup = 5C8A5FDB25F1F269007B4B63 /* Products */;
 			projectDirPath = "";
@@ -287,7 +262,6 @@
 			files = (
 				5CD15C1226111C6E007E5553 /* DateEditor.swift in Sources */,
 				5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */,
-				5CEBFED526081E2D00604192 /* CGFloat.swift in Sources */,
 				5C7F8BAA2614A49800A2A11F /* DebounceEditor.swift in Sources */,
 				5CD15BFC2610C49F007E5553 /* ExplicitToggle.swift in Sources */,
 				5C369B2626068181007764A6 /* Selection.swift in Sources */,
@@ -295,21 +269,19 @@
 				5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */,
 				5C7F8B862613AD6B00A2A11F /* DeleteButton.swift in Sources */,
 				5C80972B26060C250080B25F /* ItemButton.swift in Sources */,
-				5C369B392606DEFA007764A6 /* NSImage.swift in Sources */,
 				5C5C4F28260271DA00919DF6 /* FileCommands.swift in Sources */,
 				5C58AB8625FA5FA20009E22D /* SidebarToolbarItem.swift in Sources */,
+				5C26711E2BF78F6600D45E9C /* Mixtapes.swift in Sources */,
 				5C8A5FE025F1F269007B4B63 /* ContentView.swift in Sources */,
 				5C58AB8E25FA67AB0009E22D /* HelpCommands.swift in Sources */,
 				5CF4E88525FB924D0028F87A /* SettingsToolbarItem.swift in Sources */,
 				5C7F8B9F2614097C00A2A11F /* AuthorEditor.swift in Sources */,
 				5CBEFF8B260585B1009737F7 /* View.swift in Sources */,
 				5C5C4F2226026B5E00919DF6 /* FolderToolbarItem.swift in Sources */,
-				5CEBFED226081D5B00604192 /* CGSize.swift in Sources */,
 				5CEBFECC260816E300604192 /* IconButton.swift in Sources */,
 				5C24D98C2602E05700A6EB22 /* FolderButton.swift in Sources */,
 				5CCA412D25F25E9600361312 /* SidebarView.swift in Sources */,
 				5C7F8B992613FF9D00A2A11F /* DescriptionEditor.swift in Sources */,
-				5C5C4F1B2602550C00919DF6 /* NSWindow.swift in Sources */,
 				5CFD30BE25F7EC76009ED8AF /* SettingsView.swift in Sources */,
 				5CD15C082610F9A7007E5553 /* ContentRow.swift in Sources */,
 				5CDD6A4E25FED6D8008B6FF6 /* ItemView.swift in Sources */,
@@ -317,11 +289,10 @@
 				5C58AB9425FB01A20009E22D /* Text.swift in Sources */,
 				5C7F8B9C2614019E00A2A11F /* HomePageEditor.swift in Sources */,
 				5C8A5FDE25F1F269007B4B63 /* App.swift in Sources */,
-				5C24D97E2602CE9D00A6EB22 /* NSEvent.swift in Sources */,
 				5C5C4F1126022DD200919DF6 /* PreviewToolbarItem.swift in Sources */,
 				5CBEFF7E26051BAA009737F7 /* ImportToolbarItem.swift in Sources */,
 				5C8A600325F1F8D7007B4B63 /* Color.swift in Sources */,
-				5C369B362606DB91007764A6 /* ImageView.swift in Sources */,
+				5C369B362606DB91007764A6 /* ArtworkView.swift in Sources */,
 				5CE236682615684C00FDA717 /* LinkButton.swift in Sources */,
 				5C93D66726014AB2003BC1F6 /* MainView.swift in Sources */,
 				5C58AB8A25FA62C40009E22D /* TitleToolbarItem.swift in Sources */,
@@ -472,7 +443,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
@@ -500,7 +471,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
@@ -532,13 +503,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		5C3E349B2BE6CDCA000553C0 /* XCLocalSwiftPackageReference "../mixtapes" */ = {
+		5C2670FD2BF58DB800D45E9C /* XCLocalSwiftPackageReference "../mixtapes" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../mixtapes;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C2670FE2BF58DB800D45E9C /* Mixtapes */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Mixtapes;
+		};
 		5C3E349C2BE6CDCA000553C0 /* Mixtapes */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Mixtapes;

@@ -3,7 +3,6 @@ import Mixtapes
 
 struct AuthorEditor: View {
     @Environment(Mixtapes.self) private var mixtapes: Mixtapes
-    
     private var url: URL? { URL(string: mixtapes.index?.authors.first?.url ?? "") }
     
     private func changeURL(_ url: String) {
@@ -11,16 +10,13 @@ struct AuthorEditor: View {
     }
     
     private func changeName(_ name: String) {
-        guard let url: String = mixtapes.index?.authors.first?.url,
-              !url.isEmpty else {
-            return
-        }
+        guard let url: String = mixtapes.index?.authors.first?.url, !url.isEmpty else { return }
         mixtapes.index?.authors = [Author(!name.isEmpty ? name : nil, url: url)]
     }
     
     // MARK: View
     var body: some View {
-        VStack(spacing: .spacing) {
+        VStack {
             HStack {
                 DebounceEditor(mixtapes.index?.authors.first?.url, placeholder: "URL") { text in
                     changeURL(text)
