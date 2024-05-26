@@ -19,6 +19,8 @@ struct ArtworkView: View {
             .aspectRatio(contentMode: .fit)
             .frame(maxWidth: 512.0)
             .cornerRadius(2.5)
+            .shadow(radius: 1.5)
+            .padding(2.0)
     }
 }
 

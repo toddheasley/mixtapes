@@ -28,7 +28,7 @@ struct ExplicitToggle: View {
     var body: some View {
         Button(action: toggleExplicit) {
             Image(systemName: isExplicit ? "e.square.fill" : "c.square")
-                .opacity(isExplicit ? 0.9 : 0.2)
+                .opacity(0.9)
         }
         .help(isExplicit ? "Explicit" : "Clean")
         .disabled(i == nil)

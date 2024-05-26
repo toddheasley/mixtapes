@@ -15,8 +15,6 @@ struct ItemView: View {
                 HStack(alignment: .top) {
                     ContentRow("Image") {
                         ArtworkView(item: item)
-                            .shadow(radius: 1.0)
-                            .padding(1.0)
                     }
                     VStack(alignment: .leading) {
                         ContentRow("Title") {
@@ -50,17 +48,18 @@ struct ItemView: View {
                     }
                 }
                 if item.attachment.asset.chapters.count > 1 {
-                    ContentRow("Chapters") {
-                        VStack(alignment: .leading) {
-                            ForEach(item.attachment.asset.chapters) { chapter in
-                                ContentRow(chapter.id) {
-                                    HStack {
-                                        Text(chapter.title)
-                                            .primary()
-                                        Spacer()
-                                        Text(chapter.duration?.lowerBound.timestamp ?? "")
-                                            .primary()
-                                    }
+                    VStack(alignment: .leading) {
+                        ContentRow("Chapters") {
+                            
+                        }
+                        ForEach(item.attachment.asset.chapters) { chapter in
+                            ContentRow(chapter.id) {
+                                HStack {
+                                    Text(chapter.title)
+                                        .primary()
+                                    Spacer()
+                                    Text(chapter.duration?.lowerBound.timestamp ?? "")
+                                        .primary()
                                 }
                             }
                         }

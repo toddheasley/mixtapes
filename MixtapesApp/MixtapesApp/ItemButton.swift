@@ -20,8 +20,7 @@ struct ItemButton: View {
                 FocusView(item.isSelected(selection))
                     .cornerRadius(5.5)
                 ArtworkView(item: item)
-                    .shadow(radius: 1.5)
-                    .padding(4.5)
+                    .padding(3.0)
             }
             .frame(minWidth: 64.0, idealWidth: 128.0, maxWidth: 192.0)
         }
@@ -39,7 +38,13 @@ private struct FocusView: View {
     // MARK: View
     var body: some View {
         Rectangle()
-            .fill(Color.accentColor.opacity(isFocused ? 0.33 : 0.0))
+            .fill(Color.focus(isFocused))
+    }
+}
+
+private extension Color {
+    static func focus(_ isFocused: Bool) -> Self {
+        accentColor.opacity(isFocused ? 0.33 : 0.0)
     }
 }
 

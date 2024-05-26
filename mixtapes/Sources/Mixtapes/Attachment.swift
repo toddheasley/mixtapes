@@ -27,11 +27,11 @@ extension Attachment: Encodable {
         try container.encode(sizeInBytes, forKey: .sizeInBytes)
         try container.encode(durationInSeconds, forKey: .durationInSeconds)
     }
-    
-    private enum Key: String, CodingKey {
-        case mimeType = "mime_type"
-        case sizeInBytes = "size_in_bytes"
-        case durationInSeconds = "duration_in_seconds"
-        case url
-    }
+}
+
+private enum Key: String, CodingKey {
+    case mimeType = "mime_type"
+    case sizeInBytes = "size_in_bytes"
+    case durationInSeconds = "duration_in_seconds"
+    case url
 }

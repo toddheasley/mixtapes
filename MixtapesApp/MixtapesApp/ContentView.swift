@@ -11,15 +11,20 @@ struct ContentView: View {
     // MARK: View
     var body: some View {
         ScrollView {
-            Group {
-                switch selection {
-                case .item:
-                    ItemView(selection: $selection)
-                case .settings:
-                    SettingsView(selection: $selection)
+            HStack {
+                Spacer()
+                Group {
+                    switch selection {
+                    case .item:
+                        ItemView(selection: $selection)
+                    case .settings:
+                        SettingsView(selection: $selection)
+                    }
                 }
+                .frame(maxWidth: 640.0)
+                .padding()
+                Spacer()
             }
-            .padding()
         }
     }
 }

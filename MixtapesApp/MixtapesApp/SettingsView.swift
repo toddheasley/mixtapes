@@ -21,6 +21,7 @@ struct SettingsView: View {
                         ZStack(alignment: .topTrailing) {
                             IconButton()
                             DeleteButton(selection: $selection)
+                                .padding(5.5)
                         }
                     }
                     VStack(alignment: .leading) {

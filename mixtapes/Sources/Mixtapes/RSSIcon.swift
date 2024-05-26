@@ -1,6 +1,6 @@
 import Foundation
 
-public struct RSSIcon: Resource {
+struct RSSIcon: Resource {
     init(url: URL) throws {
         let path: String = "rss.svg"
         data = try Bundle.module.resource(path)
@@ -8,6 +8,6 @@ public struct RSSIcon: Resource {
     }
     
     // MARK: Resource
-    public let data: Data
-    public let url: URL
+    let data: Data
+    let url: URL
 }
