@@ -9,24 +9,19 @@ struct LinkButton: View {
     }
     
     private var systemName: String {
-        if let url: URL = url {
-            if ["https", "http"].contains(url.scheme) {
-                return "safari"
-            }
-            if url.scheme == "mailto" {
-                return "envelope"
-            }
-            if url.isFileURL {
-                return "folder"
-            }
+        if ["https", "http"].contains(url?.scheme) {
+            return "safari"
+        } else if url?.scheme == "mailto" {
+            return "envelope"
+        } else if url?.isFileURL ?? false {
+            return "folder"
+        } else {
+            return "link"
         }
-        return "link"
     }
     
     private func openURL() {
-        guard let url: URL = url else {
-            return
-        }
+        guard let url else { return }
         NSWorkspace.shared.open(url)
     }
     
@@ -40,10 +35,8 @@ struct LinkButton: View {
     }
 }
 
-struct LinkButton_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
+#Preview {
+    VStack {
         LinkButton(URL(string: "https://github.com/toddheasley"))
         LinkButton(URL(string: "mailto:toddheasley@me.com"))
         LinkButton(URL(string: "file:///Users/toddheasley"))

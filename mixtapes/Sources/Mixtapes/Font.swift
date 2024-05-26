@@ -1,21 +1,14 @@
 import Foundation
 
 struct Font: Resource {
-    enum Name: String, CustomStringConvertible {
+    public enum Name: String, CustomStringConvertible {
         case gaegu = "gaegu.woff"
         
-        var format: String {
-            return rawValue.components(separatedBy: ".").last!
-        }
-        
-        var path: String {
-            return rawValue
-        }
+        var format: String { rawValue.components(separatedBy: ".").last! }
+        var path: String { rawValue }
         
         // MARK: CustomStringConvertible
-        var description: String {
-            return rawValue.components(separatedBy: ".").first!
-        }
+        public var description: String { rawValue.components(separatedBy: ".").first! }
     }
     
     init(_ name: Name, url: URL) throws {
@@ -24,6 +17,6 @@ struct Font: Resource {
     }
     
     // MARK: Resource
-    public let url: URL
-    public let data: Data
+    let data: Data
+    let url: URL
 }

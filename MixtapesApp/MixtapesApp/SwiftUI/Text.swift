@@ -1,17 +1,26 @@
 import SwiftUI
 
 extension Text {
-    func secondaryStyle() -> some View {
-        return truncationMode(.tail)
-            .foregroundColor(Color.primary.opacity(0.5))
-            .font(.system(size: 10.0, weight: .medium, design: .default))
-            .textCase(.uppercase)
-    }
-    
-    func primaryStyle() -> some View {
-        return truncationMode(.tail)
+    func primary() -> some View {
+        truncationMode(.tail)
             .foregroundColor(.accentColor)
             .textCase(.uppercase)
-            .font(.gaegu())
+            .font(.gaegu)
+    }
+    
+    func secondary() -> some View {
+        truncationMode(.tail)
+            .font(.system(size: 9.0, weight: .medium, design: .default))
+            .textCase(.uppercase)
+            .opacity(0.83)
+    }
+}
+
+#Preview {
+    VStack {
+        Text("Primary")
+            .primary()
+        Text("Secondary")
+            .secondary()
     }
 }

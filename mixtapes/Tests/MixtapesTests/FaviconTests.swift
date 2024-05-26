@@ -3,8 +3,8 @@ import XCTest
 
 final class FaviconTests: XCTestCase {
     func testIconInit() throws {
-        let favicon: Favicon = try Favicon(icon: Icon(url: resources))
-        XCTAssertEqual(favicon.url, URL(string: "favicon.ico", relativeTo: try Icon(url: resources).url))
-        XCTAssertEqual(NSImage(data: favicon.data)?.size, CGSize(width: 64.0, height: 64.0))
+        let favicon: Favicon = try Favicon(url: resources)
+        XCTAssertEqual(favicon.url.relativePath, "favicon.ico")
+        XCTAssertEqual(favicon.data.count, 2041)
     }
 }

@@ -2,34 +2,33 @@ import SwiftUI
 import Mixtapes
 
 struct ContentView: View {
-    @Binding var selection: Selection
+    init(selection: Binding<Selection>) {
+        _selection = selection
+    }
+    
+    @Binding private var selection: Selection
         
     // MARK: View
     var body: some View {
-        GeometryReader { proxy in
-            ScrollView {
+        ScrollView {
+            HStack {
+                Spacer()
                 Group {
                     switch selection {
                     case .item:
                         ItemView(selection: $selection)
-                            .frame(maxWidth: .maxWidth)
                     case .settings:
                         SettingsView(selection: $selection)
-                            .frame(maxWidth: .maxWidth)
                     }
                 }
+                .frame(maxWidth: 640.0)
                 .padding()
-                .frame(maxWidth: .infinity, minHeight: proxy.size.height, maxHeight: .infinity)
+                Spacer()
             }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        ContentView(selection: .constant(.auto))
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    ContentView(selection: .constant(.auto))
 }

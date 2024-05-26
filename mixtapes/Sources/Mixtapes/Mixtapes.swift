@@ -1,10 +1,7 @@
-import Foundation
 import SwiftUI
 
-public class Mixtapes: ObservableObject {
-    @AppStorage("url") private static var url: URL?
-    
-    @Published public var index: Index? {
+@Observable public class Mixtapes {
+    public var index: Index? {
         didSet {
             do {
                 error = nil
@@ -15,28 +12,37 @@ public class Mixtapes: ObservableObject {
         }
     }
     
-    @Published public var error: Error?
+    public var error: Error? {
+        didSet {
+            guard let error else { return }
+            DispatchQueue.main.asyncAfter(deadline: .secondsFromNow(5.0)) {
+                guard self.error == error else { return }
+                self.error = nil
+            }
+        }
+    }
     
     public func importItem(_ url: URL?) {
-        guard let url: URL = url, url.isFileURL,
+        guard let url, url.isFileURL,
               let destinationURL: URL = URL(string: url.lastPathComponent, relativeTo: index?.url) else {
             return
         }
-        do {
-            guard !(index?.items ?? []).map({ $0.id }).contains(url.deletingPathExtension().lastPathComponent) else {
-                throw Error("Duplicate file name", url: url)
+        Task {
+            do {
+                guard !(index?.items ?? []).map({ $0.id }).contains(url.deletingPathExtension().lastPathComponent) else {
+                    throw Error("Duplicate file name", url: url)
+                }
+                try FileManager.default.copyItem(at: url, to: destinationURL)
+                let item: Item = try await Item(url: destinationURL)
+                index?.items.append(item)
+            } catch {
+                self.error = Error(error) ?? Error(error.localizedDescription)
             }
-            try FileManager.default.copyItem(at: url, to: destinationURL)
-            index?.items.append(try Item(url: destinationURL))
-        } catch {
-            self.error = Error(error) ?? Error(error.localizedDescription)
         }
     }
     
     public func importIcon(_ url: URL?) {
-        guard let url: URL = url, url.isFileURL else {
-            return
-        }
+        guard let url, url.isFileURL else { return }
         do {
             let data: Data = try Data(contentsOf: url)
             try index?.icon.reset(data)
@@ -46,19 +52,25 @@ public class Mixtapes: ObservableObject {
     }
     
     public func open(_ url: URL?) {
-        do {
-            index = url != nil ? (try Index(url: url)) : nil
-            Self.url = index?.url
-        } catch {
-            self.error = Error(error)
+        Task {
+            do {
+                index = url != nil ? (try await Index(url: url)) : nil
+                Self.url = index?.url
+            } catch {
+                self.error = Error(error) ?? Error(error.localizedDescription)
+            }
         }
     }
     
     public init() {
-        do {
-            index = try Index(url: Self.url)
-        } catch {
-            Self.url = nil
-        }
+        open(Self.url)
+    }
+    
+    @AppStorage("url") private static var url: URL?
+}
+
+private extension DispatchTime {
+    static func secondsFromNow(_ seconds: TimeInterval) -> Self {
+        .now() + max(seconds, 0.0)
     }
 }

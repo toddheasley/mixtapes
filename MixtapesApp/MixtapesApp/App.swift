@@ -4,14 +4,13 @@ import Mixtapes
 @main
 struct App: SwiftUI.App {
     static let title: String = "Mixtapes"
-    
-    @StateObject private var mixtapes: Mixtapes = Mixtapes()
+    @State private var mixtapes: Mixtapes = Mixtapes()
     
     // MARK: App
     var body: some Scene {
         WindowGroup(Self.title) {
             MainView()
-                .environmentObject(mixtapes)
+                .environment(mixtapes)
                 .alert(error: $mixtapes.error) {
                     mixtapes.error = nil
                 }
@@ -20,11 +19,11 @@ struct App: SwiftUI.App {
         .commands {
             CommandGroup(replacing: .appSettings) {
                 SettingsCommands()
-                    .environmentObject(mixtapes)
+                    .environment(mixtapes)
             }
             CommandGroup(after: CommandGroupPlacement.newItem) {
                 FileCommands()
-                    .environmentObject(mixtapes)
+                    .environment(mixtapes)
             }
             SidebarCommands()
             CommandGroup(replacing: .help) {

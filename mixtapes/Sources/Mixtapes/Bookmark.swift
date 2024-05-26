@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit
 
 struct Bookmark: Resource {
     init(icon: Icon) throws {
@@ -10,6 +10,6 @@ struct Bookmark: Resource {
     }
     
     // MARK: Resource
-    public let url: URL
-    public let data: Data
+    let data: Data
+    let url: URL
 }

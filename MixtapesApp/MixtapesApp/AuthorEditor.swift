@@ -2,31 +2,21 @@ import SwiftUI
 import Mixtapes
 
 struct AuthorEditor: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
-    
-    private var url: URL? {
-        return URL(string: mixtapes.index?.authors.first?.url ?? "")
-    }
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
+    private var url: URL? { URL(string: mixtapes.index?.authors.first?.url ?? "") }
     
     private func changeURL(_ url: String) {
-        guard !url.isEmpty else {
-            mixtapes.index?.authors = []
-            return
-        }
-        mixtapes.index?.authors = [Author(url, name: mixtapes.index?.authors.first?.name)]
+        mixtapes.index?.authors = !url.isEmpty ? [Author(mixtapes.index?.authors.first?.name, url: url)] : []
     }
     
     private func changeName(_ name: String) {
-        guard let url: String = mixtapes.index?.authors.first?.url,
-              !url.isEmpty else {
-            return
-        }
-        mixtapes.index?.authors = [Author(url, name: !name.isEmpty ? name : nil)]
+        guard let url: String = mixtapes.index?.authors.first?.url, !url.isEmpty else { return }
+        mixtapes.index?.authors = [Author(!name.isEmpty ? name : nil, url: url)]
     }
     
     // MARK: View
     var body: some View {
-        VStack(spacing: .spacing) {
+        VStack {
             HStack {
                 DebounceEditor(mixtapes.index?.authors.first?.url, placeholder: "URL") { text in
                     changeURL(text)
@@ -43,11 +33,7 @@ struct AuthorEditor: View {
     }
 }
 
-struct AuthorEditor_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        AuthorEditor()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    AuthorEditor()
+        .environment(Mixtapes())
 }

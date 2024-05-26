@@ -1,77 +1,54 @@
 import SwiftUI
-import UniformTypeIdentifiers
 import Mixtapes
 
 struct IconButton: View {
-    let size: CGSize
-    
-    init(size: CGSize = .square()) {
-        self.size = size
-    }
-    
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
     @State private var isTargeted: Bool = false
     @State private var isHovering: Bool = false
-    @EnvironmentObject private var mixtapes: Mixtapes
-    
-    private var nsImage: NSImage {
-        guard let icon: Icon = mixtapes.index?.icon,
-              let nsImage: NSImage = NSImage(data: icon.data) else {
-            return NSImage(data: Icon.data)!
-        }
-        return nsImage
-    }
-    
-    private func importIcon() {
-        let panel: NSOpenPanel = NSOpenPanel()
-        panel.message = "Choose Icon File…"
-        panel.prompt = "Import"
-        panel.allowedContentTypes = Icon.contentTypes
-        panel.canChooseFiles = true
-        panel.begin { _ in
-            mixtapes.importIcon(panel.url)
-        }
-    }
     
     // MARK: View
     var body: some View {
-        Button(action: importIcon) {
+        Button(action: {
+            mixtapes.importIcon("Choose Icon File…", prompt: "Import")
+        }) {
             ZStack {
-                Image(nsImage: nsImage)
+                Image(nsImage: mixtapes.index?.icon.nsImage ?? Icon.nsImage)
                     .resizable()
-                    .aspectRatio(CGSize(width: 1.0, height: 1.0), contentMode: .fit)
-                    .frame(width: size.width, height: size.height)
-                    .cornerRadius(.cornerRadius)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 512.0)
+                    .cornerRadius(2.5)
+                    .shadow(radius: 0.5)
+                    .padding(1.0)
                     .opacity(isHovering ? 0.1 : 1.0)
-                if isHovering {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .frame(width: 61.0, height: 48.0, alignment: .center)
-                        .foregroundColor(.secondary)
-                }
+                Image(systemName: "photo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 32.0)
+                    .foregroundColor(.secondary)
+                    .opacity(isHovering ? 0.5 : 0.0)
             }
         }
         .buttonStyle(PlainButtonStyle())
+        .onHover { isHovering in
+            self.isHovering = isHovering
+        }
         .onDrop(of: [.fileURL], isTargeted: $isTargeted) { items in
-            guard let item: NSItemProvider = items.first else {
-                return false
-            }
+            guard let item: NSItemProvider = items.first else { return false }
             item.fileURL { url, error in
                 mixtapes.importIcon(url)
             }
             return true
         }
-        .onHover { isHovering in
-            self.isHovering = isHovering
-        }
         .disabled(mixtapes.index == nil)
     }
 }
 
-struct IconButton_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        IconButton()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    IconButton()
+        .environment(Mixtapes())
+}
+
+private extension Icon {
+    static var nsImage: NSImage { NSImage(data: Self.data)! }
+    var nsImage: NSImage? { NSImage(data: data) }
 }

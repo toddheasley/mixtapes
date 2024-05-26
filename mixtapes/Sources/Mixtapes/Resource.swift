@@ -1,17 +1,13 @@
 import Foundation
 
-protocol Resource {
-    var url: URL { get }
+public protocol Resource {
     var data: Data { get }
     var resources: [Resource] { get }
+    var url: URL { get }
 }
 
 extension Resource {
-    var resources: [Resource] {
-        return []
-    }
-    
-    func write() throws {
+    public func write() throws {
         do {
             for resource in resources {
                 try resource.write()
@@ -23,4 +19,7 @@ extension Resource {
             throw error as? Error ?? Error("Resource write failed", url: url)
         }
     }
+    
+    // MARK: Resource
+    public var resources: [Resource] { [] }
 }

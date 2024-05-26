@@ -23,16 +23,12 @@ extension URL {
         self = URL(string: path, relativeTo: url) ?? url
     }
     
-    var fileSize: Int? {
-        return try? resourceValues(forKeys: [.fileSizeKey]).fileSize
-    }
-    
-    var contentType: UTType? {
-        return try? resourceValues(forKeys: [.contentTypeKey]).contentType
-    }
+    var fileSize: Int? { try? resourceValues(forKeys: [.fileSizeKey]).fileSize }
+    var contentType: UTType? { try? resourceValues(forKeys: [.contentTypeKey]).contentType }
     
     var id: String? {
-        guard let id: String = lastPathComponent.components(separatedBy: ".").first, !id.isEmpty else {
+        guard let id: String = lastPathComponent.components(separatedBy: ".").first,
+              !id.isEmpty else {
             return nil
         }
         return id

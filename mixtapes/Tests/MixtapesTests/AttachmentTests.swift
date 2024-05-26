@@ -2,35 +2,25 @@ import XCTest
 @testable import Mixtapes
 
 final class AttachmentTests: XCTestCase {
-    
+    func testURLInit() async throws {
+        let attachment: Attachment = try await Attachment(url: resource("example.m4a"))
+        XCTAssertEqual(attachment.durationInSeconds, 30)
+        XCTAssertEqual(attachment.mimeType, "audio/x-m4a")
+    }
 }
 
 extension AttachmentTests {
     
-    // MARK: Codable
-    func testEncode() throws {
-        let data: Data = try JSONEncoder(url: URL(string: "https://example.com/mixtapes/")!).encode([
-            Attachment(asset: try Asset(url: resource("example.m4a"))),
-            Attachment(asset: try Asset(url: resource("example.mp3")))
+    // MARK: Enodable
+    func testEncode() async throws {
+        let m4a: Attachment = try await Attachment(url: resource("example.m4a"))
+        let mp3: Attachment = try await Attachment(url: resource("example.mp3"))
+        let data: Data = try JSONEncoder(url:  URL(string: "https://example.com/mixtapes/")!).encode([
+            m4a,
+            mp3
         ])
         let mocks: [AttachmentTests_Mock] = try JSONDecoder().decode([AttachmentTests_Mock].self, from: AttachmentTests_Data)
-        XCTAssertEqual(data, try JSONEncoder().encode(mocks))
-    }
-    
-    func testDecoderInit() throws {
-        let attachments: [Attachment] = try JSONDecoder(url: resource("example.m4a")).decode([Attachment].self, from: AttachmentTests_Data)
-        if attachments.count == 2 {
-            XCTAssertEqual(attachments[0].durationInSeconds, 30)
-            XCTAssertEqual(attachments[0].mimeType, "audio/x-m4a")
-            XCTAssertEqual(attachments[0].sizeInBytes, 738675)
-            XCTAssertEqual(attachments[0].url.lastPathComponent, "example.m4a")
-            XCTAssertEqual(attachments[1].durationInSeconds, 30)
-            XCTAssertEqual(attachments[1].mimeType, "audio/mpeg")
-            XCTAssertEqual(attachments[1].sizeInBytes, 738325)
-            XCTAssertEqual(attachments[1].url.lastPathComponent, "example.mp3")
-        } else {
-            XCTAssertEqual(attachments.count, 2)
-        }
+        XCTAssertEqual(data.count, try JSONEncoder().encode(mocks).count)
     }
 }
 

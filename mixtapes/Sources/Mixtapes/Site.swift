@@ -2,24 +2,21 @@ import Foundation
 
 struct Site: Resource {
     init(index: Index) throws {
-        let html: HTMLPage = HTMLPage(index: index)
-        url = html.url
+        let html: HTMLPage = HTMLPage(.index, index: index)
         data = html.data
-        var resources: [Resource] = [
-            try Favicon(icon: index.icon),
+        resources = [
+            try Favicon(url: index.url),
             try Bookmark(icon: index.icon),
             try Stylesheet(url: index.url),
             try RSSIcon(url: index.url),
-            RSSFeed(index: index)
-        ]
-        for item in index.items {
-            resources.append(HTMLPage(index: index, item: item))
-        }
-        self.resources = resources
+            RSSFeed(index: index),
+            HTMLPage(.promo, index: index)
+        ] + index.items.map { HTMLPage(.item($0), index: index) }
+        url = html.url
     }
     
     // MARK: Resource
-    public let url: URL
-    public let data: Data
-    public let resources: [Resource]
+    let data: Data
+    let resources: [Resource]
+    let url: URL
 }

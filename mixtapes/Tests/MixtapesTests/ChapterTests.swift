@@ -2,8 +2,8 @@ import XCTest
 @testable import Mixtapes
 
 final class ChapterTests: XCTestCase {
-    func testMetadataInit() throws {
-        let aac: Asset = try Asset(url: resource("example.m4a"))
+    func testMetadataInit() async throws {
+        let aac: Asset = try await Asset(url: resource("example.m4a"))
         if aac.chapters.count == 5 {
             XCTAssertEqual(aac.chapters[0].id, "1")
             XCTAssertEqual(aac.chapters[0].duration, 0.0...5.712)
@@ -23,7 +23,7 @@ final class ChapterTests: XCTestCase {
         } else {
             XCTAssertEqual(aac.chapters.count, 5)
         }
-        let mp3: Asset = try Asset(url: resource("example.mp3"))
+        let mp3: Asset = try await Asset(url: resource("example.mp3"))
         if mp3.chapters.count == 3 {
             XCTAssertEqual(mp3.chapters[0].id, "1")
             XCTAssertNil(mp3.chapters[0].duration)

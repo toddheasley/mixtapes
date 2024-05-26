@@ -13,4 +13,7 @@
    <FileRef
       location = "group:mixtapes">
    </FileRef>
+   <FileRef
+      location = "group:docs">
+   </FileRef>
 </Workspace>

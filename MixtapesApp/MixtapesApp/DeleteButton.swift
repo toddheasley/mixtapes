@@ -2,15 +2,16 @@ import SwiftUI
 import Mixtapes
 
 struct DeleteButton: View {
-    @Binding var selection: Selection
+    init(selection: Binding<Selection>) {
+        _selection = selection
+    }
     
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
+    @Binding private var selection: Selection
     @State private var isPresented: Bool = false
-    @EnvironmentObject private var mixtapes: Mixtapes
     
     private var i: Int? {
-        guard let item: Item = selection.item else {
-            return nil
-        }
+        guard let item: Item = selection.item else { return nil }
         return mixtapes.index?.items.firstIndex(of: item)
     }
     
@@ -23,9 +24,7 @@ struct DeleteButton: View {
         }
     }
     
-    private var title: String {
-        return "\(help)?"
-    }
+    private var title: String { "\(help)?" }
     
     private var message: String {
         switch selection {
@@ -50,7 +49,7 @@ struct DeleteButton: View {
     }
     
     private func delete() {
-        if let i: Int = i {
+        if let i {
             mixtapes.index?.items.remove(at: i)
             selection = .auto
         } else {

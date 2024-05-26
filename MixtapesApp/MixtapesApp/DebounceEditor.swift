@@ -9,33 +9,23 @@ struct DebounceEditor: View {
         self.action = action
     }
     
-    @State private var text: String
     @State private var subscriber: AnyCancellable?
-    
+    @State private var text: String
     private let placeholder: String
     private let action: (String) -> Void
     
     // MARK: View
     var body: some View {
         TextField(placeholder, text: $text)
-            .onChange(of: text) { _ in
+            .onChange(of: text) {
                 subscriber?.cancel()
                 subscriber = CurrentValueSubject<String, Never>(text)
                     .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-                    .sink { text in
-                        action(text)
-                    }
+                    .sink { action($0) }
             }
     }
 }
 
-struct DebounceEditor_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        DebounceEditor { _ in
-            
-        }
-        .environmentObject(Mixtapes())
-    }
+#Preview {
+    DebounceEditor { _ in }
 }

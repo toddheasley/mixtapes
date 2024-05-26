@@ -2,11 +2,8 @@ import SwiftUI
 import Mixtapes
 
 struct HomePageEditor: View {
-    @EnvironmentObject private var mixtapes: Mixtapes
-    
-    private var url: URL? {
-        return URL(homepage: mixtapes.index?.homepage ?? "", path: "index.html")
-    }
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
+    private var url: URL? { URL(homepage: mixtapes.index?.homepage ?? "", path: "index.html") }
     
     // MARK: View
     var body: some View {
@@ -20,11 +17,7 @@ struct HomePageEditor: View {
     }
 }
 
-struct HomePageEditor_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        HomePageEditor()
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    HomePageEditor()
+        .environment(Mixtapes())
 }

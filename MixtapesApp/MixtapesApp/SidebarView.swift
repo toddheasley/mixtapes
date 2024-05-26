@@ -2,36 +2,36 @@ import SwiftUI
 import Mixtapes
 
 struct SidebarView: View {
-    @Binding var selection: Selection
+    init(selection: Binding<Selection>) {
+        _selection = selection
+    }
     
-    @EnvironmentObject private var mixtapes: Mixtapes
+    @Environment(Mixtapes.self) private var mixtapes: Mixtapes
+    @Binding private var selection: Selection
     
     // MARK: View
     var body: some View {
-        if let index: Index = mixtapes.index {
-            List(index.items) { item in
-                ItemButton(item: item, selection: $selection)
-                
-            }
-            .onDrop(of: [.fileURL], isTargeted: nil) { items in
-                guard let item: NSItemProvider = items.first else {
-                    return false
+        ScrollView {
+            LazyVStack {
+                ForEach(mixtapes.index?.items ?? []) { item in
+                    ItemButton(item, selection: $selection)
                 }
+            }
+            .padding()
+        }
+        .onDrop(of: [.fileURL], isTargeted: nil) { items in
+            guard !items.isEmpty else { return false }
+            for item in items {
                 item.fileURL { url, error in
                     mixtapes.importItem(url)
                 }
-                return true
             }
+            return true
         }
     }
 }
 
-struct SidebarView_Previews: PreviewProvider {
-    @State static private var selection: Selection = .auto
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        SidebarView(selection: $selection)
-            .environmentObject(Mixtapes())
-    }
+#Preview {
+    SidebarView(selection: .constant(.auto))
+        .environment(Mixtapes())
 }
