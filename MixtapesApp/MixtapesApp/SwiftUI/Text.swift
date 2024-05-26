@@ -10,9 +10,9 @@ extension Text {
     
     func secondary() -> some View {
         truncationMode(.tail)
-            .foregroundColor(Color.primary.opacity(0.5))
-            .font(.system(size: 10.0, weight: .medium, design: .default))
+            .font(.system(size: 9.0, weight: .medium, design: .default))
             .textCase(.uppercase)
+            .opacity(0.83)
     }
 }
 

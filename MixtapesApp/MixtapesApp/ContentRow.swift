@@ -17,12 +17,11 @@ struct ContentRow<Content>: View where Content: View {
             Text(label ?? "")
                 .secondary()
                 .padding(.horizontal, 2.0)
-                .padding(.vertical, -3.5)
+                .padding(.vertical, -1.0)
             content()
                 .padding(.top)
         }
-        .padding(10.0)
-        .border(.tertiary.opacity(0.5), width: 0.5)
+        .padding(5.0)
         .cornerRadius(1.0)
     }
 }
