@@ -164,7 +164,7 @@ extension HTMLPage {
             guard let url: URL = index.itemURL(item)?.image else { fallthrough }
             return url.absoluteString
         default:
-            return index.iconURL!.absoluteString
+            return index.iconURL?.absoluteString ?? ""
         }
     }
     

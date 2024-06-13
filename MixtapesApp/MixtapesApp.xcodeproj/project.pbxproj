@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5C0EAC0025FC6A4600B9B852 /* SettingsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */; };
-		5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */; };
 		5C24D98C2602E05700A6EB22 /* FolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24D98B2602E05700A6EB22 /* FolderButton.swift */; };
 		5C2670FF2BF58DB800D45E9C /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C2670FE2BF58DB800D45E9C /* Mixtapes */; };
 		5C26711E2BF78F6600D45E9C /* Mixtapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26711D2BF78F6600D45E9C /* Mixtapes.swift */; };
@@ -51,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		5C0EABFF25FC6A4600B9B852 /* SettingsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCommands.swift; sourceTree = "<group>"; };
-		5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSItemProvider.swift; sourceTree = "<group>"; };
 		5C24D98B2602E05700A6EB22 /* FolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButton.swift; sourceTree = "<group>"; };
 		5C26711D2BF78F6600D45E9C /* Mixtapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mixtapes.swift; sourceTree = "<group>"; };
 		5C369B2526068181007764A6 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
@@ -105,14 +103,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C21E3442608C2DC00BA7DA2 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				5C21E3452608C30700BA7DA2 /* NSItemProvider.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
 		5C8A5FD125F1F269007B4B63 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +122,6 @@
 		5C8A5FDC25F1F269007B4B63 /* MixtapesApp */ = {
 			isa = PBXGroup;
 			children = (
-				5C21E3442608C2DC00BA7DA2 /* Foundation */,
 				5C8A600125F1F8B6007B4B63 /* SwiftUI */,
 				5C8A5FDD25F1F269007B4B63 /* App.swift */,
 				5C369B352606DB91007764A6 /* ArtworkView.swift */,
@@ -261,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CD15C1226111C6E007E5553 /* DateEditor.swift in Sources */,
-				5C21E3462608C30700BA7DA2 /* NSItemProvider.swift in Sources */,
 				5C7F8BAA2614A49800A2A11F /* DebounceEditor.swift in Sources */,
 				5CD15BFC2610C49F007E5553 /* ExplicitToggle.swift in Sources */,
 				5C369B2626068181007764A6 /* Selection.swift in Sources */,
@@ -444,13 +432,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -475,13 +464,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};

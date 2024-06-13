@@ -26,7 +26,7 @@ public struct Asset: Identifiable {
         default:
             throw Error("Asset not AAC or MP3", url: url)
         }
-        let asset: AVAsset = AVAsset(url: url)
+        let asset: AVURLAsset = AVURLAsset(url: url)
         duration = try await asset.duration()
         var chapters: [Chapter] = []
         let groups: [AVMetadataGroup] = try await asset.chapterMetadataGroups()

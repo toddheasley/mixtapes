@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 @Observable public class Mixtapes {
     public var index: Index? {
         didSet {
