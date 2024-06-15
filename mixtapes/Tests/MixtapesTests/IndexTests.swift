@@ -1,26 +1,24 @@
-import XCTest
+import Testing
 @testable import Mixtapes
+import Foundation
 
-final class IndexTests: XCTestCase {
-    func testHomepage() async throws {
+struct IndexTests {
+    @Test func homepage() async throws {
         var index: Index = try await Index(url: resources)
         index.homepage = ""
-        XCTAssertNil(index.homepageURL)
-        XCTAssertEqual(index.homepage, "")
+        #expect(index.homepageURL == nil)
+        #expect(index.homepage == "")
         index.homepage = "https://example.com/mixtapes/"
-        XCTAssertEqual(index.homepageURL, URL(homepage: "https://example.com/mixtapes/", path: "index.html"))
-        XCTAssertEqual(index.homepage, "https://example.com/mixtapes/")
+        #expect(index.homepageURL == URL(homepage: "https://example.com/mixtapes/", path: "index.html"))
+        #expect(index.homepage == "https://example.com/mixtapes/")
         index.homepage = ""
-        XCTAssertNil(index.homepageURL)
-        XCTAssertEqual(index.homepage, "")
+        #expect(index.homepageURL == nil)
+        #expect(index.homepage == "")
     }
     
-    func testURLInit() async throws {
-        do {
-            let _ = try await Index(url: resources.appendingPathComponent("example"))
-            XCTFail()
-        } catch {
-            XCTAssertTrue((error as? Error)?.description.hasPrefix("Resource not found:") ?? false)
+    @Test func urlInit() async throws {
+        await #expect(throws: Error.self) {
+            _ = try await Index(url: resources.appendingPathComponent("example"))
         }
         var index: Index = try await Index(url: resources)
         index.authors = [
@@ -30,51 +28,52 @@ final class IndexTests: XCTestCase {
         index.title = "Example"
         try index.write()
         index = try await Index(url: resources)
-        XCTAssertEqual(index.authors.first?.name, "Name")
-        XCTAssertEqual(index.authors.first?.url, "mailto:name@example.com")
-        XCTAssertEqual(index.homepage, "https://example.com/")
-        XCTAssertEqual(index.title, "Example")
+        #expect(index.authors.first?.name == "Name")
+        #expect(index.authors.first?.url == "mailto:name@example.com")
+        #expect(index.homepage == "https://example.com/")
+        #expect(index.title == "Example")
     }
     
-    func testFeedURL() async throws {
+    @Test func feedURL() async throws {
         var index: Index = try await Index(url: resources)
         index.homepage = ""
-        XCTAssertNil(index.feedURL)
+        #expect(index.feedURL == nil)
         index.homepage = "https://example.com/mixtapes/"
-        XCTAssertEqual(index.feedURL, URL(homepage: "https://example.com/mixtapes/", path: "index.json"))
+        #expect(index.feedURL == URL(homepage: "https://example.com/mixtapes/", path: "index.json"))
     }
     
-    func testIconURL() async throws {
+    @Test func iconURL() async throws {
         var index: Index = try await Index(url: resources)
         index.homepage = ""
-        XCTAssertNil(index.iconURL)
+        #expect(index.iconURL == nil)
         index.homepage = "https://example.com/mixtapes/"
-        XCTAssertEqual(index.iconURL, URL(homepage: "https://example.com/mixtapes/", path: "icon.png"))
+        #expect(index.iconURL == URL(homepage: "https://example.com/mixtapes/", path: "icon.png"))
     }
 }
 
 extension IndexTests {
     
     // MARK: Codable
-    func testEncode() async throws {
+    @Test func encode() async throws {
         let decoder: JSONDecoder = JSONDecoder(url: URL(string: "index.json", relativeTo: resources)!)
         let encoder: JSONEncoder = JSONEncoder(url: URL(string: "https://example.com/mixtapes/")!, formatting: [.sortedKeys])
         let metadata: Index.Metadata = try decoder.decode(Index.Metadata.self, from: IndexTests_Data)
         let index: Index = try await Index(metadata: metadata)
         let data: Data = try encoder.encode(index)
         let mock: IndexTests_Mock = try decoder.decode(IndexTests_Mock.self, from: IndexTests_Data)
-        XCTAssertEqual(data, try encoder.encode(mock))
+        let mockData: Data = try #require(try encoder.encode(mock))
+        #expect(data == mockData)
     }
     
-    func testMetadataDecoderInit() throws {
+    @Test func metadataDecoderInit() throws {
         let metadata: Index.Metadata = try JSONDecoder(url: URL(string: "index.json", relativeTo: resources)!).decode(Index.Metadata.self, from: IndexTests_Data)
-        XCTAssertEqual(metadata.authors.first?.name, "Todd Heasley")
-        XCTAssertEqual(metadata.authors.first?.url, "mailto:toddheasley@me.com")
-        XCTAssertEqual(metadata.authors.count, 1)
-        XCTAssertEqual(metadata.description, "Example mixtapes podcast")
-        XCTAssertEqual(metadata.homepage, "https://example.com/mixtapes/")
-        XCTAssertEqual(metadata.items.count, 2)
-        XCTAssertEqual(metadata.title, "Mixtapes")
+        #expect(metadata.authors.first?.name == "Todd Heasley")
+        #expect(metadata.authors.first?.url == "mailto:toddheasley@me.com")
+        #expect(metadata.authors.count == 1)
+        #expect(metadata.description == "Example mixtapes podcast")
+        #expect(metadata.homepage == "https://example.com/mixtapes/")
+        #expect(metadata.items.count == 2)
+        #expect(metadata.title == "Mixtapes")
     }
 }
 

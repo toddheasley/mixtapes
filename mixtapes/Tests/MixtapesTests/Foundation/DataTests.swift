@@ -1,14 +1,11 @@
-import XCTest
+import Testing
 @testable import Mixtapes
+import Foundation
 
-final class DataTests: XCTestCase {
-    
-}
-
-extension DataTests {
-    func testPathExtension() throws {
-        XCTAssertEqual(try Data(contentsOf: resource("example.png")).pathExtension, "png")
-        XCTAssertNil(try Data(contentsOf: resource("example.gif")).pathExtension)
-        XCTAssertEqual(try Data(contentsOf: resource("example.jpg")).pathExtension, "jpg")
+struct DataTests {
+    @Test func pathExtension() throws {
+        #expect(try Data(contentsOf: resource("example.png")).pathExtension == "png")
+        #expect(try Data(contentsOf: resource("example.gif")).pathExtension == nil)
+        #expect(try Data(contentsOf: resource("example.jpg")).pathExtension == "jpg")
     }
 }

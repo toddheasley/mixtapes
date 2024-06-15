@@ -1,39 +1,36 @@
-import XCTest
-import AVFoundation
+import Testing
 @testable import Mixtapes
+import AVFoundation
+import Foundation
 
-final class URLTests: XCTestCase {
-    
-}
-
-extension URLTests {
-    func testFileSize() {
-        XCTAssertNil(resources.fileSize)
-        XCTAssertNil(URL(string: "https://example.com")!.fileSize)
-        XCTAssertEqual(resource("example.m4a").fileSize, 738675)
-        XCTAssertEqual(resource("example.mp3").fileSize, 738325)
-        XCTAssertEqual(resource("example.png").fileSize, 1333)
-        XCTAssertEqual(resource("example.gif").fileSize, 1290)
-        XCTAssertEqual(resource("example.jpg").fileSize, 3897)
+struct URLTests {
+    @Test func fileSize() {
+        #expect(resources.fileSize == nil)
+        #expect(URL(string: "https://example.com")!.fileSize == nil)
+        #expect(resource("example.m4a").fileSize == 738675)
+        #expect(resource("example.mp3").fileSize == 738325)
+        #expect(resource("example.png").fileSize == 1333)
+        #expect(resource("example.gif").fileSize == 1290)
+        #expect(resource("example.jpg").fileSize == 3897)
     }
     
-    func testContentType() {
-        XCTAssertNil(URL(string: "https://example.com")!.contentType)
-        XCTAssertEqual(resource("example.m4a").contentType, UTType("com.apple.m4a-audio"))
-        XCTAssertEqual(resource("example.mp3").contentType, .mp3)
-        XCTAssertEqual(resource("example.png").contentType, .png)
-        XCTAssertEqual(resource("example.gif").contentType, .gif)
-        XCTAssertEqual(resource("example.jpg").contentType, .jpeg)
+    @Test func contentType() {
+        #expect(URL(string: "https://example.com")!.contentType == nil)
+        #expect(resource("example.m4a").contentType == UTType("com.apple.m4a-audio"))
+        #expect(resource("example.mp3").contentType == .mp3)
+        #expect(resource("example.png").contentType == .png)
+        #expect(resource("example.gif").contentType == .gif)
+        #expect(resource("example.jpg").contentType == .jpeg)
     }
     
-    func testID() {
-        XCTAssertNil(URL(string: "https://example.com")!.id)
-        XCTAssertNil(URL(string: "https://example.com/mixtapes/.mp3")!.id)
-        XCTAssertEqual(resource("example.mp3").id, "example")
+    @Test func id() {
+        #expect(URL(string: "https://example.com")!.id == nil)
+        #expect(URL(string: "https://example.com/mixtapes/.mp3")!.id == nil)
+        #expect(resource("example.mp3").id == "example")
     }
     
-    func testHomepageInit() {
-        XCTAssertEqual(URL(homepage: "https://example.com/mixtapes/index.json"), URL(string: "https://example.com/mixtapes/"))
-        XCTAssertEqual(URL(homepage: "http://example.com/mixtapes", path: "index.json"), URL(string: "index.json", relativeTo: URL(string: "http://example.com/mixtapes/")))
+    @Test func homepageInit() {
+        #expect(URL(homepage: "https://example.com/mixtapes/index.json") == URL(string: "https://example.com/mixtapes/"))
+        #expect(URL(homepage: "http://example.com/mixtapes", path: "index.json") == URL(string: "index.json", relativeTo: URL(string: "http://example.com/mixtapes/")))
     }
 }

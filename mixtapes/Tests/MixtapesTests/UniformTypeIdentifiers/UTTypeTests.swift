@@ -1,13 +1,9 @@
-import XCTest
-import UniformTypeIdentifiers
+import Testing
 @testable import Mixtapes
+import UniformTypeIdentifiers
 
-final class UTTypeTests: XCTestCase {
-    
-}
-
-extension UTTypeTests {
-    func testM4A() {
-        XCTAssertEqual(UTType.m4a.identifier, "com.apple.m4a-audio")
+struct UTTypeTests {
+    @Test func m4A() {
+        #expect(UTType.m4a.identifier == "com.apple.m4a-audio")
     }
 }

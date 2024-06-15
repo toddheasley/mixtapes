@@ -15,7 +15,7 @@ struct App: SwiftUI.App {
                     mixtapes.error = nil
                 }
         }
-        .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
+        .windowToolbarStyle(.unified(showsTitle: false))
         .commands {
             CommandGroup(replacing: .appSettings) {
                 SettingsCommands()

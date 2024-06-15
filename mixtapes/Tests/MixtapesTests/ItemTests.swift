@@ -1,27 +1,24 @@
-import XCTest
+import Testing
 @testable import Mixtapes
+import Foundation
 
-final class ItemTests: XCTestCase {
-    
-}
-
-extension ItemTests {
+struct ItemTests {
     
     // MARK: Encodable
-    func testEncode() async throws {
+    @Test func encode() async throws {
         let decoder: JSONDecoder = JSONDecoder(url: resources)
         let encoder: JSONEncoder = JSONEncoder(url: URL(string: "https://example.com/mixtapes/")!, formatting: [.sortedKeys])
         let metadata: Item.Metadata = try decoder.decode(Item.Metadata.self, from: ItemTests_Data)
         let item: Item = try await Item(metadata: metadata)
-        XCTAssertEqual(try encoder.encode(item).count, 312)
+        #expect(try encoder.encode(item).count == 312)
     }
     
     // MARK: Decodable
-    func testMetadataDecoderInit() throws {
+    @Test func metadataDecoderInit() throws {
         let metadata: Item.Metadata = try JSONDecoder(url: resources).decode(Item.Metadata.self, from: ItemTests_Data)
-        XCTAssertEqual(metadata.published, Date(timeIntervalSince1970: 0.0))
-        XCTAssertTrue(metadata.isExplicit)
-        XCTAssertEqual(metadata.url.lastPathComponent, "example.m4a")
+        #expect(metadata.published == Date(timeIntervalSince1970: 0.0))
+        #expect(metadata.isExplicit)
+        #expect(metadata.url.lastPathComponent == "example.m4a")
     }
 }
 

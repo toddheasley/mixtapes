@@ -1,10 +1,10 @@
-import XCTest
+import Testing
 @testable import Mixtapes
 
-final class FaviconTests: XCTestCase {
-    func testIconInit() throws {
+struct FaviconTests {
+    @Test func iconInit() throws {
         let favicon: Favicon = try Favicon(url: resources)
-        XCTAssertEqual(favicon.url.relativePath, "favicon.ico")
-        XCTAssertEqual(favicon.data.count, 2041)
+        #expect(favicon.url.relativePath == "favicon.ico")
+        #expect(favicon.data.count == 2041)
     }
 }
