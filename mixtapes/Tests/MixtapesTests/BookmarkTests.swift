@@ -1,10 +1,12 @@
-import XCTest
+import Testing
 @testable import Mixtapes
+import AppKit
 
-final class BookmarkTests: XCTestCase {
-    func testIconInit() throws {
+struct BookmarkTests {
+    @Test func iconInit() throws {
         let bookmark: Bookmark = try Bookmark(icon: Icon(url: resources))
-        XCTAssertEqual(bookmark.url, URL(string: "apple-touch-icon.png", relativeTo: try Icon(url: resources).url))
-        XCTAssertEqual(NSImage(data: bookmark.data)?.size, CGSize(width: 152.0, height: 152.0))
+        let url: URL = try Icon(url: resources).url
+        #expect(bookmark.url == URL(string: "apple-touch-icon.png", relativeTo: url))
+        #expect(NSImage(data: bookmark.data)?.size == CGSize(width: 256.0, height: 256.0))
     }
 }

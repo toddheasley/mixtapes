@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Author: Codable, CustomStringConvertible {
+public struct Author: Sendable, Codable, CustomStringConvertible {
     public let name: String?
     public let url: String
     

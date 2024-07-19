@@ -1,16 +1,12 @@
-import XCTest
+import Testing
 @testable import Mixtapes
 
-final class StringTests: XCTestCase {
-    
-}
-
-extension StringTests {
-    func testLeftPadded() {
-        XCTAssertEqual("|".leftPadded(to: 0, with: "+"), "")
-        XCTAssertEqual("|".leftPadded(to: -1, with: "+"), "")
-        XCTAssertEqual("|".leftPadded(to: 1, with: "+"), "|")
-        XCTAssertEqual("|".leftPadded(to: 8, with: "+"), "+++++++|")
-        XCTAssertEqual("|".leftPadded(to: 8), "       |")
+struct StringTests {
+    @Test func leftPadded() {
+        #expect("|".leftPadded(to: 0, with: "+") == "")
+        #expect("|".leftPadded(to: -1, with: "+") == "")
+        #expect("|".leftPadded(to: 1, with: "+") == "|")
+        #expect("|".leftPadded(to: 8, with: "+") == "+++++++|")
+        #expect("|".leftPadded(to: 8) == "       |")
     }
 }

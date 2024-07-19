@@ -1,6 +1,6 @@
 import AVFoundation
 
-public struct Chapter: Identifiable {
+public struct Chapter: Sendable, Identifiable {
     public let duration: ClosedRange<TimeInterval>?
     public let title: String
     

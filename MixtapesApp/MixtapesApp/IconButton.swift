@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 import Mixtapes
 
 struct IconButton: View {
@@ -34,8 +35,14 @@ struct IconButton: View {
         }
         .onDrop(of: [.fileURL], isTargeted: $isTargeted) { items in
             guard let item: NSItemProvider = items.first else { return false }
-            item.fileURL { url, error in
-                mixtapes.importIcon(url)
+            item.loadItem(forTypeIdentifier: UTType.fileURL.identifier, options: nil) { data, _ in
+                guard let data: Data = data as? Data,
+                      let url: URL = URL(dataRepresentation: data, relativeTo: nil, isAbsolute: true) else {
+                    return
+                }
+                Task { @MainActor in
+                    mixtapes.importItem(url)
+                }
             }
             return true
         }

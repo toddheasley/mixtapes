@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Artwork: Resource {
+public struct Artwork: Sendable, Resource {
     init(_ data: Data?, url: URL) throws {
         guard let data: Data = data,
             let id: String = url.id else {

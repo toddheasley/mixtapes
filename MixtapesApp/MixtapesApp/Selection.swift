@@ -1,7 +1,8 @@
 import SwiftUI
 import Mixtapes
 
-enum Selection: Equatable, CustomStringConvertible {
+@MainActor
+enum Selection: Sendable, Equatable, @preconcurrency CustomStringConvertible {
     case item(Item), settings
     
     static let auto: Self = .settings

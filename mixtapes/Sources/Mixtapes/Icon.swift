@@ -1,7 +1,7 @@
 import Foundation
 import UniformTypeIdentifiers
 
-public struct Icon: Resource {
+public struct Icon: Sendable, Resource {
     public static let contentTypes: [UTType] = [.png, .jpeg]
     public static var data: Data { try! Bundle.module.resource("icon.png") }
     public var isDefault: Bool { Self.data == data }

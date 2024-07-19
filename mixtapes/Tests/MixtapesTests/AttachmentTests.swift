@@ -1,11 +1,12 @@
-import XCTest
+import Testing
 @testable import Mixtapes
+import Foundation
 
-final class AttachmentTests: XCTestCase {
-    func testURLInit() async throws {
+struct AttachmentTests {
+    @Test func urlInit() async throws {
         let attachment: Attachment = try await Attachment(url: resource("example.m4a"))
-        XCTAssertEqual(attachment.durationInSeconds, 30)
-        XCTAssertEqual(attachment.mimeType, "audio/x-m4a")
+        #expect(attachment.durationInSeconds == 30)
+        #expect(attachment.mimeType == "audio/x-m4a")
     }
 }
 
@@ -20,7 +21,7 @@ extension AttachmentTests {
             mp3
         ])
         let mocks: [AttachmentTests_Mock] = try JSONDecoder().decode([AttachmentTests_Mock].self, from: AttachmentTests_Data)
-        XCTAssertEqual(data.count, try JSONEncoder().encode(mocks).count)
+        #expect(try JSONEncoder().encode(mocks).count == data.count)
     }
 }
 
