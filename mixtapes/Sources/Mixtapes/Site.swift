@@ -8,7 +8,6 @@ struct Site: Resource {
             try Favicon(url: index.url),
             try Bookmark(icon: index.icon),
             try Stylesheet(url: index.url),
-            try RSSIcon(url: index.url),
             RSSFeed(index: index),
             HTMLPage(.promo, index: index)
         ] + index.items.map { HTMLPage(.item($0), index: index) }

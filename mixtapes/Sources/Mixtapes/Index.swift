@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Index: Identifiable, Equatable, CustomStringConvertible {
+public struct Index: Sendable, Identifiable, Equatable, CustomStringConvertible {
     public var title: String = ""
     public var homepage: String = ""
     public var authors: [Author] = []

@@ -10,7 +10,7 @@ struct ItemTests {
         let encoder: JSONEncoder = JSONEncoder(url: URL(string: "https://example.com/mixtapes/")!, formatting: [.sortedKeys])
         let metadata: Item.Metadata = try decoder.decode(Item.Metadata.self, from: ItemTests_Data)
         let item: Item = try await Item(metadata: metadata)
-        #expect(try encoder.encode(item).count == 312)
+        #expect(try encoder.encode(item).count == 246)
     }
     
     // MARK: Decodable

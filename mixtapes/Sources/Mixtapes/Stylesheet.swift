@@ -26,8 +26,7 @@ private let Stylesheet_Data: Data = """
 :root {
     color-scheme: light dark;
     -webkit-text-size-adjust: none;
-    --space: 7px;
-    --thumb: 160px;
+    --thumb: 96px;
 }
 
 * {
@@ -39,85 +38,72 @@ a {
     text-decoration: none;
 }
 
-article, ul {
-    align-items: flex-start;
-    display: flex;
-    flex-wrap: wrap;
+a img {
+    width: var(--thumb);
 }
 
-article table {
-    max-width: 384px;
+audio, iframe, img {
+    display: block;
     width: 100%;
-}
-
-article audio, article img {
-    width: 100%;
-}
-
-article td:nth-child(2) {
-    text-align: right;
 }
 
 body {
     font: 1em "\(Font.Name.gaegu)";
     text-transform: uppercase;
-    padding: calc(var(--space) * 2) 0;
 }
 
-h1, p {
-    padding: calc(var(--space) * 4) calc(var(--space) * 2);
-}
-
-h1 {
-    font-size: 1.5em;
-}
-
-h1 img {
-    display: inline-block;
-    padding: 0 var(--space);
-    vertical-align: bottom;
-}
-
-h4 {
-    padding: var(--space) calc(var(--space) * 2);
-    position: fixed;
-    top: calc(var(--thumb) + (var(--space) * 4));
-}
-
-li {
-    padding: var(--space);
-}
-
-table {
-    border-collapse: collapse;
-}
-
-table a img, ul img {
-    width: var(--thumb);
-}
-
-table img, ul img {
-    border-radius: 1.5px;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
-    display: block;
-}
-
-td, th {
-    padding: var(--space) calc(var(--space) * 2) var(--space) 0;
-    vertical-align: top;
-}
-
-td:first-child, th {
-    padding-left: calc(var(--space) * 2);
-}
-
-th {
-    font: 0.5em system-ui, sans-serif;
+caption, td, th {
     text-align: left;
 }
 
-ul {
-    list-style: none;
-    padding: 0 var(--space);
+caption {
+    position: fixed;
+}
+
+hr {
+    opacity: 0.5;
+}
+
+iframe, img {
+    border-radius: 1.5px;
+    border: none;
+}
+
+iframe {
+    background: rgba(192, 192, 192, 0.1);
+    box-shadow: inset 0 0 1px 0;
+    height: calc(var(--thumb) + 33px + 1em);
+}
+
+img {
+    box-shadow: 0 0 1px 0;
+}
+
+span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+table {
+    border-spacing: 9px;
+    caption-side: bottom;
+    max-width: calc(var(--thumb) * 5);
+}
+
+td:nth-child(2) {
+    text-align: right;
+}
+
+th {
+    font: 0.67em ui-sans-serif, sans-serif;
+    opacity: 0.9;
+}
+
+.nowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(var(--thumb) * 2.5);
 }
 """.data(using: .utf8)!

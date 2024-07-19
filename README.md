@@ -6,4 +6,4 @@ Mixtapes is a Mac app that I wrote to publish [my collection of mixtapes](https:
 
 ## Requirements
 
-Targets [macOS](https://developer.apple.com/macos) 14 Sonoma. Written in [Swift](https://developer.apple.com/swift) 5.10, and builds with [Xcode](https://developer.apple.com/xcode) 15 or newer.
+Targets [macOS](https://developer.apple.com/macos) 15 Sequoia. Written in [Swift](https://developer.apple.com/swift) 6, and builds with [Xcode](https://developer.apple.com/xcode) 16 or newer.

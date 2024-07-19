@@ -1,7 +1,7 @@
 import Foundation
 
-public struct Item: Identifiable, Equatable {
-    public struct Metadata {
+public struct Item: Sendable, Identifiable, Equatable {
+    public struct Metadata: Sendable {
         public var published: Date
         public var isExplicit: Bool
         let url: URL
@@ -46,7 +46,7 @@ extension Item: Encodable {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
         try container.encode(title, forKey: .title)
         try container.encode(summary, forKey: .summary)
-        try container.encode(URL(string: image.relativePath, relativeTo: try encoder.url())!, forKey: .image)
+        try container.encode(image.relativePath, forKey: .image)
         try container.encode(metadata.published, forKey: .datePublished)
         try container.encode([attachment], forKey: .attachments)
         if metadata.isExplicit {

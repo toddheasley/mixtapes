@@ -129,12 +129,12 @@ private let IndexTests_Data: Data = """
                     "duration_in_seconds": 30,
                     "mime_type": "audio/x-m4a",
                     "size_in_bytes": 738675,
-                    "url": "https://example.com/mixtapes/example.m4a"
+                    "url": "example.m4a"
                 }
             ],
             "date_published": "1970-01-01T00:00:01Z",
             "id": "example",
-            "image": "https://example.com/mixtapes/example.png",
+            "image": "example.png",
             "summary": "Artist",
             "tags": [
                 "explicit"
@@ -147,12 +147,12 @@ private let IndexTests_Data: Data = """
                     "duration_in_seconds": 30,
                     "mime_type": "audio/mpeg",
                     "size_in_bytes": 738325,
-                    "url": "https://example.com/mixtapes/example.mp3"
+                    "url": "example.mp3"
                 }
             ],
             "date_published": "1970-01-01T00:00:00Z",
             "id": "example",
-            "image": "https://example.com/mixtapes/example.jpg",
+            "image": "example.jpg",
             "summary": "Artist",
             "title": "Album"
         }

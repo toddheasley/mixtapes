@@ -1,6 +1,6 @@
 import AVFoundation
 
-public struct Asset: Identifiable {
+public struct Asset: Sendable, Identifiable {
     public static let contentTypes: [UTType] = [.m4a, .mp3]
     
     public let length: Int
