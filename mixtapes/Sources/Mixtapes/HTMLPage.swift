@@ -83,9 +83,6 @@ extension HTMLPage {
             "    </tr>"
         ] + chapters(item) + [
             "    <tr>",
-            "        <td colspan=\"2\"><hr></td>",
-            "    </tr>",
-            "    <tr>",
             "        <td colspan=\"2\">\(promo(item))</td>",
             "    </tr>",
             "</table>"
@@ -117,15 +114,6 @@ extension HTMLPage {
             "        <td>\(image(index))</td>",
             "    </tr>",
             "    <tr>",
-            "        <td>Archive of mixtapes made 1998-2023 by&nbsp;\(authors(index).first!)</td>",
-            "    </tr>",
-            "    <tr>",
-            "        <td>\(feed(index))</td>",
-            "    </tr>",
-            "    <tr>",
-            "        <td><hr></td>",
-            "    </tr>",
-            "    <tr>",
             "        <td>\(promo())</td>",
             "    </tr>",
             "</table>"
@@ -134,27 +122,34 @@ extension HTMLPage {
     
     private static func promo(_ index: Index) -> [String] {
         [
+            "<style>",
+            "    ",
+            "    body {",
+            "        max-width: initial;",
+            "    }",
+            "    ",
+            "</style>",
             "<table>",
             "    <tr>"
         ] + index.items.map { item in
-            "        <td><a id=\"\(item.id)\" href=\"\(item.id).\(html)\" target=\"_parent\">\(image(item))</a></td>"
+            "        <td><a href=\"\(item.id).\(html)\" target=\"_parent\">\(image(item))</a></td>"
         } + [
             "    </tr>",
-            "    <caption><a href=\"\(index.id).\(html)\" target=\"_parent\">\(index.title)</a></caption>",
+            "    <caption>Archive of mixtapes made&nbsp;1998-2023 by&nbsp;\(authors(index).first!)<br><br>\(feed(index))</caption>",
             "</table>"
         ]
     }
     
     private static func promo(_ item: Item? = nil) -> String {
-        "<iframe src=\"\(Page.promo.path).\(html)\(fragment(item))\"></iframe>"
+        "<iframe src=\"\(Page.promo.path).\(html)\"></iframe>"
     }
     
     private static func feed(_ index: Index) -> String {
-        "<a href=\"\(RSSFeed(index: index).url.lastPathComponent)\">Listen as a podcast</a>"
+        "<a href=\"\(RSSFeed(index: index).url.lastPathComponent)\" target=\"_parent\">Listen as a podcast</a>"
     }
     
     private static func authors(_ index: Index) -> [String] {
-        index.authors.map { "<a href=\"\($0.url)\">\($0)</a>" }
+        index.authors.map { "<a href=\"\($0.url)\" target=\"_parent\">\($0)</a>" }
     }
     
     private static func audio(_ item: Item) -> String {
@@ -185,10 +180,6 @@ extension HTMLPage {
     
     private static func title(_ item: Item?) -> String {
         (item?.title ?? "").replacingOccurrences(of: "\"", with: "")
-    }
-    
-    private static func fragment(_ item: Item?) -> String {
-        item != nil ? "#\(item!.id)" : ""
     }
     
     private static let html: String = "html"

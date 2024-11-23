@@ -18,8 +18,6 @@ struct Stylesheet: Resource {
 private let Stylesheet_Data: Data = """
 @font-face {
     font-family: "\(Font.Name.gaegu)";
-    font-style: normal;
-    font-weight: normal;
     src: url("\(Font.Name.gaegu.path)") format("\(Font.Name.gaegu.format)");
 }
 
@@ -30,7 +28,6 @@ private let Stylesheet_Data: Data = """
 }
 
 * {
-    font-weight: normal;
     margin: 0;
 }
 
@@ -42,6 +39,10 @@ a img {
     width: var(--thumb);
 }
 
+audio, caption {
+    margin: 0.67em 0;
+}
+
 audio, iframe, img {
     display: block;
     width: 100%;
@@ -49,6 +50,10 @@ audio, iframe, img {
 
 body {
     font: 1em "\(Font.Name.gaegu)";
+    letter-spacing: 0.05em;
+    line-height: 1.33em;
+    margin: 0 auto;
+    max-width: calc(var(--thumb) * 4);
     text-transform: uppercase;
 }
 
@@ -61,34 +66,33 @@ caption {
 }
 
 hr {
-    opacity: 0.5;
+    margin-top: 0.33em;
+}
+
+hr, th {
+    opacity: 0.67;
 }
 
 iframe, img {
-    border-radius: 1.5px;
-    border: none;
+    background: rgba(192, 192, 192, 0.33);
+    border-radius: 2.5px;
 }
 
 iframe {
-    background: rgba(192, 192, 192, 0.1);
-    box-shadow: inset 0 0 1px 0;
-    height: calc(var(--thumb) + 33px + 1em);
+    border: 0;
+    box-shadow: inset 0 0 0.5px 0;
+    height: calc(var(--thumb) * 2 + 2em);
+    margin-top: 1em;
 }
 
-img {
-    box-shadow: 0 0 1px 0;
-}
-
-span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+img:not([src="icon.png"]) {
+    box-shadow: 0 0 0.5px 0;
 }
 
 table {
-    border-spacing: 9px;
+    border-spacing: 0.33em;
     caption-side: bottom;
-    max-width: calc(var(--thumb) * 5);
+    margin: 0.67em;
 }
 
 td:nth-child(2) {
@@ -96,14 +100,14 @@ td:nth-child(2) {
 }
 
 th {
-    font: 0.67em ui-sans-serif, sans-serif;
-    opacity: 0.9;
+    font: 0.67em sans-serif;
+    padding-bottom: 0.67em;
 }
 
 .nowrap {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: calc(var(--thumb) * 2.5);
+    max-width: calc(var(--thumb) * 2);
 }
 """.data(using: .utf8)!
