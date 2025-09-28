@@ -61,7 +61,7 @@ extension IndexTests {
         let index: Index = try await Index(metadata: metadata)
         let data: Data = try encoder.encode(index)
         let mock: IndexTests_Mock = try decoder.decode(IndexTests_Mock.self, from: IndexTests_Data)
-        let mockData: Data = try #require(try encoder.encode(mock))
+        let mockData: Data = try encoder.encode(mock)
         #expect(data == mockData)
     }
     

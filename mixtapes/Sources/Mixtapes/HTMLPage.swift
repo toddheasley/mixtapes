@@ -2,7 +2,7 @@ import Foundation
 
 struct HTMLPage: Resource {
     enum Page {
-        case item(Item), index, promo
+        case item(Item), index
         
         var item: Item? {
             switch self {
@@ -15,7 +15,6 @@ struct HTMLPage: Resource {
             switch self {
             case .item(let item): item.id
             case .index: "index"
-            case .promo: "promo"
             }
         }
     }
@@ -60,32 +59,22 @@ extension HTMLPage {
             return Self.item(item, index: index)
         case .index:
             return Self.index(index)
-        case .promo:
-            return promo(index)
         }
     }
     
     private static func item(_ item: Item, index: Index) -> [String] {
         [
+            "<h1><a href=\"index.html\">\(index.title)</a></h1>",
+            "<p>\(image(item))</p>",
+            "<p>\(audio(item))</p>",
             "<table>",
-            "    <tr>",
-            "        <td colspan=\"2\">\(image(item))</td>",
-            "    </tr>",
-            "    <tr>",
-            "        <td colspan=\"2\">\(audio(item))</td>",
-            "    </tr>",
             "    <tr>",
             "        <td class=\"nowrap\">\(item.title) - \(item.summary)</td>",
             "        <td>\(item.attachment.asset.duration.timestamp)</td>",
             "    </tr>",
-            "    <tr>",
-            "        <td colspan=\"2\"><hr></td>",
-            "    </tr>"
         ] + chapters(item) + [
-            "    <tr>",
-            "        <td colspan=\"2\">\(promo(item))</td>",
-            "    </tr>",
-            "</table>"
+            "</table>",
+            "<p>\(authors(index).first ?? "")</p>"
         ]
     }
     
@@ -109,47 +98,23 @@ extension HTMLPage {
     
     private static func index(_ index: Index) -> [String] {
         [
-            "<table>",
-            "    <tr>",
-            "        <td>\(image(index))</td>",
-            "    </tr>",
-            "    <tr>",
-            "        <td>\(promo())</td>",
-            "    </tr>",
-            "</table>"
+            "<h1>\(index.title)</h1>",
+            "<p>\(index.items.map { link($0) }.joined(separator: " "))</p>",
+            "<p>\(index.description) by \(authors(index).first ?? "")</p>",
+            "<p>\(feed(index))</p>"
         ]
     }
     
-    private static func promo(_ index: Index) -> [String] {
-        [
-            "<style>",
-            "    ",
-            "    body {",
-            "        max-width: initial;",
-            "    }",
-            "    ",
-            "</style>",
-            "<table>",
-            "    <tr>"
-        ] + index.items.map { item in
-            "        <td><a href=\"\(item.id).\(html)\" target=\"_parent\">\(image(item))</a></td>"
-        } + [
-            "    </tr>",
-            "    <caption>Archive of mixtapes made&nbsp;1998-2023 by&nbsp;\(authors(index).first!)<br><br>\(feed(index))</caption>",
-            "</table>"
-        ]
-    }
-    
-    private static func promo(_ item: Item? = nil) -> String {
-        "<iframe src=\"\(Page.promo.path).\(html)\"></iframe>"
+    private static func link(_ item: Item) -> String {
+        "<a href=\"\(item.id).\(html)\">\(image(item))</a>"
     }
     
     private static func feed(_ index: Index) -> String {
-        "<a href=\"\(RSSFeed(index: index).url.lastPathComponent)\" target=\"_parent\">Listen as a podcast</a>"
+        "<a href=\"\(RSSFeed(index: index).url.lastPathComponent)\">Listen as a podcast</a>"
     }
     
     private static func authors(_ index: Index) -> [String] {
-        index.authors.map { "<a href=\"\($0.url)\" target=\"_parent\">\($0)</a>" }
+        index.authors.map { "<a href=\"\($0.url)\">\($0)</a>" }
     }
     
     private static func audio(_ item: Item) -> String {
@@ -161,7 +126,7 @@ extension HTMLPage {
     }
     
     private static func image(_ item: Item) -> String {
-        "<img src=\"\(item.image.lastPathComponent)\" alt=\"Album Artwork: \(title(item))\">"
+        "<img src=\"\(item.image.lastPathComponent)\" alt=\"\(title(item))\">"
     }
     
     private static func image(_ page: Page, index: Index) -> String {

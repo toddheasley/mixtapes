@@ -13,6 +13,7 @@
 		5C26711E2BF78F6600D45E9C /* Mixtapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26711D2BF78F6600D45E9C /* Mixtapes.swift */; };
 		5C369B2626068181007764A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B2526068181007764A6 /* Selection.swift */; };
 		5C369B362606DB91007764A6 /* ArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369B352606DB91007764A6 /* ArtworkView.swift */; };
+		5C3D4AB82E872D3B005117DE /* App.icon in Resources */ = {isa = PBXBuildFile; fileRef = 5C3D4AB72E872D3B005117DE /* App.icon */; };
 		5C3E349D2BE6CDCA000553C0 /* Mixtapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3E349C2BE6CDCA000553C0 /* Mixtapes */; };
 		5C58AB8625FA5FA20009E22D /* SidebarToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */; };
 		5C58AB8A25FA62C40009E22D /* TitleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */; };
@@ -54,6 +55,7 @@
 		5C26711D2BF78F6600D45E9C /* Mixtapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mixtapes.swift; sourceTree = "<group>"; };
 		5C369B2526068181007764A6 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		5C369B352606DB91007764A6 /* ArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkView.swift; sourceTree = "<group>"; };
+		5C3D4AB72E872D3B005117DE /* App.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = App.icon; sourceTree = "<group>"; };
 		5C58AB8525FA5FA20009E22D /* SidebarToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarToolbarItem.swift; sourceTree = "<group>"; };
 		5C58AB8925FA62C40009E22D /* TitleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleToolbarItem.swift; sourceTree = "<group>"; };
 		5C58AB8D25FA67AB0009E22D /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		5C8A5FDC25F1F269007B4B63 /* MixtapesApp */ = {
 			isa = PBXGroup;
 			children = (
+				5C3D4AB72E872D3B005117DE /* App.icon */,
 				5C8A600125F1F8B6007B4B63 /* SwiftUI */,
 				5C8A5FDD25F1F269007B4B63 /* App.swift */,
 				5C369B352606DB91007764A6 /* ArtworkView.swift */,
@@ -204,7 +207,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					5C8A5FD925F1F269007B4B63 = {
 						CreatedOnToolsVersion = 12.4;
@@ -237,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C3D4AB82E872D3B005117DE /* App.icon in Resources */,
 				5C64526F260C4B3000EA977E /* Gaegu.ttf in Resources */,
 				5C8A5FE225F1F26A007B4B63 /* Assets.xcassets in Resources */,
 			);
@@ -349,6 +353,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -406,6 +411,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -414,7 +420,7 @@
 		5C8A5FEB25F1F26A007B4B63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = App;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -432,8 +438,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 4.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;
@@ -446,7 +452,7 @@
 		5C8A5FEC25F1F26A007B4B63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = App;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -464,8 +470,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 4.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mixtapes;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Mixtapes;

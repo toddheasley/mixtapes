@@ -43,6 +43,7 @@ struct SettingsView: View {
         } else {
             FolderButton()
                 .padding()
+                .buttonStyle(.bordered)
             
         }
     }

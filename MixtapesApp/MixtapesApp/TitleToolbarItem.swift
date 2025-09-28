@@ -9,6 +9,7 @@ struct TitleToolbarItem: View {
     var body: some View {
         Text(title)
             .primary()
+            .padding(.horizontal)
     }
 }
 

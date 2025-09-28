@@ -22,13 +22,8 @@ private let Stylesheet_Data: Data = """
 }
 
 :root {
-    color-scheme: light dark;
     -webkit-text-size-adjust: none;
-    --thumb: 96px;
-}
-
-* {
-    margin: 0;
+    color-scheme: light dark;
 }
 
 a {
@@ -36,63 +31,42 @@ a {
 }
 
 a img {
-    width: var(--thumb);
+    display: inline-block;
+    width: 96px;
 }
 
-audio, caption {
-    margin: 0.67em 0;
-}
-
-audio, iframe, img {
+audio, img {
     display: block;
+}
+
+audio, img, table {
+    max-width: 448px;
     width: 100%;
 }
 
 body {
-    font: 1em "\(Font.Name.gaegu)";
+    font: bold 1em "\(Font.Name.gaegu)";
     letter-spacing: 0.05em;
     line-height: 1.33em;
-    margin: 0 auto;
-    max-width: calc(var(--thumb) * 4);
     text-transform: uppercase;
 }
 
-caption, td, th {
-    text-align: left;
+h1 {
+    font-size: 1.67em;
 }
 
-caption {
-    position: fixed;
-}
-
-hr {
-    margin-top: 0.33em;
-}
-
-hr, th {
-    opacity: 0.67;
-}
-
-iframe, img {
-    background: rgba(192, 192, 192, 0.33);
+img {
     border-radius: 2.5px;
-}
-
-iframe {
-    border: 0;
-    box-shadow: inset 0 0 0.5px 0;
-    height: calc(var(--thumb) * 2 + 2em);
-    margin-top: 1em;
-}
-
-img:not([src="icon.png"]) {
     box-shadow: 0 0 0.5px 0;
 }
 
 table {
-    border-spacing: 0.33em;
-    caption-side: bottom;
-    margin: 0.67em;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid rgba(192, 192, 192, 0.33);
+    text-align: left;
 }
 
 td:nth-child(2) {
@@ -100,14 +74,13 @@ td:nth-child(2) {
 }
 
 th {
+    color: rgb(192, 192, 192);
     font: 0.67em sans-serif;
-    padding-bottom: 0.67em;
 }
 
 .nowrap {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: calc(var(--thumb) * 2);
 }
 """.data(using: .utf8)!

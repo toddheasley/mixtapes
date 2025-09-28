@@ -9,6 +9,7 @@ struct RSSFeed: Resource {
         string += "    <channel>\n"
         string += "        <title>\(index.title)</title>\n"
         string += "        <description>\(index.description)</description>\n"
+        string += "        <language>en-us</language>\n"
         if let homepageURL: URL = index.homepageURL {
             string += "        <link>\(homepageURL.absoluteString)</link>\n"
         }
@@ -33,9 +34,7 @@ struct RSSFeed: Resource {
             string += "            <enclosure url=\"\(itemURL.attachment.absoluteString)\" length=\"\(item.attachment.sizeInBytes)\" type=\"\(item.attachment.mimeType)\" />\n"
             string += "            <itunes:image href=\"\(itemURL.image.absoluteString)\" />\n"
             string += "            <itunes:duration>\(item.attachment.durationInSeconds)</itunes:duration>\n"
-            if item.metadata.isExplicit {
-                string += "            <itunes:explicit>yes</itunes:explicit>\n"
-            }
+            string += "            <itunes:explicit>\(item.metadata.isExplicit)</itunes:explicit>\n"
             string += "        </item>\n"
         }
         string += "    </channel>\n"

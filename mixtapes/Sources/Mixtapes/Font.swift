@@ -2,7 +2,7 @@ import Foundation
 
 struct Font: Resource {
     public enum Name: String, CustomStringConvertible {
-        case gaegu = "gaegu.woff"
+        case gaegu = "gaegu.woff" // https://fonts.google.com/specimen/Gaegu
         
         var format: String { rawValue.components(separatedBy: ".").last! }
         var path: String { rawValue }

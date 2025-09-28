@@ -9,7 +9,6 @@ struct Site: Resource {
             try Bookmark(icon: index.icon),
             try Stylesheet(url: index.url),
             RSSFeed(index: index),
-            HTMLPage(.promo, index: index)
         ] + index.items.map { HTMLPage(.item($0), index: index) }
         url = html.url
     }

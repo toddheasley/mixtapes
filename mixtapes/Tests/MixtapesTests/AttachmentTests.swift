@@ -4,7 +4,7 @@ import Foundation
 
 struct AttachmentTests {
     @Test func urlInit() async throws {
-        let attachment: Attachment = try await Attachment(url: resource("example.m4a"))
+        let attachment = try await Attachment(url: resource("example.m4a"))
         #expect(attachment.durationInSeconds == 30)
         #expect(attachment.mimeType == "audio/x-m4a")
     }
@@ -14,8 +14,8 @@ extension AttachmentTests {
     
     // MARK: Enodable
     func testEncode() async throws {
-        let m4a: Attachment = try await Attachment(url: resource("example.m4a"))
-        let mp3: Attachment = try await Attachment(url: resource("example.mp3"))
+        let m4a = try await Attachment(url: resource("example.m4a"))
+        let mp3 = try await Attachment(url: resource("example.mp3"))
         let data: Data = try JSONEncoder(url:  URL(string: "https://example.com/mixtapes/")!).encode([
             m4a,
             mp3

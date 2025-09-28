@@ -11,14 +11,14 @@ struct IconTests {
     }
     
     @Test func data() {
-        #expect(Icon.data.count == 247426)
+        #expect(Icon.data.count == 31154)
     }
     
     @Test func reset() throws {
         var icon: Icon = try Icon(url: resource("example.m4a"))
         #expect(icon.url.relativePath == "icon.png")
-        #expect(icon.data.count == 247426)
-        _ = try #require(try icon.reset(try! Data(contentsOf: resource("example.png"))))
+        #expect(icon.data.count == 31154)
+        _ = try icon.reset(try! Data(contentsOf: resource("example.png")))
         #expect(icon.url.relativePath == "icon.png")
         #expect(icon.data.count == 1333)
         #expect(throws: Error.self) {
@@ -26,12 +26,12 @@ struct IconTests {
         }
         #expect(icon.url.relativePath == "icon.png")
         #expect(icon.data.count == 1333)
-        _ = try #require(try icon.reset(try! Data(contentsOf: resource("example.jpg"))))
+        _ = try icon.reset(try! Data(contentsOf: resource("example.jpg")))
         #expect(icon.url.relativePath == "icon.jpg")
         #expect(icon.data.count == 3897)
-        _ = try #require(try icon.reset())
+        _ = try icon.reset()
         #expect(icon.url.relativePath == "icon.png")
-        #expect(icon.data.count == 247426)
+        #expect(icon.data.count == 31154)
     }
     
     @Test func urlInit() throws {
@@ -39,10 +39,10 @@ struct IconTests {
         #expect(try Icon(url: url, path: "example.jpg").url.relativePath == "icon.jpg")
         #expect(try Icon(url: url, path: "example.jpg").data.count == 3897)
         #expect(try Icon(url: url, path: "example.gif").url.relativePath == "icon.png")
-        #expect(try Icon(url: url, path: "example.gif").data.count == 247426)
+        #expect(try Icon(url: url, path: "example.gif").data.count == 31154)
         #expect(try Icon(url: url, path: "example.foo").url.relativePath == "icon.png")
-        #expect(try Icon(url: url, path: "example.foo").data.count == 247426)
+        #expect(try Icon(url: url, path: "example.foo").data.count == 31154)
         #expect(try Icon(url: url).url.relativePath == "icon.png")
-        #expect(try Icon(url: url).data.count == 247426)
+        #expect(try Icon(url: url).data.count == 31154)
     }
 }
